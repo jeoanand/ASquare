@@ -1,0 +1,114 @@
+---
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import heroImg from "../../assets/img/itconsulting-hero.png";
+import relatedAi from "../../assets/img/related-ai.png";
+import relatedCloud from "../../assets/img/related-cloud.png";
+import { getServiceBySlug } from "../../data/services.js";
+
+const service = getServiceBySlug("it-services");
+if (!service) throw new Error("Service not found");
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: service.title,
+  description: service.description,
+  provider: { "@type": "Organization", name: "ASquare" },
+};
+
+const capabilities = [
+  {
+    icon: "layers",
+    title: "Architecture Review",
+    desc: "Comprehensive assessment of your system architecture with actionable improvement roadmaps.",
+  },
+  {
+    icon: "scale",
+    title: "Vendor Evaluation",
+    desc: "Objective technology and vendor comparison to ensure the right fit for your requirements.",
+  },
+  {
+    icon: "search-check",
+    title: "ERP Assessment",
+    desc: "Deep-dive evaluation of your ERP landscape, identifying gaps, risks, and optimization paths.",
+  },
+  {
+    icon: "link",
+    title: "Systems Integration",
+    desc: "Connecting disparate systems into unified workflows with middleware and API orchestration.",
+  },
+  {
+    icon: "cloud",
+    title: "Cloud Strategy",
+    desc: "Migration planning, hybrid cloud design, and vendor-neutral cloud adoption roadmaps.",
+  },
+  {
+    icon: "user-cog",
+    title: "CTO Advisory",
+    desc: "Fractional CTO services providing strategic technology leadership and team mentoring.",
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "Brief",
+    desc: "We dive deep into your problem, constraints, and stakeholder landscape. We read the existing docs first.",
+  },
+  {
+    n: "02",
+    title: "Assess",
+    desc: "Rigorous evaluation of systems, vendors, and integration complexity. Our output is written for engineers and owners.",
+  },
+  {
+    n: "03",
+    title: "Recommend",
+    desc: "Plain-language trade-offs. We tell you where the risks are, and where we are not the right fit.",
+  },
+  {
+    n: "04",
+    title: "Execute or hand off",
+    desc: "We can lead the implementation or deliver a detailed technical specification for your internal team to run with.",
+  },
+];
+
+const related = [
+  {
+    icon: "cloud",
+    title: "Cloud Services",
+    desc: "Robust Azure and AWS environments engineered for critical, always-on workloads.",
+    href: "/services/cloud-services",
+    imgSrc: relatedCloud.src,
+  },
+  {
+    icon: "code-2",
+    title: "Web Development",
+    desc: "Production web applications and portals built on .NET, React, and cloud-native infrastructure.",
+    href: "/services/web-development",
+    imgSrc: relatedAi.src,
+  },
+];
+---
+
+<ServiceDetail
+  title={service.metaTitle}
+  description={service.metaDescription}
+  heroImageSrc={heroImg.src}
+  heroHeading="Technical decisions with someone who reads the code."
+  heroSubtitle="Architecture, vendor selection, and systems integration — advice from engineers, not account managers."
+  heroCtaLabel="Talk to us about your systems"
+  breadcrumbLabel="IT Consulting"
+  capabilities={capabilities}
+  steps={steps}
+  related={related}
+  ctaHeading="Start with a technical brief"
+  ctaSubtitle="We assess the problem before we propose a solution."
+  ctaButtonLabel="Book a briefing"
+>
+  <Fragment slot="jsonld">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(serviceJsonLd)}
+    />
+  </Fragment>
+</ServiceDetail>

@@ -1,0 +1,115 @@
+---
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import heroImg from "../../assets/img/ai-hero.png";
+import relatedAi from "../../assets/img/related-ai.png";
+import relatedCloud from "../../assets/img/related-cloud.png";
+import { getServiceBySlug } from "../../data/services.js";
+
+const service = getServiceBySlug("ai-integration");
+if (!service) throw new Error("Service not found");
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: service.title,
+  description: service.description,
+  provider: { "@type": "Organization", name: "ASquare" },
+};
+
+const capabilities = [
+  {
+    icon: "workflow",
+    title: "RAG Systems",
+    desc: "Build retrieval-augmented generation pipelines that ground AI responses in your proprietary data.",
+  },
+  {
+    icon: "bot",
+    title: "Custom Agents",
+    desc: "Autonomous AI agents that execute multi-step tasks, make decisions, and interact with your systems.",
+  },
+  {
+    icon: "sliders",
+    title: "Fine-tuning & Training",
+    desc: "Custom model training on your domain data for specialized accuracy and performance.",
+  },
+  {
+    icon: "git-branch",
+    title: "AI Data Pipelines",
+    desc: "End-to-end data processing pipelines that prepare, transform, and feed data into ML models.",
+  },
+  {
+    icon: "message-square",
+    title: "Conversational Interfaces",
+    desc: "Chat and voice interfaces that connect directly to your ERP and operational data.",
+  },
+  {
+    icon: "shield-check",
+    title: "Model Governance",
+    desc: "Evaluation, monitoring, and guardrails so production models stay accurate and safe.",
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "Use case audit",
+    desc: "We identify where AI creates measurable operational value versus where it adds risk.",
+  },
+  {
+    n: "02",
+    title: "Data audit",
+    desc: "We review your existing data sources, Infor XA structures, and integration points before recommending any model.",
+  },
+  {
+    n: "03",
+    title: "Prototype and validate",
+    desc: "A working prototype against real data in 4–6 weeks. Evaluation metrics defined before we build.",
+  },
+  {
+    n: "04",
+    title: "Production deployment",
+    desc: "We deploy, monitor, and maintain. Every model has a fallback path and a performance baseline.",
+  },
+];
+
+const related = [
+  {
+    icon: "code-2",
+    title: "Web Development",
+    desc: "Production web applications and portals built on .NET, React, and cloud-native infrastructure.",
+    href: "/services/web-development",
+    imgSrc: relatedAi.src,
+  },
+  {
+    icon: "bar-chart-3",
+    title: "Power BI & Analytics",
+    desc: "Dashboards and reporting pipelines that pull directly from Infor XA and Azure.",
+    href: "/services/power-bi",
+    imgSrc: relatedCloud.src,
+  },
+];
+---
+
+<ServiceDetail
+  title={service.metaTitle}
+  description={service.metaDescription}
+  heroImageSrc={heroImg.src}
+  heroHeading="AI that works inside your existing stack."
+  heroSubtitle="From Infor XA-integrated portals to standalone SaaS products — engineered, not assembled."
+  heroCtaLabel="Talk to us about AI integration"
+  breadcrumbLabel="AI Integration"
+  capabilities={capabilities}
+  steps={steps}
+  approachTinted
+  related={related}
+  ctaHeading="Explore what AI can do in your environment"
+  ctaSubtitle="We start with a technical discovery, not a sales presentation."
+  ctaButtonLabel="Book a discovery call"
+>
+  <Fragment slot="jsonld">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(serviceJsonLd)}
+    />
+  </Fragment>
+</ServiceDetail>

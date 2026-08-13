@@ -1,0 +1,114 @@
+---
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import heroImg from "../../assets/img/cloud-hero.png";
+import relatedAi from "../../assets/img/related-ai.png";
+import relatedCloud from "../../assets/img/related-cloud.png";
+import { getServiceBySlug } from "../../data/services.js";
+
+const service = getServiceBySlug("cloud-services");
+if (!service) throw new Error("Service not found");
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: service.title,
+  description: service.description,
+  provider: { "@type": "Organization", name: "ASquare" },
+};
+
+const capabilities = [
+  {
+    icon: "cloud",
+    title: "Azure & AWS Infrastructure",
+    desc: "Design, deploy, and manage scalable cloud environments across Azure and AWS.",
+  },
+  {
+    icon: "box",
+    title: "Kubernetes & Containers",
+    desc: "Container orchestration with Docker and Kubernetes for microservices at scale.",
+  },
+  {
+    icon: "file-code",
+    title: "Terraform & IaC",
+    desc: "Infrastructure as code for repeatable, version-controlled cloud provisioning.",
+  },
+  {
+    icon: "refresh-cw",
+    title: "CI/CD Pipelines",
+    desc: "Automated build, test, and deploy workflows with GitHub Actions and Azure DevOps.",
+  },
+  {
+    icon: "life-buoy",
+    title: "Disaster Recovery",
+    desc: "Business continuity planning with automated failover, backups, and geo-redundancy.",
+  },
+  {
+    icon: "trending-down",
+    title: "Cost Optimization",
+    desc: "Right-sizing resources, reserved instances, and monitoring to reduce cloud spend.",
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "Assessment",
+    desc: "We map your current environment, operational costs, and risk profile before recommending any platform changes.",
+  },
+  {
+    n: "02",
+    title: "Architecture",
+    desc: "Systems designed specifically for your actual workload. We avoid vendor lock-in and eliminate over-provisioning.",
+  },
+  {
+    n: "03",
+    title: "Migration",
+    desc: "Phased deployment with live rollback paths at every stage. We prioritise uptime for your production users.",
+  },
+  {
+    n: "04",
+    title: "Managed Operations",
+    desc: "Continuous patching, monthly cost reviews, and 24/7 incident response on a transparent SLA.",
+  },
+];
+
+const related = [
+  {
+    icon: "brain-circuit",
+    title: "AI Integration",
+    desc: "Deploying models that drive real operational value across your ERP and cloud stack.",
+    href: "/services/ai-integration",
+    imgSrc: relatedAi.src,
+  },
+  {
+    icon: "database",
+    title: "Infor XA ERP",
+    desc: "Support, extend, and modernise Infor XA deployments running on your cloud infrastructure.",
+    href: "/services/infor-xa-erp",
+    imgSrc: relatedCloud.src,
+  },
+];
+---
+
+<ServiceDetail
+  title={service.metaTitle}
+  description={service.metaDescription}
+  heroImageSrc={heroImg.src}
+  heroHeading="Cloud infrastructure that stays out of your way."
+  heroSubtitle="Azure and AWS for production workloads — operational simplicity, not feature surface."
+  heroCtaLabel="Talk to us about your infrastructure"
+  breadcrumbLabel="Cloud Services"
+  capabilities={capabilities}
+  steps={steps}
+  related={related}
+  ctaHeading="Get a cloud architecture review"
+  ctaSubtitle="Assess your environment, no commitment required."
+  ctaButtonLabel="Request a review"
+>
+  <Fragment slot="jsonld">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(serviceJsonLd)}
+    />
+  </Fragment>
+</ServiceDetail>

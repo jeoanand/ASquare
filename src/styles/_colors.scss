@@ -1,0 +1,62 @@
+//Product Colors
+:root {
+    --bg-primary: #0b0c0e;
+    --bg-secondary: #17181c;
+    --bg-secondary-05: rgba(23, 24, 28, 0.5);
+    --bg-tertiary: #22242a;
+    --bg-hint: #2e3038;
+    --bg-dark-05: rgba(0, 0, 0, 0.05);
+    --bg-dark-1: rgba(0, 0, 0, 0.1);
+    --bg-light-05: rgba(255, 255, 255, 0.05);
+    --bg-light-1: rgba(255, 255, 255, 0.1);
+  
+    --text-primary: #e6e6e6;
+    --text-secondary: #a1a1a1;
+    --text-tertiary: #666666;
+    --text-hint: #333333;
+    --text-opacity-footer: rgba(255, 255, 255, 0.05);
+    --text-gradient: linear-gradient(to right, rgba(255, 255, 255, 0.85) 2.72%, rgba(255, 255, 255, 0.2) 100%);
+    --text-gradient-top: linear-gradient(180deg, #ffffff -120%, rgba(40, 40, 40, 0) 80%);
+  
+    --primary: #5185ff;
+    --primary-hover: #000;
+    --primary-pressed: #000;
+  
+    --secondary: #000;
+    --secondary-hover: #000;
+    --secondary-pressed: #000;
+  
+    --success: #0fd30b;
+    --link: #2c72ee;
+  
+    --white: #ffffff;
+    --black: #000000;
+  
+    --border-primary: #383d47;
+    --border-secondary: #2d3139;
+    --border-tertiary: #16191c;
+  
+    --modal-opacity: rgba(11, 12, 14, 0.4);
+    --primary-opcatiy-2: rgba(81, 133, 255, 0.2);
+    --dark-opacity-3: rgba(0, 0, 0, 0.3);
+    --dark-opacity-4: rgba(0, 0, 0, 0.4);
+    --dark-opacity-6: rgba(0, 0, 0, 0.6);
+    --primary-bg-opacity-1: rgb(82, 134, 255, 0.1);
+    --vcx-card-overlap: linear-gradient(181deg, rgba(24, 8, 83, 0) 0.52%, rgba(24, 8, 83, 0.5) 41.24%, #180853 99.48%);
+    --exchange-card-overlap: linear-gradient(
+      181deg,
+      rgba(0, 81, 63, 0) 0.52%,
+      rgba(9, 89, 54, 0.5) 41.24%,
+      #08533a 99.48%
+    );
+    --preserve-card-overlap: linear-gradient(
+      181deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(9, 89, 54, 0.5) 50.24%,
+      #08533a 99.48%
+    );
+    --about-img-gradient: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    --resume-bg-text: linear-gradient(60deg, #f79533, #f37055);
+    --dot-bg-color: #3b3b3b;
+  }
+  

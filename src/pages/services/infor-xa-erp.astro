@@ -1,0 +1,114 @@
+---
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import heroImg from "../../assets/img/infraxa-hero.png";
+import relatedAi from "../../assets/img/related-ai.png";
+import relatedCloud from "../../assets/img/related-cloud.png";
+import { getServiceBySlug } from "../../data/services.js";
+
+const service = getServiceBySlug("infor-xa-erp");
+if (!service) throw new Error("Service not found");
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: service.title,
+  description: service.description,
+  provider: { "@type": "Organization", name: "ASquare" },
+};
+
+const capabilities = [
+  {
+    icon: "layers",
+    title: "Infor XA & AS/400",
+    desc: "Full lifecycle support for Infor XA ERP on IBM iSeries including upgrades and maintenance.",
+  },
+  {
+    icon: "terminal",
+    title: "RPG & MAPICS",
+    desc: "Legacy RPG programming, MAPICS migration, and modernization of green-screen applications.",
+  },
+  {
+    icon: "puzzle",
+    title: "Custom Mods & PCML",
+    desc: "Tailored modifications, PCML integrations, and custom business logic extensions.",
+  },
+  {
+    icon: "link",
+    title: "REST APIs & Connectors",
+    desc: "Modern API layers over legacy systems enabling web and mobile integration.",
+  },
+  {
+    icon: "bar-chart-3",
+    title: "Power BI Connector",
+    desc: "Real-time reporting from Infor XA data with custom Power BI data connectors.",
+  },
+  {
+    icon: "database",
+    title: "Data Migration",
+    desc: "Safe extraction, transformation, and migration of ERP data to modern platforms.",
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "System review",
+    desc: "We audit your current Infor XA installation, customisations, integrations, and version health.",
+  },
+  {
+    n: "02",
+    title: "Stabilise",
+    desc: "Before adding new features, we resolve performance friction and technical debt in the core system.",
+  },
+  {
+    n: "03",
+    title: "Extend and integrate",
+    desc: "Building modern .NET portals, custom mods, and third-party integrations that respect your XA data integrity.",
+  },
+  {
+    n: "04",
+    title: "Modernise",
+    desc: "Moving to cloud hosting, refreshing UI layers, and implementing Power BI without disrupting live manufacturing.",
+  },
+];
+
+const related = [
+  {
+    icon: "bar-chart-3",
+    title: "Power BI & Analytics",
+    desc: "Dashboards and reporting pipelines that pull directly from Infor XA and Azure.",
+    href: "/services/power-bi",
+    imgSrc: relatedAi.src,
+  },
+  {
+    icon: "cloud",
+    title: "Cloud Services",
+    desc: "Robust Azure and AWS environments engineered for critical, always-on workloads.",
+    href: "/services/cloud-services",
+    imgSrc: relatedCloud.src,
+  },
+];
+---
+
+<ServiceDetail
+  title={service.metaTitle}
+  description={service.metaDescription}
+  heroImageSrc={heroImg.src}
+  heroHeading="Infor XA expertise you can actually rely on."
+  heroSubtitle="Full lifecycle support for the ERP platform running your operations, on IBM iSeries and beyond."
+  heroCtaLabel="Talk to us about your XA environment"
+  breadcrumbLabel="Infor XA ERP"
+  capabilities={capabilities}
+  steps={steps}
+  related={related}
+  ctaHeading="Discuss your Infor XA environment"
+  ctaSubtitle="We understand the stack. No onboarding required."
+  ctaButtonLabel="Start a conversation"
+>
+  <Fragment slot="jsonld">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(serviceJsonLd)}
+    />
+  </Fragment>
+</ServiceDetail>

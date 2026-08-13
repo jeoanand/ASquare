@@ -1,0 +1,114 @@
+---
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import heroImg from "../../assets/img/powerbi-hero.png";
+import relatedAi from "../../assets/img/related-ai.png";
+import relatedCloud from "../../assets/img/related-cloud.png";
+import { getServiceBySlug } from "../../data/services.js";
+
+const service = getServiceBySlug("power-bi");
+if (!service) throw new Error("Service not found");
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: service.title,
+  description: service.description,
+  provider: { "@type": "Organization", name: "ASquare" },
+};
+
+const capabilities = [
+  {
+    icon: "layout-dashboard",
+    title: "Power BI Dashboards",
+    desc: "Interactive executive dashboards with real-time KPIs, drill-downs, and automated refresh.",
+  },
+  {
+    icon: "grid-3x3",
+    title: "Data Modeling",
+    desc: "Star schema and dimensional models optimized for fast queries and accurate business logic.",
+  },
+  {
+    icon: "database",
+    title: "Azure Synapse & SQL Server",
+    desc: "Scalable data warehouses that unify structured and unstructured data at enterprise scale.",
+  },
+  {
+    icon: "file-text",
+    title: "Paginated Reports",
+    desc: "Pixel-perfect formatted reports for regulatory compliance, invoicing, and print distribution.",
+  },
+  {
+    icon: "shield-check",
+    title: "Row-Level Security",
+    desc: "Granular data access controls ensuring users only see data relevant to their role.",
+  },
+  {
+    icon: "function-square",
+    title: "Power Query & DAX",
+    desc: "Advanced data transformations and measures for complex calculations and business rules.",
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "Source audit",
+    desc: "We inventory every data source — Infor XA tables, Azure, flat files — and document the lineage before we model anything.",
+  },
+  {
+    n: "02",
+    title: "Data model design",
+    desc: "A clean star schema. No spaghetti relationships. Built to handle your actual query patterns and user counts.",
+  },
+  {
+    n: "03",
+    title: "Report development",
+    desc: "Reports designed with the end user in session. Not handed over after 6 weeks without context.",
+  },
+  {
+    n: "04",
+    title: "Governance and training",
+    desc: "We document every measure and train your team. Reports you can maintain without us.",
+  },
+];
+
+const related = [
+  {
+    icon: "database",
+    title: "Infor XA ERP",
+    desc: "Support, extend, and modernise Infor XA deployments feeding your data models.",
+    href: "/services/infor-xa-erp",
+    imgSrc: relatedAi.src,
+  },
+  {
+    icon: "brain-circuit",
+    title: "AI Integration",
+    desc: "Predictive analytics and automation workflows built on top of your reporting layer.",
+    href: "/services/ai-integration",
+    imgSrc: relatedCloud.src,
+  },
+];
+---
+
+<ServiceDetail
+  title={service.metaTitle}
+  description={service.metaDescription}
+  heroImageSrc={heroImg.src}
+  heroHeading="Data your operations team will actually trust."
+  heroSubtitle="Power BI environments built directly on your Infor XA and cloud data — for analysts who need the number to be right."
+  heroCtaLabel="Talk to us about your data"
+  breadcrumbLabel="Power BI & Analytics"
+  capabilities={capabilities}
+  steps={steps}
+  related={related}
+  ctaHeading="Start with a data audit"
+  ctaSubtitle="We identify root causes before recommending new reports."
+  ctaButtonLabel="Book an audit"
+>
+  <Fragment slot="jsonld">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(serviceJsonLd)}
+    />
+  </Fragment>
+</ServiceDetail>

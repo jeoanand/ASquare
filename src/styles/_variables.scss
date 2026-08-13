@@ -1,0 +1,44 @@
+// Shared design tokens — import in any .scss file with:
+// @use 'variables' as *;
+
+$color-text: rgb(20, 20, 20);
+$color-text-muted: rgb(67, 65, 76);
+$color-text-subtle: rgb(107, 114, 128);
+$color-surface: #ffffff;
+$color-background: #ffffff;
+$color-border: rgb(235, 235, 235);
+$color-accent: #4539D3;
+$color-accent-dark: #372EA9;
+$color-accent-cta: rgb(63, 52, 194);
+$color-navy: rgb(15, 23, 42);
+$color-navy-dark: rgb(11, 16, 32);
+
+$container-max: 1440px;
+$radius-md: 12px;
+$radius-sm: 4px;
+$radius-hero: 16px;
+
+$font-family-primary: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+
+//Border Radius
+$radius4: 4px;
+$radius6: 6px;
+$radius8: 8px;
+$radius10: 10px;
+$radius12: 12px;
+$radius16: 16px;
+$radius20: 20px;
+$round-radius: 50px;
+$circle-radius: 50%;
+$global-radius: 4px;
+
+//layouts
+$header-height: 80px;
+$gutter-desktop: 80px;
+$gutter-mobile: 24px;
+$section-pad-desktop: 120px;
+$breakpoint-mobile: 900px;
+
+//App Filter
+$header-blur: blur(12px);
+$backdrop-blur: blur(5px);

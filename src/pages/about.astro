@@ -1,0 +1,365 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import aboutIntro from "../assets/img/about-intro.png";
+import avatarDavid from "../assets/img/about-avatar-david.png";
+import avatar1 from "../assets/img/about-avatar-1.png";
+import avatar2 from "../assets/img/about-avatar-2.png";
+
+const title = "About Us | ASquare";
+const description =
+  "Learn about ASquare—our team, values, and commitment to delivering reliable technology solutions.";
+
+const breadcrumbs = [{ label: "Home", href: "/" }, { label: "About" }];
+
+const team = [
+  {
+    photo: avatarDavid,
+    name: "David Thorne",
+    role: "Founding Engineer",
+    bio: "15 years of Infor XA and custom .NET architecture.",
+  },
+  {
+    photo: avatar1,
+    name: "Sarah Chen",
+    role: "Head of AI Integration",
+    bio: "Formerly lead ML architect for industrial automation firms.",
+  },
+  {
+    photo: avatar2,
+    name: "Marcus Lowe",
+    role: "Director of Delivery",
+    bio: "Ensuring complex cloud migrations happen without a minute of downtime.",
+  },
+];
+
+const values = [
+  {
+    title: "We finish what we start",
+    desc: "No scope-creep handoffs or silent pivots. If something changes, we surface it immediately.",
+  },
+  {
+    title: "We read the ERP first",
+    desc: "Technical decisions start with the data model, not the mockup. We build for reality.",
+  },
+  {
+    title: "We prefer boring technology",
+    desc: "Rails for the CRUD, AI for the actual intelligence problem. We optimize for stability.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="intro-section gutter">
+    <div class="wrap intro-inner">
+      <Breadcrumbs items={breadcrumbs} />
+      <div class="intro-image">
+        <img
+          src={aboutIntro.src}
+          alt="The ASquare team collaborating in the office"
+        />
+      </div>
+      <div class="intro-copy">
+        <h1>Who we are</h1>
+        <div class="intro-paragraphs">
+          <p>
+            Most agencies specialize in "pretty" but can't handle the complexity
+            of ERP integration. Most ERP consultants understand the database but
+            can't build a modern user experience. We live in the gap between
+            them.
+          </p>
+          <p>
+            Today, ASquare serves as a technical partner for operations-heavy
+            businesses. We don't just sell hours; we deliver running systems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="leadership-section gutter">
+    <div class="wrap leadership-inner">
+      <div class="section-heading">
+        <span class="eyebrow">Leadership</span>
+        <h2>Who you'll work with</h2>
+      </div>
+      <div class="team-grid">
+        {
+          team.map((m) => (
+            <div class="team-member">
+              <div class="team-photo">
+                <img src={m.photo.src} alt={m.name} />
+              </div>
+              <div class="team-meta">
+                <span class="team-name">{m.name}</span>
+                <span class="team-role">{m.role}</span>
+                <span class="team-bio">{m.bio}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section gutter">
+    <div class="wrap values-grid">
+      {
+        values.map((v) => (
+          <div class="card value-card">
+            <i data-lucide="target" aria-hidden="true" />
+            <div class="value-body">
+              <span class="value-title">{v.title}</span>
+              <span class="value-desc">{v.desc}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="cta-section gutter">
+    <div class="cta-copy">
+      <h2>Ready to start a conversation?</h2>
+      <p>We scope projects in a single call. No long sales cycles.</p>
+    </div>
+    <a href="/contact" class="btn-outline">Talk to us</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro-section {
+    padding-block: 190px 120px;
+  }
+
+  .intro-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .intro-image {
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .intro-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .intro-copy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-top: 60px;
+  }
+
+  .intro-copy h1 {
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--text);
+    flex: 0 0 auto;
+    width: 400px;
+  }
+
+  .intro-paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex: 1 1 400px;
+    max-width: 700px;
+  }
+
+  .intro-paragraphs p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .leadership-section {
+    padding-block: 0 120px;
+  }
+
+  .leadership-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  .section-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .eyebrow {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .section-heading h2 {
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    color: var(--text);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+  }
+
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    overflow: hidden;
+  }
+
+  .team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .team-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .team-name {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--text);
+  }
+
+  .team-role {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--accent);
+  }
+
+  .team-bio {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .values-section {
+    padding-block: 0 100px;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+
+  .value-card {
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px var(--border);
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .value-card :global(svg) {
+    width: 32px;
+    height: 32px;
+    color: var(--accent);
+  }
+
+  .value-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .value-title {
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--text);
+  }
+
+  .value-desc {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .cta-section {
+    background: var(--accent);
+    padding-block: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .cta-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 661px;
+  }
+
+  .cta-copy h2 {
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 48px);
+    color: #fff;
+  }
+
+  .cta-copy p {
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 4px;
+  }
+
+  .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+  }
+
+  @media (max-width: 900px) {
+    .intro-section {
+      padding-top: 110px;
+    }
+
+    .intro-image {
+      height: 220px;
+    }
+
+    .intro-copy h1 {
+      width: 100%;
+    }
+  }
+</style>

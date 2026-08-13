@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import servicesHero from "../../assets/img/services-hero.png";
+import { services } from "../../data/services.js";
+
+const title = "Services | ASquare";
+const description =
+  "Explore ASquare services: web development, IT services, AI integration, Power BI, cloud services, and Infor XA ERP.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="page-services-index">
+  <section class="hero-section gutter">
+    <div class="wrap hero-inner">
+      <div class="hero-top">
+        <div class="breadcrumbs">
+          <a href="/">Home</a><span>/</span><span>Services</span>
+        </div>
+        <div class="hero-image">
+          <img src={servicesHero.src} alt="ASquare engineers at work" />
+        </div>
+      </div>
+      <div class="hero-copy">
+        <h1>What we do</h1>
+        <p>
+          We work across four domains - custom software, AI integration,
+          business intelligence, and enterprise ERP - that most firms treat as
+          separate practices. Our engagements combine them by default, because
+          your ERP data doesn't stop at the edge of a dashboard.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section gutter">
+    <div class="wrap services-grid">
+      {
+        services.map((service) => (
+          <a href={`/services/${service.slug}`} class="card service-card">
+            <div class="service-card-top">
+              <i
+                data-lucide={service.icon}
+                aria-hidden="true"
+                class="service-icon"
+              />
+              <i data-lucide="plus" aria-hidden="true" class="service-plus" />
+            </div>
+            <div class="service-card-body">
+              <span class="service-title">{service.title}</span>
+              <span class="service-desc">{service.shortDescription}</span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="cta-section gutter">
+    <div class="cta-copy">
+      <h2>Ready to start a conversation?</h2>
+      <p>We scope projects in a single call. No long sales cycles.</p>
+    </div>
+    <a href="/contact" class="btn-outline">Talk to us</a>
+  </section>
+  </div>
+</BaseLayout>

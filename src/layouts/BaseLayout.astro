@@ -1,0 +1,73 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.scss';
+import '../styles/_utilities.scss';
+
+/** @type {{
+	title: string;
+	description: string;
+	canonical?: string;
+	ogImage?: string;
+	noIndex?: boolean;
+	heroHeader?: boolean;
+}} */
+const {
+	title,
+	description,
+	canonical = Astro.url.href,
+	ogImage = '/favicon.png',
+	noIndex = false,
+	heroHeader = false,
+} = Astro.props;
+
+const siteName = 'ASquare';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		{noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={new URL(ogImage, Astro.site ?? Astro.url).href} />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={new URL(ogImage, Astro.site ?? Astro.url).href} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<script is:inline src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+		<slot name="head" />
+	</head>
+	<body>
+		<Header heroHeader={heroHeader} />
+		<main class="site-main">
+			<slot name="jsonld" />
+			<slot />
+		</main>
+		<Footer />
+		<script is:inline>
+			if (window.lucide) window.lucide.createIcons();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,396 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import contactMap from "../assets/img/contact-map.png";
+
+const title = "Contact | ASquare";
+const description =
+  "Contact ASquare to discuss your project. Web development, IT, cloud, Power BI, AI, and Infor XA ERP.";
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact ASquare",
+  url: Astro.url.href,
+  description,
+};
+
+const serviceOptions = [
+  "Web Development",
+  "AI Integration",
+  "Power BI & Analytics",
+  "Cloud Services",
+  "Infor XA ERP",
+  "IT Consulting",
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Fragment slot="jsonld">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(contactJsonLd)}
+    />
+  </Fragment>
+
+  <section class="contact-section gutter">
+    <div class="wrap contact-inner">
+      <div class="contact-main">
+        <div class="contact-heading">
+          <h1>Start a conversation</h1>
+          <p>
+            We respond to every enquiry. No sales handoff — you'll hear from one
+            of the engineers.
+          </p>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="fields">
+            <label class="field">
+              <span>Name</span>
+              <input
+                class="f"
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+              />
+            </label>
+            <label class="field">
+              <span>Email</span>
+              <input
+                class="f"
+                type="email"
+                name="email"
+                placeholder="email@enterprise.com"
+                required
+              />
+            </label>
+            <label class="field">
+              <span>Phone (Optional)</span>
+              <input
+                class="f"
+                type="tel"
+                name="phone"
+                placeholder="+1 XXX XXX XXXX"
+              />
+            </label>
+            <label class="field">
+              <span>Service Interest</span>
+              <select class="f" name="service">
+                {serviceOptions.map((option) => <option>{option}</option>)}
+              </select>
+            </label>
+            <label class="field">
+              <span>Message</span>
+              <textarea
+                class="f"
+                name="message"
+                placeholder="Tell us about your project requirements..."
+                required></textarea>
+            </label>
+          </div>
+          <button type="submit" class="btn-primary">Send message</button>
+          <div class="success-message" id="contact-success" hidden>
+            <i data-lucide="check-circle" aria-hidden="true"></i>
+            <span
+              >Message sent — we'll be in touch within one business day.</span
+            >
+          </div>
+        </form>
+      </div>
+
+      <div class="contact-aside">
+        <div class="contact-card">
+          <div class="contact-map">
+            <img src={contactMap.src} alt="Map of ASquare's London office" />
+          </div>
+          <div class="contact-card-body">
+            <div class="contact-org">
+              <span class="contact-org-name">A-Square Technologies LLC</span>
+              <span class="contact-org-address"
+                >3 Aldgate High Street London, EC3N 1AH</span
+              >
+            </div>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <i data-lucide="mail" aria-hidden="true"></i>
+                <span>hello@asquare.tech</span>
+              </div>
+              <div class="contact-detail">
+                <i data-lucide="phone" aria-hidden="true"></i>
+                <span>+44 20 XXXX XXXX</span>
+              </div>
+            </div>
+            <div class="contact-icons">
+              <i data-lucide="at-sign" aria-hidden="true"></i>
+              <i data-lucide="globe" aria-hidden="true"></i>
+              <i data-lucide="message-circle" aria-hidden="true"></i>
+              <i data-lucide="mail" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="response-time">
+          <span class="response-label">Response time</span>
+          <span class="response-value">&lt; 1 business day</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-section {
+    padding-block: 190px 120px;
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 100px;
+  }
+
+  .contact-main {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .contact-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-heading h1 {
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--text);
+  }
+
+  .contact-heading p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .field span {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    text-transform: uppercase;
+  }
+
+  .f {
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px var(--border);
+    border: none;
+    padding: 0 12px;
+    height: 48px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    box-sizing: border-box;
+  }
+
+  textarea.f {
+    padding: 12px;
+    height: 140px;
+    resize: vertical;
+  }
+
+  .f::placeholder {
+    color: rgb(110, 116, 126);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-dark);
+  }
+
+  .success-message {
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px rgb(41, 170, 88);
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    align-items: center;
+  }
+
+  .success-message :global(svg) {
+    width: 20px;
+    height: 20px;
+    color: rgb(41, 170, 88);
+    flex-shrink: 0;
+  }
+
+  .success-message span {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(22, 163, 74);
+  }
+
+  .contact-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contact-card {
+    border-radius: 8px;
+    background: #fff;
+    box-shadow:
+      inset 0 0 0 1px var(--border),
+      0 4px 20px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+  }
+
+  .contact-map {
+    height: 240px;
+  }
+
+  .contact-map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .contact-card-body {
+    border-top: 1px solid var(--border);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .contact-org {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .contact-org-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  .contact-org-address {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .contact-detail :global(svg) {
+    width: 18px;
+    height: 18px;
+    color: var(--accent);
+  }
+
+  .contact-detail span {
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  .contact-icons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .contact-icons :global(svg) {
+    width: 20px;
+    height: 20px;
+    color: rgb(149, 153, 160);
+  }
+
+  .response-time {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .response-label {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .response-value {
+    font-weight: 400;
+    font-size: 24px;
+    color: rgb(110, 116, 126);
+  }
+
+  @media (max-width: 900px) {
+    .contact-section {
+      padding-top: 110px;
+    }
+
+    .contact-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-map {
+      height: 200px;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const success = document.getElementById("contact-success");
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    success?.removeAttribute("hidden");
+  });
+</script>

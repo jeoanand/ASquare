@@ -1,0 +1,513 @@
+// Styles for src/pages/index.astro (Home page)
+
+.page-home {
+	.hero {
+		position: relative;
+		overflow: hidden;
+		background: linear-gradient(119deg, rgb(49, 46, 129) 0%, rgb(15, 23, 42) 100%);
+		min-height: 800px;
+		padding: 160px 0 100px;
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		inset: 0;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero-copy {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		max-width: 900px;
+	}
+
+	.hero-copy h1 {
+		font-weight: 700;
+		font-size: 80px;
+		line-height: 1.05;
+		letter-spacing: -2px;
+		color: #fff;
+	}
+
+	.hero-copy p {
+		font-weight: 400;
+		font-size: 18px;
+		color: rgb(194, 194, 194);
+		max-width: 520px;
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		margin-top: 32px;
+	}
+
+	.btn-primary,
+	.btn-outline {
+		display: inline-block;
+		font-weight: 600;
+		font-size: 16px;
+		padding: 16px 32px;
+		border-radius: 4px;
+	}
+
+	.btn-primary {
+		background: #3f34c2;
+		color: #fff;
+		border: none;
+	}
+
+	.btn-primary:hover {
+		background: var(--accent-dark);
+		color: #fff;
+	}
+
+	.btn-outline {
+		background: transparent;
+		color: #fff;
+		border: 1px solid #fff;
+	}
+
+	.btn-outline:hover {
+		background: rgba(255, 255, 255, 0.12);
+		color: #fff;
+	}
+
+	.btn-outline-dark {
+		border-color: #fff;
+	}
+
+	.logos-section {
+		background: #fff;
+		padding-block: 64px;
+	}
+
+	.logos-inner {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	.logo-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 48px;
+		align-items: center;
+		justify-content: center;
+		color: rgb(107, 114, 128);
+		font-weight: 700;
+		font-size: 18px;
+	}
+
+	.logo-row .tracked {
+		letter-spacing: 0.12em;
+		font-size: 14px;
+	}
+
+	.logo-row .tracked-sm {
+		letter-spacing: 0.1em;
+		font-size: 14px;
+	}
+
+	.stats-row {
+		border: 1px solid rgb(235, 235, 235);
+		padding-block: 32px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 24px;
+	}
+
+	.stat {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		text-align: center;
+	}
+
+	.stat-value {
+		font-weight: 700;
+		font-size: 32px;
+		color: var(--accent);
+	}
+
+	.stat-label {
+		font-weight: 400;
+		font-size: 14px;
+		color: var(--text-muted);
+	}
+
+	.capabilities-section {
+		background: linear-gradient(180deg, rgba(154, 148, 224, 0.12) 54%, rgba(84, 73, 215, 0.05) 100%);
+		padding-block: 120px;
+	}
+
+	.capabilities-inner {
+		display: flex;
+		flex-direction: column;
+		gap: 64px;
+	}
+
+	.section-heading {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.eyebrow {
+		font-weight: 700;
+		font-size: 14px;
+		color: var(--accent);
+		text-transform: uppercase;
+	}
+
+	.eyebrow-sm {
+		font-size: 12px;
+	}
+
+	.section-heading h2 {
+		font-weight: 700;
+		font-size: clamp(28px, 4vw, 40px);
+		color: var(--text);
+	}
+
+	.capabilities-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 24px;
+	}
+
+	.capability-card {
+		background: #fff;
+		border-radius: 12px;
+		box-shadow: inset 0 0 0 1px rgb(84, 73, 215);
+		padding: 40px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		transition: box-shadow 200ms;
+	}
+
+	.capability-card:hover {
+		box-shadow: 0 12px 32px rgba(14, 24, 40, 0.12);
+	}
+
+	.capability-top {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.capability-icon {
+		width: 32px;
+		height: 32px;
+		color: var(--accent);
+		display: flex;
+		align-items: center;
+	}
+
+	.capability-icon svg {
+		width: 28px;
+		height: 28px;
+	}
+
+	.capability-body {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.capability-title {
+		font-weight: 600;
+		font-size: 20px;
+		color: var(--accent);
+	}
+
+	.capability-bullets {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.5;
+		color: var(--text);
+	}
+
+	.capability-arrow {
+		display: flex;
+		justify-content: flex-end;
+		color: var(--accent);
+	}
+
+	.capability-arrow svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	.reasons-section {
+		background: #fff;
+		padding-block: 80px;
+	}
+
+	.reasons-inner {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+	}
+
+	.reasons-inner > h2 {
+		font-weight: 700;
+		font-size: clamp(28px, 4vw, 40px);
+		color: var(--text);
+		max-width: 400px;
+	}
+
+	.reasons-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 40px;
+	}
+
+	.reason {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.reason-number {
+		font-weight: 800;
+		font-size: 64px;
+		line-height: 1;
+		background: linear-gradient(180deg, rgba(69, 57, 211, 0.8) 0%, rgba(221, 214, 254, 0.8) 81%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.reason-body {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		text-align: center;
+	}
+
+	.reason-title {
+		font-weight: 600;
+		font-size: 20px;
+		color: var(--text);
+	}
+
+	.reason-desc {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.6;
+		color: var(--text-muted);
+	}
+
+	.case-section {
+		background: var(--navy);
+		padding-block: 80px;
+	}
+
+	.case-inner {
+		display: grid;
+		grid-template-columns: 1.3fr 1fr;
+		gap: 64px;
+		align-items: center;
+	}
+
+	.case-copy {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	.case-copy .section-heading h2 {
+		font-size: clamp(26px, 4vw, 40px);
+		color: #fff;
+	}
+
+	.case-paragraphs {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.case-paragraphs p {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.6;
+		color: rgb(235, 235, 235);
+	}
+
+	.case-stats {
+		display: flex;
+		flex-direction: column;
+		gap: 48px;
+	}
+
+	.case-stat {
+		border-left: 3px solid var(--accent);
+		padding-left: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.case-stat-value {
+		font-weight: 700;
+		font-size: 40px;
+		color: var(--accent);
+	}
+
+	.case-stat-label {
+		font-weight: 400;
+		font-size: 14px;
+		color: rgb(235, 235, 235);
+	}
+
+	.testimonials-section {
+		background: #fff;
+		padding-block: 120px;
+	}
+
+	.testimonials-inner {
+		display: flex;
+		flex-direction: column;
+		gap: 48px;
+	}
+
+	.testimonials-inner .section-heading {
+		gap: 12px;
+	}
+
+	.testimonials-inner .eyebrow {
+		letter-spacing: 0.6px;
+	}
+
+	.testimonials-inner .section-heading h2 {
+		font-size: clamp(24px, 3.5vw, 32px);
+	}
+
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 24px;
+	}
+
+	.testimonial-card {
+		border-radius: 16px;
+		background: #fff;
+		box-shadow: inset 0 0 0 1px rgb(235, 235, 235);
+		padding: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.testimonial-card svg {
+		width: 24px;
+		height: 24px;
+		color: var(--accent);
+	}
+
+	.testimonial-card p {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.6;
+		color: var(--text-muted);
+	}
+
+	.testimonial-person {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.testimonial-avatar {
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+		background: rgb(235, 235, 235);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.testimonial-avatar span {
+		font-weight: 700;
+		font-size: 14px;
+		color: var(--text);
+	}
+
+	.testimonial-meta {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.testimonial-name {
+		font-weight: 700;
+		font-size: 14px;
+		color: var(--text);
+	}
+
+	.testimonial-role {
+		font-weight: 400;
+		font-size: 12px;
+		color: rgb(110, 116, 126);
+	}
+
+	.cta-section {
+		background: var(--accent-cta);
+		padding-block: 120px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 40px;
+		text-align: center;
+	}
+
+	.cta-copy {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		max-width: 661px;
+	}
+
+	.cta-copy h2 {
+		font-weight: 700;
+		font-size: clamp(28px, 5vw, 48px);
+		color: #fff;
+	}
+
+	.cta-copy p {
+		font-weight: 400;
+		font-size: 18px;
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	@media (max-width: 900px) {
+		.hero {
+			min-height: 520px;
+			padding: 130px 0 60px;
+		}
+
+		.hero-copy h1 {
+			font-size: 40px;
+		}
+
+		.case-inner {
+			grid-template-columns: 1fr;
+		}
+	}
+}

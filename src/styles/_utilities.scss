@@ -1,0 +1,702 @@
+@use "sass:list";
+@use "./colors";
+@use "./mixins";
+
+//Font Size
+$fontSizeConfig: 10, 12, 13, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 36, 40, 42, 48, 50, 56, 60, 80, 100, 150;
+
+@each $font in $fontSizeConfig {
+  .f-#{$font} {
+    font-size: #{$font}px !important;
+  }
+}
+
+//Font-weight
+$fontWeightConfig: 200, 300, 400, 500, 600, 700, 800, bold;
+@each $weight in $fontWeightConfig {
+  .f-w-#{$weight} {
+    font-weight: $weight;
+  }
+}
+
+//Line-height
+@each $height in $fontSizeConfig {
+  .l-h-#{$height} {
+    line-height: #{$height}px;
+  }
+}
+
+$lineHeightConfig1: normal, auto, 1;
+@each $height in $lineHeightConfig1 {
+  .l-h-#{$height} {
+    line-height: #{$height};
+  }
+}
+
+//letter-space
+$letterSpaceConfig:
+  "normal" "normal",
+  "1" "0.10px",
+  "2" "0.20px",
+  "3" "0.30px",
+  "4" "0.40px",
+  "5" "0.50px",
+  "6" "0.60px",
+  "7" "0.70px",
+  "8" "0.80px",
+  "9" "0.90px",
+  "10" "1px",
+  "20" "2px",
+  "100" "10px";
+
+@each $space in $letterSpaceConfig {
+  .l-s-#{list.nth($space, 1)} {
+    letter-spacing: #{list.nth($space, 2)};
+  }
+}
+
+// color
+$textColors:
+  "primary" var(--text-primary),
+  "secondary" var(--text-secondary),
+  "tertiary" var(--text-tertiary),
+  "hint" var(--text-hint),
+  "link" var(--link),
+  "primary-color" var(--primary),
+  "black" var(--black),
+  "white" var(--white),
+  "gradient" var(--text-gradient),
+  "opacity" var(--text-opacity-footer);
+
+@each $color in $textColors {
+  .text-#{list.nth($color, 1)} {
+    color: list.nth($color, 2) !important;
+  }
+}
+
+//Background color
+$bgColors:
+  "primary" var(--bg-primary),
+  "secondary" var(--bg-secondary),
+  "tertiary" var(--bg-tertiary),
+  "hint" var(--bg-hint),
+  "light-05" var(--bg-light-05),
+  "light-1" var(--bg-light-1),
+  "dark-05" var(--bg-dark-05),
+  "dark-1" var(--bg-dark-1),
+  "dark-3" var(--dark-opacity-3),
+  "dark-4" var(--dark-opacity-4),
+  "black" var(--black),
+  "white" var(--white);
+
+@each $color in $bgColors {
+  .bg-#{list.nth($color, 1)} {
+    background-color: list.nth($color, 2) !important;
+  }
+}
+
+//Hover colors
+@each $color in $textColors {
+  .text-hover-#{list.nth($color, 1)} {
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      color: list.nth($color, 2) !important;
+    }
+  }
+}
+
+@each $color in $bgColors {
+  .bg-hover-#{list.nth($color, 1)} {
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background: list.nth($color, 2) !important;
+    }
+  }
+}
+
+$hoverOpacity: (
+  0: 0,
+  5: 0.5,
+  7: 0.75
+);
+
+@each $key, $value in $hoverOpacity {
+  .hover-opacity-#{$key} {
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      opacity: $value;
+    }
+  }
+}
+
+//Width
+$sizeWidth:
+  "100" 100%,
+  "75" 75%,
+  "50" 50%,
+  "25" 25%,
+  auto auto;
+@each $size in $sizeWidth {
+  .w-#{list.nth($size, 1)} {
+    width: list.nth($size, 2) !important;
+  }
+}
+
+$minMaxWidth: 0, 50, 80, 100, 120, 150, 160, 200, 260, 280, 300, 330, 340, 360, 400, 410, 450, 500, 520, 535, 580,
+  600, 630, 650, 660, 680, 750, 860, 1000;
+
+@each $size in $minMaxWidth {
+  .mw-#{$size} {
+    max-width: $size * 1px !important;
+  }
+}
+
+@each $size in $minMaxWidth {
+  .minw-#{$size} {
+    min-width: $size * 1px !important;
+  }
+}
+
+//Height
+$sizeHeight:
+  "100" 100%,
+  "75" 75%,
+  "50" 50%,
+  "25" 25%;
+@each $size in $sizeHeight {
+  .h-#{list.nth($size, 1)} {
+    height: list.nth($size, 2);
+  }
+}
+
+@each $size in $minMaxWidth {
+  .minh-#{list.nth($size, 1)} {
+    min-height: #{list.nth($size, 1)}px !important;
+  }
+}
+
+//Cursor
+$cursorType: pointer, default, disabled, none;
+@each $cursor in $cursorType {
+  .cursor-#{list.nth($cursor, 1)} {
+    cursor: list.nth($cursor, 1);
+  }
+}
+
+//Image Size
+$imageSizes: 26, 30, 36, 60, 80, 100, 120, 130, 160, 200, 240, 400;
+@each $image in $imageSizes {
+  .image-#{list.nth($image, 1)} {
+    width: list.nth($image, 1) + px;
+    height: list.nth($image, 1) + px;
+  }
+}
+
+//Object Fit
+$objectFit: contain, cover, fill, inherit, unset, none;
+@each $obj in $objectFit {
+  .object-#{list.nth($obj, 1)} {
+    object-fit: list.nth($obj, 1);
+  }
+}
+
+//Padding and Margin
+
+$marginAlign:
+  "auto" auto,
+  "x-auto" auto,
+  "y-auto" auto;
+@each $margin in $marginAlign {
+  .m-#{list.nth($margin, 1)} {
+    margin: list.nth($margin, 2);
+  }
+}
+
+$spacerOrigin:
+  "m" margin,
+  "p" padding;
+
+$spacerPosition:
+  "t" top,
+  "b" bottom,
+  "r" right,
+  "l" left;
+
+$spacerPositionXY:
+  "x" left right,
+  "y" top bottom;
+
+$spacerSizing: 0, 2, 4, 6, 8, 10, 12, 14, 15, 16, 18, 20, 22, 24, 28, 30, 32, 36, 40, 42, 48, 50, 52, 58, 60, 62, 64, 80, 100, 120, 144, 160, 180;
+
+// mx-10, py-20
+@each $origin in $spacerOrigin {
+  @each $position in $spacerPositionXY {
+    @each $sizing in $spacerSizing {
+      .#{list.nth($origin, 1)}#{list.nth($position, 1)}-#{$sizing} {
+        #{list.nth($origin, 2)}-#{list.nth($position, 2)}: #{$sizing}px !important;
+        #{list.nth($origin, 2)}-#{list.nth($position, 3)}: #{$sizing}px !important;
+      }
+    }
+  }
+}
+
+// m-10, p-20
+@each $origin in $spacerOrigin {
+  @each $sizing in $spacerSizing {
+    .#{list.nth($origin, 1)}-#{$sizing} {
+      #{list.nth($origin, 2)}: #{$sizing}px !important;
+    }
+  }
+}
+
+// mt-10, pr-20
+@each $origin in $spacerOrigin {
+  @each $position in $spacerPosition {
+    @each $sizing in $spacerSizing {
+      .#{list.nth($origin, 1)}#{list.nth($position, 1)}-#{$sizing} {
+        #{list.nth($origin, 2)}-#{list.nth($position, 2)}: #{$sizing}px !important;
+      }
+    }
+  }
+}
+
+// Border Styles
+$borderStyle: border, border-top, border-bottom, border-left, border-right;
+
+@each $borderValue in $borderStyle {
+  .#{$borderValue} {
+    #{$borderValue}: 1px solid var(--border-primary);
+  }
+
+  .#{$borderValue}-light {
+    #{$borderValue}: 1px solid var(--border-secondary);
+  }
+
+  .#{$borderValue}-exlight {
+    #{$borderValue}: 1px solid var(--border-tertiary);
+  }
+
+  .#{$borderValue}-0 {
+    #{$borderValue}: 0 !important;
+  }
+}
+
+// Text Align
+$txtAlign:
+  "left" left,
+  "center" center,
+  "right" right;
+
+@each $align in $txtAlign {
+  .text-#{list.nth($align, 1)} {
+    text-align: list.nth($align, 2);
+  }
+}
+
+// Text Transform
+$txtTransform: uppercase, lowercase, capitalize;
+
+@each $transform in $txtTransform {
+  .text-#{$transform} {
+    text-transform: $transform !important;
+  }
+}
+
+// Word Break
+$wordBreak: break-word, break-all, normal;
+
+@each $break in $wordBreak {
+  .word-#{$break} {
+    word-break: $break;
+  }
+}
+
+// White Space
+$whiteSpace: normal, nowrap, pre, pre-wrap, pre-line, break-spaces, unset;
+
+@each $space in $whiteSpace {
+  .w-#{$space} {
+    white-space: $space;
+  }
+}
+
+
+// Display Classes
+$displayClasses: flex, block, inline-block, none, grid, inline-grid;
+
+@each $display in $displayClasses {
+  .#{$display} {
+    display: $display !important;
+  }
+}
+
+// Z-Index
+$zIndex: 1, 2, 3, 4;
+
+@each $index in $zIndex {
+  .index-#{$index} {
+    z-index: $index !important;
+  }
+}
+
+// Flex Wrap
+$flexWrap: wrap, nowrap, none, wrap-reverse, unset;
+
+@each $wrap in $flexWrap {
+  .flex-#{$wrap} {
+    flex-wrap: $wrap;
+  }
+}
+
+// Flex Direction
+$flexDirection: row, column, row-reverse, column-reverse;
+
+@each $direction in $flexDirection {
+  .flex-#{$direction} {
+    flex-direction: $direction;
+  }
+}
+
+// Flex Align
+$flexAlign:
+  "start" flex-start,
+  "center" center,
+  "end" flex-end,
+  "between" space-between,
+  "stretch" stretch;
+
+@each $align in $flexAlign {
+  .align-#{list.nth($align, 1)} {
+    align-items: list.nth($align, 2);
+  }
+
+  .align-content-#{list.nth($align, 1)} {
+    align-content: list.nth($align, 2);
+  }
+}
+
+// Justify Content
+$flexContent:
+  "start" flex-start,
+  "center" center,
+  "end" flex-end,
+  "between" space-between,
+  "around" space-around;
+
+@each $justify in $flexContent {
+  .justify-#{list.nth($justify, 1)} {
+    justify-content: list.nth($justify, 2) !important;
+  }
+}
+
+// Place Items
+$placeItems:
+  "start" start,
+  "center" center,
+  "end" end,
+  "start-self" start-self,
+  "start-end" start-end;
+
+@each $place in $placeItems {
+  .place-#{list.nth($place, 1)} {
+    place-items: list.nth($place, 2);
+  }
+}
+
+//Column Gap
+$sizesGap: 0, 4, 6, 8, 12, 16, 20, 24, 26, 30, 32, 36, 40, 50, 60, 80;
+
+@each $gap in $sizesGap {
+  .g-#{$gap} {
+    gap: $gap * 1px;
+  }
+  .c-g-#{$gap} {
+    column-gap: $gap * 1px;
+  }
+  .r-g-#{$gap} {
+    row-gap: $gap * 1px;
+  }
+}
+
+//Position
+$positionSide: relative, absolute, sticky, fixed, unset;
+@each $position in $positionSide {
+  .#{list.nth($position, 1)} {
+    position: list.nth($position, 1);
+  }
+}
+
+//Cursor classes
+$cursorMouse: pointer, not-allowed, none, default;
+@each $cursor in $cursorMouse {
+  .cursor-#{list.nth($cursor, 1)} {
+    cursor: list.nth($cursor, 1) !important;
+  }
+}
+
+//Border radius
+$borderRadius: 2, 4, 6, 8, 10, 12, 20, 100;
+@each $radius in $borderRadius {
+  .radius-#{list.nth($radius, 1)} {
+    border-radius: list.nth($radius, 1) + px !important;
+  }
+}
+
+//Flex Classes
+$flexFlow: 1, 2, 3;
+@each $flow in $flexFlow {
+  .flex-#{$flow} {
+    flex: $flow;
+  }
+}
+
+
+$responsiveSize:
+  "300px" "600px" "xs",
+  "768px" "1024px" "sm",
+  "1024px" "1280px" "md",
+  "1280px" "1440px" "lg",
+  "1440px" "1920px" "xl",
+  "1920px" "2800px" "xxl";
+
+@each $responsive in $responsiveSize {
+  $min: list.nth($responsive, 1);
+  $max: list.nth($responsive, 2);
+  $prefix: list.nth($responsive, 3);
+
+  @media only screen and (min-width: #{$min}) and (max-width: #{$max}) {
+
+    // Gap utilities
+    @each $gap in $sizesGap {
+      .#{$prefix}\:g-#{$gap} {
+        gap: $gap * 1px;
+      }
+
+      .#{$prefix}\:c-g-#{$gap} {
+        column-gap: $gap * 1px;
+      }
+
+      .#{$prefix}\:r-g-#{$gap} {
+        row-gap: $gap * 1px;
+      }
+    }
+
+    // Border radius
+    @each $radius in $borderRadius {
+      .#{$prefix}\:radius-#{$radius} {
+        border-radius: $radius * 1px !important;
+      }
+    }
+
+    // Background colors
+    @each $color in $bgColors {
+      .#{$prefix}\:bg-#{list.nth($color, 1)} {
+        background-color: list.nth($color, 2) !important;
+      }
+    }
+
+    // Image sizes
+    @each $image in $imageSizes {
+      .#{$prefix}\:image-#{$image} {
+        width: $image * 1px;
+        height: $image * 1px;
+      }
+    }
+
+    // Width utilities
+    @each $size in $sizeWidth {
+      .#{$prefix}\:w-#{list.nth($size, 1)} {
+        width: list.nth($size, 2) !important;
+      }
+    }
+
+    // Max width
+    @each $size in $minMaxWidth {
+      .#{$prefix}\:mw-#{$size} {
+        max-width: $size * 1px !important;
+      }
+    }
+
+    // Min width
+    @each $size in $minMaxWidth {
+      .#{$prefix}\:minw-#{$size} {
+        min-width: $size * 1px !important;
+      }
+    }
+
+    // Min height
+    @each $size in $minMaxWidth {
+      .#{$prefix}\:minh-#{$size} {
+        min-height: $size * 1px !important;
+      }
+    }
+
+    // Reset utilities
+    .#{$prefix}\:minw-none {
+      min-width: unset !important;
+    }
+
+    .#{$prefix}\:mw-none {
+      max-width: unset !important;
+    }
+
+    .#{$prefix}\:radius-none {
+      border-radius: unset !important;
+    }
+
+    // Text align
+    @each $align in $txtAlign {
+      .#{$prefix}\:text-#{list.nth($align, 1)} {
+        text-align: list.nth($align, 2) !important;
+      }
+    }
+
+    // Font weight
+    @each $weight in $fontWeightConfig {
+      .#{$prefix}\:f-w-#{$weight} {
+        font-weight: $weight;
+      }
+    }
+
+    // Font size
+    @each $font in $fontSizeConfig {
+      .#{$prefix}\:f-#{$font} {
+        font-size: $font * 1px !important;
+      }
+    }
+
+    // Line height
+    @each $height in $fontSizeConfig {
+      .#{$prefix}\:l-h-#{$height} {
+        line-height: $height * 1px;
+      }
+    }
+
+    // Spacing (mx-10, py-20)
+    @each $origin in $spacerOrigin {
+      @each $position in $spacerPositionXY {
+        @each $sizing in $spacerSizing {
+          .#{$prefix}\:#{list.nth($origin, 1)}#{list.nth($position, 1)}-#{$sizing} {
+            #{list.nth($origin, 2)}-#{list.nth($position, 2)}: $sizing * 1px !important;
+            #{list.nth($origin, 2)}-#{list.nth($position, 3)}: $sizing * 1px !important;
+          }
+        }
+      }
+    }
+
+    // Spacing (m-10, p-20)
+    @each $origin in $spacerOrigin {
+      @each $sizing in $spacerSizing {
+        .#{$prefix}\:#{list.nth($origin, 1)}-#{$sizing} {
+          #{list.nth($origin, 2)}: $sizing * 1px !important;
+        }
+      }
+    }
+
+    // Spacing (mt-10, pr-20)
+    @each $origin in $spacerOrigin {
+      @each $position in $spacerPosition {
+        @each $sizing in $spacerSizing {
+          .#{$prefix}\:#{list.nth($origin, 1)}#{list.nth($position, 1)}-#{$sizing} {
+            #{list.nth($origin, 2)}-#{list.nth($position, 2)}: $sizing * 1px !important;
+          }
+        }
+      }
+    }
+
+    // Display
+    @each $display in $displayClasses {
+      .#{$prefix}\:#{$display} {
+        display: $display !important;
+      }
+    }
+
+    // Flex wrap
+    @each $wrap in $flexWrap {
+      .#{$prefix}\:flex-#{$wrap} {
+        flex-wrap: $wrap;
+      }
+    }
+
+    // Flex direction
+    @each $direction in $flexDirection {
+      .#{$prefix}\:flex-#{$direction} {
+        flex-direction: $direction;
+      }
+    }
+
+    // Align items
+    @each $align in $flexAlign {
+      .#{$prefix}\:align-#{list.nth($align, 1)} {
+        align-items: list.nth($align, 2);
+      }
+    }
+
+    // Align content (FIXED)
+    @each $align in $flexAlign {
+      .#{$prefix}\:align-content-#{list.nth($align, 1)} {
+        align-content: list.nth($align, 2);
+      }
+    }
+
+    // Justify content
+    @each $justify in $flexContent {
+      .#{$prefix}\:justify-#{list.nth($justify, 1)} {
+        justify-content: list.nth($justify, 2) !important;
+      }
+    }
+
+    // Place items
+    @each $place in $placeItems {
+      .#{$prefix}\:place-#{list.nth($place, 1)} {
+        place-items: list.nth($place, 2);
+      }
+    }
+  }
+}
+
+@include mixins.only-mobile-device {
+  .minwm-unset {
+    min-width: unset !important;
+  }
+  .mwm-unset {
+    max-width: unset !important;
+  }
+}
+
+@include mixins.for-tab-below {
+  .twm-unset {
+    max-width: unset !important;
+  }
+}
+
+//Margin and Space
+
+.space-ml-12 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 24px;
+}
+
+.space-ml-12 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 12px;
+}
+.space-ml-8 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 8px;
+}
+
+.space-my-12 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(12px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(12px * var(--tw-space-y-reverse));
+}
+
+.max-content {
+  width: max-content;
+}
+
+.bg-blur-4 {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}

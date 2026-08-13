@@ -1,0 +1,229 @@
+---
+import logoWhite from '../assets/logo-white.png';
+
+const year = new Date().getFullYear();
+
+const companyLinks = [
+	{ href: '/', label: 'Home' },
+	{ href: '/about', label: 'About' },
+	{ href: '/careers', label: 'Careers' },
+	{ href: '/mission-vision', label: 'Mission/Vision' },
+];
+
+const serviceLinks = [
+	{ href: '/services/infor-xa-erp', label: 'Infra XA' },
+	{ href: '/services/web-development', label: 'Web Development' },
+	{ href: '/services/ai-integration', label: 'AI Development' },
+	{ href: '/services/power-bi', label: 'PowerBI Data' },
+	{ href: '/services/cloud-services', label: 'Cloud Infrastructure' },
+	{ href: '/services/it-services', label: 'Technical Support' },
+];
+
+const connectLinks = [
+	{ href: '/contact', label: 'Contact' },
+	{ href: '#', label: 'Terms & Service' },
+	{ href: '#', label: 'Privacy Policy' },
+];
+---
+
+<footer class="site-footer">
+	<div class="wrap gutter footer-inner">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src={logoWhite.src} alt="A-Square" class="footer-logo" />
+				<p>Enterprise-grade engineering for critical operations. We build systems that stay running.</p>
+			</div>
+
+			<div class="footer-col">
+				<span class="footer-heading">Company</span>
+				{companyLinks.map(({ href, label }) => <a href={href}>{label}</a>)}
+			</div>
+
+			<div class="footer-col">
+				<span class="footer-heading">Services</span>
+				{serviceLinks.map(({ href, label }) => <a href={href}>{label}</a>)}
+			</div>
+
+			<div class="footer-col">
+				<span class="footer-heading">Connect</span>
+				{connectLinks.map(({ href, label }) => <a href={href}>{label}</a>)}
+			</div>
+
+			<div class="footer-col footer-newsletter">
+				<span class="footer-heading">Newsletter</span>
+				<form class="newsletter-form">
+					<input type="email" placeholder="email@enterprise.com" aria-label="Email address" />
+					<button type="submit" aria-label="Subscribe">
+						<i data-lucide="arrow-right" aria-hidden="true"></i>
+					</button>
+				</form>
+				<div class="footer-icons">
+					<i data-lucide="at-sign" aria-hidden="true"></i>
+					<i data-lucide="globe" aria-hidden="true"></i>
+					<i data-lucide="message-circle" aria-hidden="true"></i>
+					<i data-lucide="mail" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<span>&copy; {year} ASQUARE TECHNOLOGIES LLC.</span>
+			<span>Privacy Policy / Terms of Service</span>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		background: var(--navy-dark);
+	}
+
+	.footer-inner {
+		padding-block: 100px 40px;
+		display: flex;
+		flex-direction: column;
+		gap: 80px;
+	}
+
+	.footer-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		gap: 40px;
+	}
+
+	.footer-brand {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 24px;
+		max-width: 300px;
+	}
+
+	.footer-logo {
+		height: 32px;
+		width: auto;
+		object-fit: contain;
+	}
+
+	.footer-brand p {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.6;
+		color: rgb(229, 231, 235);
+	}
+
+	.footer-col {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.footer-heading {
+		font-weight: 700;
+		font-size: 14px;
+		color: rgb(84, 73, 215);
+		text-transform: uppercase;
+	}
+
+	.footer-col a {
+		font-weight: 400;
+		font-size: 14px;
+		color: rgb(229, 231, 235);
+	}
+
+	.footer-col a:hover {
+		color: #fff;
+	}
+
+	.footer-newsletter {
+		min-width: 220px;
+	}
+
+	.newsletter-form {
+		border-radius: 4px;
+		background: rgb(17, 24, 39);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-left: 16px;
+		height: 44px;
+	}
+
+	.newsletter-form input {
+		flex: 1;
+		min-width: 0;
+		background: transparent;
+		border: none;
+		outline: none;
+		font-family: inherit;
+		font-weight: 400;
+		font-size: 14px;
+		color: rgb(229, 231, 235);
+	}
+
+	.newsletter-form input::placeholder {
+		color: rgb(229, 231, 235);
+	}
+
+	.newsletter-form button {
+		width: 44px;
+		height: 44px;
+		border-radius: 0 4px 4px 0;
+		background: var(--accent);
+		border: none;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		flex-shrink: 0;
+	}
+
+	.newsletter-form button:hover {
+		background: var(--accent-dark);
+	}
+
+	.newsletter-form :global(svg) {
+		width: 16px;
+		height: 16px;
+	}
+
+	.footer-icons {
+		display: flex;
+		gap: 16px;
+		align-items: center;
+	}
+
+	.footer-icons :global(svg) {
+		width: 20px;
+		height: 20px;
+		color: rgb(149, 153, 160);
+	}
+
+	.footer-bottom {
+		border-top: 1px solid rgb(31, 41, 55);
+		padding-top: 40px;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.footer-bottom span:first-child {
+		font-weight: 500;
+		font-size: 12px;
+		color: rgb(156, 163, 175);
+	}
+
+	.footer-bottom span:last-child {
+		font-weight: 400;
+		font-size: 14px;
+		color: rgb(156, 163, 175);
+	}
+</style>
+
+<script>
+	document.querySelectorAll('.newsletter-form').forEach((form) => {
+		form.addEventListener('submit', (event) => event.preventDefault());
+	});
+</script>

@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+/** @typedef {{ icon: string; title: string; desc: string }} Capability */
+/** @typedef {{ n: string; title: string; desc: string }} Step */
+/** @typedef {{ title: string; items: string[] }} TechGroup */
+/** @typedef {{ icon: string; title: string; desc: string; href: string; imgSrc: string }} Related */
+
+/** @type {{
+	title: string;
+	description: string;
+	heroImageSrc: string;
+	heroHeading: string;
+	heroSubtitle: string;
+	heroCtaLabel: string;
+	breadcrumbLabel: string;
+	capabilities: Capability[];
+	steps: Step[];
+	hasTechStack?: boolean;
+	techGroups?: TechGroup[];
+	approachTinted?: boolean;
+	related: Related[];
+	ctaHeading: string;
+	ctaSubtitle: string;
+	ctaButtonLabel: string;
+}} */
+const {
+	title,
+	description,
+	heroImageSrc,
+	heroHeading,
+	heroSubtitle,
+	heroCtaLabel,
+	breadcrumbLabel,
+	capabilities,
+	steps,
+	hasTechStack = false,
+	techGroups = [],
+	approachTinted = false,
+	related,
+	ctaHeading,
+	ctaSubtitle,
+	ctaButtonLabel,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} heroHeader>
+	<Fragment slot="jsonld">
+		<slot name="jsonld" />
+	</Fragment>
+
+	<div class="service-detail">
+	<section class="hero">
+		<div class="hero-overlay" style={`background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${heroImageSrc})`}></div>
+		<div class="hero-content wrap gutter">
+			<div class="hero-copy">
+				<h1>{heroHeading}</h1>
+				<p>{heroSubtitle}</p>
+			</div>
+			<a href="/contact" class="btn-primary">{heroCtaLabel}</a>
+		</div>
+	</section>
+
+	<div class="breadcrumbs gutter">
+		<div class="wrap breadcrumbs-inner">
+			<a href="/">Home</a><span>/</span><a href="/services">Services</a><span>/</span><span>{breadcrumbLabel}</span>
+		</div>
+	</div>
+
+	<section class="capabilities-section gutter">
+		<div class="wrap capabilities-inner">
+			<div class="section-heading">
+				<span class="eyebrow">Capabilities</span>
+				<h2>What we deliver</h2>
+			</div>
+			<div class="capabilities-grid">
+				{
+					capabilities.map((c) => (
+						<div class="capability-card">
+							<div class="capability-icon">
+								<i data-lucide={c.icon} aria-hidden="true" />
+							</div>
+							<span class="capability-title">{c.title}</span>
+							<span class="capability-desc">{c.desc}</span>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class:list={['approach-section', 'gutter', { tinted: approachTinted, 'with-tech-stack': hasTechStack }]}>
+		<div class="wrap approach-inner">
+			<div class="section-heading">
+				<span class="eyebrow">Approach</span>
+				<h2>How we work</h2>
+			</div>
+			<div class="steps-grid">
+				{
+					steps.map((s) => (
+						<div class="step">
+							<span class="step-number">{s.n}</span>
+							<div class="step-body">
+								<span class="step-title">{s.title}</span>
+								<span class="step-desc">{s.desc}</span>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	{
+		hasTechStack && (
+			<section class="tech-section gutter">
+				<div class="wrap tech-inner">
+					<div class="section-heading">
+						<span class="eyebrow">Expertise</span>
+						<h2>Our Tech Stack</h2>
+					</div>
+					<div class="tech-grid">
+						{techGroups.map((g) => (
+							<div class="tech-card">
+								<span class="tech-card-title">{g.title}</span>
+								<div class="tech-chips">
+									{g.items.map((t) => (
+										<span class="chip">{t}</span>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+		)
+	}
+
+	<section class:list={['related-section', 'gutter', { 'with-tech-stack': hasTechStack }]}>
+		<div class="wrap related-inner">
+			<div class="section-heading">
+				<span class="eyebrow">Next Steps</span>
+				<h2>Related services</h2>
+			</div>
+			<div class="related-grid">
+				{
+					related.map((r) => (
+						<a href={r.href} class="related-card" style={`background-image:linear-gradient(rgba(20,20,20,0.45),rgba(20,20,20,0.45)), url(${r.imgSrc})`}>
+							<div class="related-card-top">
+								<i data-lucide={r.icon} aria-hidden="true" />
+								<div class="related-card-body">
+									<span class="related-title">{r.title}</span>
+									<span class="related-desc">{r.desc}</span>
+								</div>
+							</div>
+							<i data-lucide="arrow-up-right" aria-hidden="true" class="related-arrow" />
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="cta-section gutter">
+		<div class="cta-copy">
+			<h2>{ctaHeading}</h2>
+			<p>{ctaSubtitle}</p>
+		</div>
+		<a href="/contact" class="btn-outline">{ctaButtonLabel}</a>
+	</section>
+	</div>
+</BaseLayout>
