@@ -50,20 +50,22 @@ const isServicesActive = currentPath === '/services' || currentPath.startsWith('
 						<i data-lucide="chevron-down" class="chevron" aria-hidden="true" />
 					</a>
 					<div class="dropdown-panel">
-						{
-							services.map((service) => (
-								<a href={`/services/${service.slug}`} class="dropdown-item">
-									<span class="dropdown-icon">
-										<i data-lucide={service.icon} aria-hidden="true" />
-									</span>
-									<span class="dropdown-title">{service.title}</span>
-								</a>
-							))
-						}
-						<a href="/services" class="dropdown-all">
-							View all services
-							<i data-lucide="arrow-right" aria-hidden="true" />
-						</a>
+						<div class="dropdown-panel-inner">
+							{
+								services.map((service) => (
+									<a href={`/services/${service.slug}`} class="dropdown-item">
+										<span class="dropdown-icon">
+											<i data-lucide={service.icon} aria-hidden="true" />
+										</span>
+										<span class="dropdown-title">{service.title}</span>
+									</a>
+								))
+							}
+							<a href="/services" class="dropdown-all">
+								View all services
+								<i data-lucide="arrow-right" aria-hidden="true" />
+							</a>
+						</div>
 					</div>
 				</li>
 				{
@@ -256,10 +258,23 @@ const isServicesActive = currentPath === '/services' || currentPath.startsWith('
 
 	.dropdown-panel {
 		position: absolute;
-		top: calc(100% + 16px);
+		top: 100%;
 		left: 50%;
-		transform: translateX(-50%) translateY(-6px);
+		transform: translateX(-50%);
 		width: 300px;
+		/* padding-top (not a gap in `top`) keeps this box's hoverable area
+		   continuous with the trigger — no dead space for the cursor to
+		   cross, so the dropdown doesn't close while moving toward it. */
+		padding-top: 16px;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition:
+			opacity 150ms ease,
+			visibility 150ms;
+	}
+
+	.dropdown-panel-inner {
 		background: #fff;
 		border-radius: 12px;
 		box-shadow:
@@ -268,13 +283,8 @@ const isServicesActive = currentPath === '/services' || currentPath.startsWith('
 		padding: 10px;
 		display: grid;
 		gap: 2px;
-		opacity: 0;
-		visibility: hidden;
-		pointer-events: none;
-		transition:
-			opacity 150ms ease,
-			transform 150ms ease,
-			visibility 150ms;
+		transform: translateY(-6px);
+		transition: transform 150ms ease;
 	}
 
 	.nav-item-dropdown:hover .dropdown-panel,
@@ -282,7 +292,11 @@ const isServicesActive = currentPath === '/services' || currentPath.startsWith('
 		opacity: 1;
 		visibility: visible;
 		pointer-events: auto;
-		transform: translateX(-50%) translateY(0);
+	}
+
+	.nav-item-dropdown:hover .dropdown-panel-inner,
+	.nav-item-dropdown:focus-within .dropdown-panel-inner {
+		transform: translateY(0);
 	}
 
 	.dropdown-item {
