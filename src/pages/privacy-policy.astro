@@ -1,0 +1,360 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Privacy Policy | ASquare";
+const description =
+  "How A-Square Technologies collects, uses, and protects information collected through our website.";
+
+const lastUpdated = "August 14, 2026";
+
+const sections = [
+  {
+    heading: "1. Information We Collect",
+    blocks: [
+      {
+        type: "p",
+        text: "Depending on how you interact with our website, we may collect information such as:",
+      },
+      { type: "h3", text: "Information You Provide" },
+      {
+        type: "list",
+        items: [
+          "Name, email address, phone number, company name, job-related information, and other information you choose to provide when contacting us, submitting a project inquiry, subscribing to updates, or applying for a job.",
+        ],
+      },
+      { type: "h3", text: "Automatically Collected Information" },
+      {
+        type: "list",
+        items: [
+          "IP address, browser type, device type, operating system, pages visited, approximate geographic information, referring website, date and time of access, and general website usage information.",
+        ],
+      },
+      {
+        type: "p",
+        text: "This information may be collected through server logs, analytics technologies, cookies, or similar technologies.",
+      },
+    ],
+  },
+  {
+    heading: "2. How We Use Information",
+    blocks: [
+      { type: "p", text: "We may use information we collect to:" },
+      {
+        type: "list",
+        items: [
+          "Respond to inquiries and requests.",
+          "Communicate with potential or existing clients.",
+          "Understand how visitors use our website.",
+          "Improve website performance and user experience.",
+          "Develop and improve our services.",
+          "Process employment applications.",
+          "Send requested updates or communications.",
+          "Maintain website security.",
+          "Detect and prevent misuse, fraud, or unauthorized activity.",
+          "Comply with applicable legal obligations.",
+        ],
+      },
+    ],
+  },
+  {
+    heading: "3. Cookies and Similar Technologies",
+    blocks: [
+      {
+        type: "p",
+        text: "Our website may use cookies and similar technologies to improve functionality, understand website usage, and remember preferences.",
+      },
+      {
+        type: "p",
+        text: "Cookies may be provided by A-Square Technologies or by third-party services used to operate or analyze the website.",
+      },
+      {
+        type: "p",
+        text: "You can generally control or disable cookies through your browser settings. Disabling certain cookies may affect some website functionality.",
+      },
+    ],
+  },
+  {
+    heading: "4. Analytics",
+    blocks: [
+      {
+        type: "p",
+        text: "We may use analytics or similar technologies to understand website traffic and visitor behavior.",
+      },
+      {
+        type: "p",
+        text: "Analytics information may help us understand which pages are useful, identify technical issues, and improve the overall website experience.",
+      },
+      {
+        type: "p",
+        text: "Where third-party analytics services are used, their collection and processing of information may also be subject to their own privacy policies.",
+      },
+    ],
+  },
+  {
+    heading: "5. How We Share Information",
+    blocks: [
+      { type: "p", text: "We do not sell your personal information." },
+      {
+        type: "p",
+        text: "We may share information when reasonably necessary with:",
+      },
+      {
+        type: "list",
+        items: [
+          "Service providers supporting our website or business operations.",
+          "Technology, hosting, cloud, analytics, or communication providers.",
+          "Professional advisers where appropriate.",
+          "Government authorities or law enforcement where required by applicable law.",
+          "Other parties where necessary to protect our legal rights, security, or business interests.",
+        ],
+      },
+      {
+        type: "p",
+        text: "We aim to limit information shared with third parties to what is reasonably necessary for the relevant purpose.",
+      },
+    ],
+  },
+  {
+    heading: "6. Data Security",
+    blocks: [
+      {
+        type: "p",
+        text: "We take reasonable technical and organizational measures to protect information against unauthorized access, loss, misuse, alteration, or disclosure.",
+      },
+      {
+        type: "p",
+        text: "However, no website, network, or electronic transmission can be guaranteed to be completely secure.",
+      },
+    ],
+  },
+  {
+    heading: "7. Data Retention",
+    blocks: [
+      {
+        type: "p",
+        text: "We retain personal information only for as long as reasonably necessary for the purposes described in this Privacy Policy, to provide requested services, maintain business records, resolve disputes, enforce agreements, or comply with applicable legal requirements.",
+      },
+      {
+        type: "p",
+        text: "The actual retention period may vary depending on the nature of the information and the reason it was collected.",
+      },
+    ],
+  },
+  {
+    heading: "8. Third-Party Websites",
+    blocks: [
+      {
+        type: "p",
+        text: "Our website may contain links to third-party websites, platforms, or services.",
+      },
+      {
+        type: "p",
+        text: "This Privacy Policy does not apply to those third-party websites. We recommend reviewing the privacy policies of external services before providing them with personal information.",
+      },
+    ],
+  },
+  {
+    heading: "9. Children's Privacy",
+    blocks: [
+      {
+        type: "p",
+        text: "Our website is not specifically directed toward children.",
+      },
+      {
+        type: "p",
+        text: "We do not knowingly request or intentionally collect personal information from children through the website. If you believe a child has provided personal information to us, please contact us so that appropriate action can be taken.",
+      },
+    ],
+  },
+  {
+    heading: "10. Your Privacy Choices",
+    blocks: [
+      {
+        type: "p",
+        text: "Depending on applicable law, you may have rights relating to your personal information, including the ability to:",
+      },
+      {
+        type: "list",
+        items: [
+          "Request access to information we hold about you.",
+          "Request correction of inaccurate information.",
+          "Request deletion of certain information.",
+          "Object to or restrict certain processing.",
+          "Withdraw consent where processing is based on consent.",
+          "Request information about how your personal information is used.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Requests may be subject to applicable legal limitations and verification requirements.",
+      },
+    ],
+  },
+  {
+    heading: "11. International Data Transfers",
+    blocks: [
+      {
+        type: "p",
+        text: "Depending on the services and technology providers we use, your information may be processed or stored in countries other than the country in which you live.",
+      },
+      {
+        type: "p",
+        text: "Where required, we will take appropriate steps to comply with applicable data protection requirements relating to international transfers.",
+      },
+    ],
+  },
+  {
+    heading: "12. Changes to This Privacy Policy",
+    blocks: [
+      {
+        type: "p",
+        text: "We may update this Privacy Policy from time to time.",
+      },
+      {
+        type: "p",
+        text: 'When changes are made, the updated version will be published on this page and the "Last Updated" date will be revised.',
+      },
+    ],
+  },
+  {
+    heading: "13. Contact Us",
+    blocks: [
+      {
+        type: "p",
+        text: "If you have questions about this Privacy Policy or would like to make a privacy-related request, please contact A-Square Technologies through the contact information provided on our website.",
+      },
+      { type: "p", text: "A-Square Technologies" },
+    ],
+  },
+  {
+    heading: "14. Important Notice",
+    blocks: [
+      {
+        type: "p",
+        text: "This Privacy Policy is a general website template intended for demonstration and initial implementation purposes. It should be reviewed by a qualified legal professional before being used as the company's final privacy policy.",
+      },
+      {
+        type: "p",
+        text: "The final version should reflect the company's actual legal entity, data-processing activities, analytics tools, cookies, third-party services, geographic operations, and applicable privacy laws.",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="legal-section gutter">
+    <div class="wrap legal-inner">
+      <div class="legal-heading">
+        <h1>Privacy Policy</h1>
+        <span class="legal-updated">Last Updated: {lastUpdated}</span>
+      </div>
+
+      <div class="legal-body">
+        {
+          sections.map((section) => (
+            <div class="legal-block">
+              <h2>{section.heading}</h2>
+              {section.blocks.map((block) => {
+                if (block.type === "h3") return <h3>{block.text}</h3>;
+                if (block.type === "list")
+                  return (
+                    <ul>
+                      {block.items.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  );
+                return <p>{block.text}</p>;
+              })}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-section {
+    padding-block: 190px 120px;
+  }
+
+  .legal-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .legal-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .legal-heading h1 {
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--text);
+  }
+
+  .legal-updated {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .legal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 760px;
+  }
+
+  .legal-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .legal-block h2 {
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--text);
+  }
+
+  .legal-block h3 {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text);
+    margin-top: 4px;
+  }
+
+  .legal-block p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .legal-block ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .legal-block li {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .legal-section {
+      padding-top: 110px;
+    }
+  }
+</style>

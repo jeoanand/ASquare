@@ -1,6 +1,9 @@
 @use 'variables' as *;
 @use 'colors' as *;
 @use 'mixins' as *;
+@use 'components/header';
+@use 'components/footer';
+@use 'components/breadcrumbs';
 @use 'main/homepage';
 @use 'main/services';
 
@@ -76,4 +79,14 @@ p {
 	max-width: #{$container-max};
 	margin-inline: auto;
 	width: 100%;
+}
+
+// When `.gutter` (inline padding) sits on the parent and `.wrap` (max-width
+// cap) sits on a child — instead of both on the same element, like the
+// header/footer use — the padding lands outside the 1440px cap instead of
+// being subtracted from it, so content ends up 160px wider than the header
+// on screens beyond ~1600px. Narrow the cap here so both patterns resolve to
+// the same content width without having to change every page's markup.
+.gutter > .wrap:not(.gutter) {
+	max-width: calc(#{$container-max} - #{$gutter-desktop} * 2);
 }

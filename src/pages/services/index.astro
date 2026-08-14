@@ -37,17 +37,17 @@ const description =
       {
         services.map((service) => (
           <a href={`/services/${service.slug}`} class="card service-card">
-            <div class="service-card-top">
-              <i
-                data-lucide={service.icon}
-                aria-hidden="true"
-                class="service-icon"
-              />
-              <i data-lucide="plus" aria-hidden="true" class="service-plus" />
-            </div>
+            <i
+              data-lucide={service.icon}
+              aria-hidden="true"
+              class="service-icon"
+            />
             <div class="service-card-body">
               <span class="service-title">{service.title}</span>
               <span class="service-desc">{service.shortDescription}</span>
+            </div>
+            <div class="service-arrow">
+              <i data-lucide="arrow-up-right" aria-hidden="true" />
             </div>
           </a>
         ))

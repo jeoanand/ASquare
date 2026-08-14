@@ -1,0 +1,32 @@
+// Styles for src/components/Breadcrumbs.astro
+
+.breadcrumbs ol {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	color: rgb(107, 114, 128);
+}
+
+.breadcrumbs li:not(:last-child)::after {
+	content: '/';
+	margin-left: 8px;
+	color: rgb(107, 114, 128);
+}
+
+.breadcrumbs a {
+	color: rgb(107, 114, 128);
+	text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+	color: var(--accent);
+}
+
+.breadcrumbs span[aria-current='page'] {
+	color: rgb(107, 114, 128);
+}

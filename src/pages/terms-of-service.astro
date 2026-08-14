@@ -1,0 +1,304 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Terms of Service | ASquare";
+const description =
+  "The terms that govern your access to and use of the A-Square Technologies website and services.";
+
+const lastUpdated = "August 14, 2026";
+
+const intro = [
+  'Welcome to A-Square Technologies. These Terms of Service ("Terms") govern your access to and use of the A-Square Technologies website and the services described on this website.',
+  "By accessing or using this website, you agree to these Terms. If you do not agree with any part of these Terms, please discontinue use of the website.",
+];
+
+const sections = [
+  {
+    heading: "1. About Our Services",
+    blocks: [
+      {
+        type: "p",
+        text: "A-Square Technologies provides technology and consulting services, which may include:",
+      },
+      {
+        type: "list",
+        items: [
+          "Web and software development",
+          "AI integration and automation",
+          "Power BI and business analytics",
+          "Cloud infrastructure and services",
+          "Infor XA ERP services",
+          "IT consulting and technology strategy",
+          "Technical support and related professional services",
+        ],
+      },
+      {
+        type: "p",
+        text: "The information presented on this website is intended for general informational purposes. Specific project scope, deliverables, timelines, pricing, warranties, and responsibilities will be defined separately in an applicable proposal, statement of work, agreement, or other written communication.",
+      },
+    ],
+  },
+  {
+    heading: "2. Website Use",
+    blocks: [
+      { type: "p", text: "You agree to use this website only for lawful purposes." },
+      { type: "p", text: "You must not:" },
+      {
+        type: "list",
+        items: [
+          "Attempt to gain unauthorized access to the website or its systems.",
+          "Interfere with the operation or security of the website.",
+          "Use the website to distribute malicious software or harmful content.",
+          "Copy, reproduce, or misuse website content without permission.",
+          "Use automated methods to access or collect website information in a manner that could damage or interfere with the website.",
+        ],
+      },
+    ],
+  },
+  {
+    heading: "3. Intellectual Property",
+    blocks: [
+      {
+        type: "p",
+        text: "Unless otherwise stated, the content of this website, including text, graphics, logos, branding, layouts, images, designs, and other materials, belongs to A-Square Technologies or its respective licensors.",
+      },
+      {
+        type: "p",
+        text: "You may view and use the website for personal or legitimate business evaluation purposes. You may not reproduce, modify, distribute, publish, sell, or commercially exploit website content without prior written permission.",
+      },
+      {
+        type: "p",
+        text: "Any intellectual property created as part of a client engagement will be governed by the applicable client agreement.",
+      },
+    ],
+  },
+  {
+    heading: "4. Third-Party Services",
+    blocks: [
+      {
+        type: "p",
+        text: "Our services may involve third-party technologies, platforms, software, cloud providers, APIs, or integrations.",
+      },
+      {
+        type: "p",
+        text: "Third-party services are subject to their respective terms and policies. A-Square Technologies is not responsible for changes, interruptions, failures, or limitations caused by third-party services outside our reasonable control.",
+      },
+    ],
+  },
+  {
+    heading: "5. Information Submitted Through the Website",
+    blocks: [
+      {
+        type: "p",
+        text: "If you submit information through a contact form, inquiry form, newsletter subscription, career application, or other website feature, you agree that the information you provide is accurate and that you have the right to provide it.",
+      },
+      {
+        type: "p",
+        text: "We may use submitted information to respond to inquiries, communicate about services, evaluate business opportunities, or provide requested information, subject to our Privacy Policy.",
+      },
+    ],
+  },
+  {
+    heading: "6. Accuracy of Information",
+    blocks: [
+      {
+        type: "p",
+        text: "We make reasonable efforts to keep the information on this website accurate and up to date. However, website content may contain errors, omissions, outdated information, or changes in service availability.",
+      },
+      {
+        type: "p",
+        text: "Information on this website should not be considered a guarantee of a particular result, performance level, project outcome, or business benefit.",
+      },
+    ],
+  },
+  {
+    heading: "7. Disclaimer",
+    blocks: [
+      {
+        type: "p",
+        text: 'The website and its content are provided on an "as is" and "as available" basis.',
+      },
+      {
+        type: "p",
+        text: "To the extent permitted by applicable law, A-Square Technologies makes no warranties, express or implied, regarding the availability, accuracy, reliability, completeness, or suitability of the website or its content.",
+      },
+    ],
+  },
+  {
+    heading: "8. Limitation of Liability",
+    blocks: [
+      {
+        type: "p",
+        text: "To the maximum extent permitted by applicable law, A-Square Technologies will not be responsible for indirect, incidental, special, consequential, or business-related losses arising from your use of, or inability to use, this website.",
+      },
+      {
+        type: "p",
+        text: "Nothing in these Terms is intended to exclude or limit liability that cannot legally be excluded or limited.",
+      },
+    ],
+  },
+  {
+    heading: "9. External Links",
+    blocks: [
+      {
+        type: "p",
+        text: "This website may contain links to third-party websites or services. These links are provided for convenience and informational purposes.",
+      },
+      {
+        type: "p",
+        text: "A-Square Technologies does not control and is not responsible for the content, availability, security, or privacy practices of third-party websites.",
+      },
+    ],
+  },
+  {
+    heading: "10. Changes to These Terms",
+    blocks: [
+      {
+        type: "p",
+        text: "We may update these Terms from time to time to reflect changes to our website, services, or legal requirements.",
+      },
+      {
+        type: "p",
+        text: 'Updated Terms will be published on this page with a revised "Last Updated" date. Your continued use of the website after changes are published constitutes acceptance of the updated Terms.',
+      },
+    ],
+  },
+  {
+    heading: "11. Contact",
+    blocks: [
+      {
+        type: "p",
+        text: "If you have questions about these Terms of Service, please contact A-Square Technologies through the contact information provided on our website.",
+      },
+      { type: "p", text: "A-Square Technologies" },
+    ],
+  },
+  {
+    heading: "12. Important Notice",
+    blocks: [
+      {
+        type: "p",
+        text: "These Terms are provided as a general website template and are not a substitute for legal advice. The final Terms should be reviewed and adapted to the company's actual legal entity, location, services, contracts, and applicable laws.",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="legal-section gutter">
+    <div class="wrap legal-inner">
+      <div class="legal-heading">
+        <h1>Terms of Service</h1>
+        <span class="legal-updated">Last Updated: {lastUpdated}</span>
+      </div>
+
+      <div class="legal-body">
+        {intro.map((text) => <p class="legal-intro">{text}</p>)}
+
+        {
+          sections.map((section) => (
+            <div class="legal-block">
+              <h2>{section.heading}</h2>
+              {section.blocks.map((block) => {
+                if (block.type === "list")
+                  return (
+                    <ul>
+                      {block.items.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  );
+                return <p>{block.text}</p>;
+              })}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-section {
+    padding-block: 190px 120px;
+  }
+
+  .legal-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .legal-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .legal-heading h1 {
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--text);
+  }
+
+  .legal-updated {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .legal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 760px;
+  }
+
+  .legal-intro {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .legal-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .legal-block h2 {
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--text);
+  }
+
+  .legal-block p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .legal-block ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .legal-block li {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .legal-section {
+      padding-top: 110px;
+    }
+  }
+</style>
