@@ -124,7 +124,9 @@
   }
 
   .cta-section {
-    background: var(--accent);
+    background-color: var(--accent);
+    background-size: cover;
+    background-position: center;
     padding-block: 120px;
     display: flex;
     flex-direction: column;

@@ -1,10 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import contactMap from "../assets/img/contact-map.png";
 
 const title = "Contact | ASquare";
 const description =
-  "Contact ASquare to discuss your project. Web development, IT, cloud, Power BI, AI, and Infor XA ERP.";
+  "Contact ASquare to discuss your project. Custom software, data engineering, cloud & DevOps, modernization, IT, and Infor XA ERP.";
+
+const mapsShareUrl = "https://maps.app.goo.gl/EuywYXVidA3q1JJa9?g_st=aw";
+const mapsEmbedSrc =
+  "https://maps.google.com/maps?q=6865+Shade+House+Crt,+Mississauga,+Ontario,+L5W+1C3,+Canada&output=embed";
 
 const contactJsonLd = {
   "@context": "https://schema.org",
@@ -12,13 +15,26 @@ const contactJsonLd = {
   name: "Contact ASquare",
   url: Astro.url.href,
   description,
+  mainEntity: {
+    "@type": "Organization",
+    name: "ASquare Technologies LLC",
+    telephone: "+1-437-449-0275",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "6865 Shade House Crt",
+      addressLocality: "Mississauga",
+      addressRegion: "Ontario",
+      postalCode: "L5W 1C3",
+      addressCountry: "CA",
+    },
+  },
 };
 
 const serviceOptions = [
-  "Web Development",
-  "AI Integration",
-  "Power BI & Analytics",
-  "Cloud Services",
+  "Custom Software Development",
+  "Data Engineering & Business Intelligence",
+  "Cloud & DevOps Engineering",
+  "Software Modernization & Refactoring",
   "Infor XA ERP",
   "IT Consulting",
 ];
@@ -100,24 +116,35 @@ const serviceOptions = [
 
       <div class="contact-aside">
         <div class="contact-card">
-          <div class="contact-map">
-            <img src={contactMap.src} alt="Map of ASquare's London office" />
-          </div>
+          <a
+            class="contact-map"
+            href={mapsShareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open ASquare's Mississauga office in Google Maps"
+          >
+            <iframe
+              src={mapsEmbedSrc}
+              title="Map of ASquare's Mississauga office"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </a>
           <div class="contact-card-body">
             <div class="contact-org">
-              <span class="contact-org-name">A-Square Technologies LLC</span>
+              <span class="contact-org-name">ASquare Technologies LLC</span>
               <span class="contact-org-address"
-                >3 Aldgate High Street London, EC3N 1AH</span
+                >6865 Shade House Crt, Mississauga, Ontario, L5W 1C3, Canada</span
               >
             </div>
             <div class="contact-details">
               <div class="contact-detail">
                 <i data-lucide="mail" aria-hidden="true"></i>
-                <span>hello@asquare.tech</span>
+                <span>hello@asquarecs.com</span>
               </div>
               <div class="contact-detail">
                 <i data-lucide="phone" aria-hidden="true"></i>
-                <span>+44 20 XXXX XXXX</span>
+                <span>+1 437 449 0275</span>
               </div>
             </div>
             <div class="contact-icons">
@@ -279,13 +306,16 @@ const serviceOptions = [
   }
 
   .contact-map {
+    display: block;
     height: 240px;
   }
 
-  .contact-map img {
+  .contact-map iframe {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    border: 0;
+    display: block;
+    pointer-events: none;
   }
 
   .contact-card-body {

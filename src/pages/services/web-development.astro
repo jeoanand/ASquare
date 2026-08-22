@@ -18,86 +18,80 @@ const serviceJsonLd = {
 
 const capabilities = [
   {
-    icon: "layers",
-    title: "Custom Web Applications",
-    desc: "Full-stack web apps tailored to your business logic, from dashboards to customer portals.",
+    icon: "rocket",
+    title: "New Digital Products",
+    desc: "Build new digital products from the ground up, from mission-critical web applications to cross-platform mobile products.",
   },
   {
-    icon: "shopping-cart",
-    title: "E-Commerce Solutions",
-    desc: "Scalable online stores with payment integration, inventory management, and analytics.",
+    icon: "refresh-cw",
+    title: "Legacy Modernization",
+    desc: "Modernize legacy applications and architectures without unnecessarily disrupting the business logic you depend on.",
   },
   {
     icon: "smartphone",
-    title: "Progressive Web Apps",
-    desc: "Fast, reliable, installable web experiences that work offline and feel native.",
+    title: "Web & Mobile Applications",
+    desc: "Develop scalable web and mobile applications using modern backend, web, and mobile technologies.",
   },
   {
-    icon: "code-2",
-    title: "API Development",
-    desc: "RESTful and GraphQL APIs built for reliability, security, and third-party integration.",
+    icon: "link",
+    title: "API & Systems Integration",
+    desc: "Integrate APIs, third-party platforms, databases, legacy systems, and enterprise infrastructure.",
   },
   {
     icon: "cloud",
-    title: "Cloud & DevOps",
-    desc: "CI/CD pipelines, containerization, and cloud infrastructure on Azure, AWS, or GCP.",
+    title: "Cloud Deployment & Scaling",
+    desc: "Deploy using modern cloud and containerization practices across AWS and Azure, with monitoring built in.",
   },
   {
     icon: "shield",
-    title: "Enterprise Portals",
-    desc: "Secure internal tools, admin panels, and workflow automation for large teams.",
+    title: "Security by Design",
+    desc: "Secure authentication, authorization, encryption, and access controls built in from the architecture stage onward.",
   },
 ];
 
 const steps = [
   {
     n: "01",
-    title: "Discovery",
-    desc: "We map your data model and existing integrations before writing a line of code. This prevents the classic rewrite 18 months later.",
+    title: "Architectural Blueprinting",
+    desc: "We analyze your business requirements, map application domains and dependencies, define the technical architecture, and select the right technology stack.",
   },
   {
     n: "02",
-    title: "Architecture",
-    desc: "We design the system to your actual load and security requirements. No over-engineering, no shortcuts.",
+    title: "Continuous-Delivery Engineering",
+    desc: "Our engineers build clean, modular, and maintainable code using modern backend, web, and mobile technologies, organized into iterative sprints so you can review progress and refine priorities.",
   },
   {
     n: "03",
-    title: "Build & Iterate",
-    desc: "Staged delivery against a fixed scope. You see working software every 2 weeks, not a big reveal.",
+    title: "System Integration & Quality Engineering",
+    desc: "We integrate APIs, third-party platforms, databases, legacy systems, and enterprise infrastructure while applying automated testing, performance validation, and security checks.",
   },
   {
     n: "04",
-    title: "Operate & Support",
-    desc: "We stay engaged post-launch. Updates, bug fixes, and infrastructure management on a transparent retainer.",
+    title: "Cloud Deployment & Scaling",
+    desc: "We deploy using modern cloud and containerization practices across AWS and Azure, with monitoring and operational considerations built in as usage grows.",
   },
 ];
 
 const techGroups = [
-  {
-    title: "Web Apps",
-    items: ["Next.js", "Angular", "Vue.js", "Node.js", ".NET"],
-  },
-  { title: "Mobile Apps", items: ["Flutter", "Swift", "Kotlin"] },
-  { title: "Blockchain", items: ["Ethereum", "Hyperledger", "Web3.js"] },
+  { title: "Backend", items: [".NET / ASP.NET Core", "Node.js"] },
+  { title: "Web & Mobile", items: ["Angular", "React", "Flutter"] },
   {
     title: "Cloud & Infrastructure",
-    items: ["Azure", "GCP", "Docker", "Kubernetes"],
+    items: ["AWS", "Microsoft Azure", "Docker", "Kubernetes"],
   },
-  { title: "Databases", items: ["MongoDB", "Redis", "SQL Server"] },
-  { title: "AI & Data", items: ["TensorFlow", "Power BI", "Tableau"] },
 ];
 
 const related = [
   {
-    icon: "brain-circuit",
-    title: "AI Integration",
-    desc: "Deploying models that drive real operational value across your ERP and cloud stack.",
-    href: "/services/ai-integration",
+    icon: "refresh-cw",
+    title: "Software Modernization & Refactoring",
+    desc: "Modernize legacy applications and architectures your team already depends on.",
+    href: "/services/software-modernization",
     imgSrc: relatedAi.src,
   },
   {
     icon: "cloud",
-    title: "Cloud Services",
+    title: "Cloud & DevOps Engineering",
     desc: "Robust Azure and AWS environments engineered for critical, always-on workloads.",
     href: "/services/cloud-services",
     imgSrc: relatedCloud.src,
@@ -109,18 +103,18 @@ const related = [
   title={service.metaTitle}
   description={service.metaDescription}
   heroImageSrc={heroImg.src}
-  heroHeading="Production web applications built to last."
-  heroSubtitle="From Infor XA-integrated portals to standalone SaaS products — engineered, not assembled."
+  heroHeading="Transform complex requirements into scalable software."
+  heroSubtitle="From mission-critical web applications to cross-platform mobile products — secure, resilient, and built for long-term growth."
   heroCtaLabel="Talk to us about your project"
-  breadcrumbLabel="Web Development"
+  breadcrumbLabel="Custom Software Development"
   capabilities={capabilities}
   steps={steps}
   hasTechStack
   techGroups={techGroups}
   approachTinted
   related={related}
-  ctaHeading="Talk to us about your web project"
-  ctaSubtitle="We scope in a single call. No pitch deck required."
+  ctaHeading="Let's build what's next"
+  ctaSubtitle="Partner with ASquare to turn your software vision into a scalable digital product."
   ctaButtonLabel="Start a conversation"
 >
   <Fragment slot="jsonld">
