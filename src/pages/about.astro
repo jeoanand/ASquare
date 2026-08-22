@@ -5,10 +5,11 @@ import aboutIntro from "../assets/img/about-intro.png";
 import avatarDavid from "../assets/img/about-avatar-david.png";
 import avatar1 from "../assets/img/about-avatar-1.png";
 import avatar2 from "../assets/img/about-avatar-2.png";
+import ctaBg from "../assets/img/cta-bg.jpg";
 
-const title = "About Us | ASquare";
+const title = "About Asquare | Enterprise Expertise. Modern Engineering.";
 const description =
-  "Learn about ASquare—our team, values, and commitment to delivering reliable technology solutions.";
+  "Asquare is a technology and software engineering company operating across Canada, Australia, and the United States, specializing in Infor XA expertise and modern software engineering.";
 
 const breadcrumbs = [{ label: "Home", href: "/" }, { label: "About" }];
 
@@ -35,16 +36,24 @@ const team = [
 
 const values = [
   {
-    title: "We finish what we start",
-    desc: "No scope-creep handoffs or silent pivots. If something changes, we surface it immediately.",
+    icon: "network",
+    title: "Know the Complex",
+    desc: "Complex enterprise technology is where our expertise runs deep. We understand Infor XA and the environments businesses rely on every day.",
   },
   {
-    title: "We read the ERP first",
-    desc: "Technical decisions start with the data model, not the mockup. We build for reality.",
+    icon: "compass",
+    title: "Build with Purpose",
+    desc: "Technology designed around real business needs, not built for its own sake.",
   },
   {
-    title: "We prefer boring technology",
-    desc: "Rails for the CRUD, AI for the actual intelligence problem. We optimize for stability.",
+    icon: "check-circle",
+    title: "Deliver with Confidence",
+    desc: "Transparent execution without unnecessary complexity.",
+  },
+  {
+    icon: "trending-up",
+    title: "Grow Together",
+    desc: "A technology partner for the long term — we stay engaged as your needs evolve.",
   },
 ];
 ---
@@ -60,19 +69,49 @@ const values = [
         />
       </div>
       <div class="intro-copy">
-        <h1>Who we are</h1>
+        <h1>Enterprise Expertise. Modern Engineering.</h1>
         <div class="intro-paragraphs">
           <p>
-            Most agencies specialize in "pretty" but can't handle the complexity
-            of ERP integration. Most ERP consultants understand the database but
-            can't build a modern user experience. We live in the gap between
-            them.
+            Asquare is a technology and software engineering company operating
+            across Canada, Australia, and the United States. We help businesses
+            solve complex technology challenges through specialized Infor XA
+            expertise and modern software engineering.
           </p>
           <p>
-            Today, ASquare serves as a technical partner for operations-heavy
-            businesses. We don't just sell hours; we deliver running systems.
+            Our services span Infor XA, software development, system
+            modernization, data and business intelligence, cloud, DevOps, and
+            integration — supporting both enterprise systems and broader
+            technology initiatives.
+          </p>
+          <p>
+            We work as an extension of your team, combining technical expertise
+            with business understanding to deliver practical, scalable solutions
+            that create lasting value.
+          </p>
+          <p class="intro-tagline">
+            Asquare — Deep enterprise expertise. Modern technology. One trusted
+            partner.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission-vision-section gutter">
+    <div class="wrap mission-vision-grid">
+      <div class="mission-vision-col">
+        <span class="eyebrow">Mission</span>
+        <p>
+          To simplify complex business challenges through connected, intuitive,
+          and scalable digital solutions.
+        </p>
+      </div>
+      <div class="mission-vision-col">
+        <span class="eyebrow">Vision</span>
+        <p>
+          To become a trusted global engineering partner for modernizing
+          mission-critical systems and powering digital transformation.
+        </p>
       </div>
     </div>
   </section>
@@ -103,22 +142,36 @@ const values = [
   </section>
 
   <section class="values-section gutter">
-    <div class="wrap values-grid">
-      {
-        values.map((v) => (
-          <div class="card value-card">
-            <i data-lucide="target" aria-hidden="true" />
-            <div class="value-body">
-              <span class="value-title">{v.title}</span>
-              <span class="value-desc">{v.desc}</span>
+    <div class="wrap values-inner">
+      <div class="section-heading">
+        <span class="eyebrow">Why Asquare</span>
+        <h2>Think beyond the obvious</h2>
+        <p class="values-intro">
+          We bring together enterprise expertise, modern engineering, and
+          practical thinking to turn complex technology challenges into
+          opportunities.
+        </p>
+      </div>
+      <div class="values-grid">
+        {
+          values.map((v) => (
+            <div class="card value-card">
+              <i data-lucide={v.icon} aria-hidden="true" />
+              <div class="value-body">
+                <span class="value-title">{v.title}</span>
+                <span class="value-desc">{v.desc}</span>
+              </div>
             </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </div>
   </section>
 
-  <section class="cta-section gutter">
+  <section
+    class="cta-section gutter"
+    style={`background-image:linear-gradient(135deg, rgba(69,57,211,0.62), rgba(55,46,169,0.68)), url(${ctaBg.src})`}
+  >
     <div class="cta-copy">
       <h2>Ready to start a conversation?</h2>
       <p>We scope projects in a single call. No long sales cycles.</p>
@@ -178,6 +231,34 @@ const values = [
     font-size: 16px;
     line-height: 1.6;
     color: var(--text);
+  }
+
+  .intro-tagline {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .mission-vision-section {
+    padding-block: 0 100px;
+  }
+
+  .mission-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .mission-vision-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mission-vision-col p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-muted);
   }
 
   .leadership-section {
@@ -263,9 +344,23 @@ const values = [
     padding-block: 0 100px;
   }
 
+  .values-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .values-intro {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 700px;
+  }
+
   .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 32px;
   }
 
@@ -305,7 +400,9 @@ const values = [
   }
 
   .cta-section {
-    background: var(--accent);
+    background-color: var(--accent);
+    background-size: cover;
+    background-position: center;
     padding-block: 120px;
     display: flex;
     flex-direction: column;
@@ -360,6 +457,11 @@ const values = [
 
     .intro-copy h1 {
       width: 100%;
+    }
+
+    .mission-vision-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
   }
 </style>

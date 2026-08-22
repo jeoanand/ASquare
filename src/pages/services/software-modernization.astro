@@ -1,0 +1,114 @@
+---
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import heroImg from "../../assets/img/mission-hero.png";
+import relatedAi from "../../assets/img/related-ai.png";
+import relatedCloud from "../../assets/img/related-cloud.png";
+import { getServiceBySlug } from "../../data/services.js";
+
+const service = getServiceBySlug("software-modernization");
+if (!service) throw new Error("Service not found");
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: service.title,
+  description: service.description,
+  provider: { "@type": "Organization", name: "ASquare" },
+};
+
+const capabilities = [
+  {
+    icon: "layers",
+    title: "Monolith to Modular & Microservices",
+    desc: "Break down tightly coupled applications into manageable, independently deployable components using .NET and Node.js, where a microservices approach makes sense.",
+  },
+  {
+    icon: "database",
+    title: "Database Performance Engineering",
+    desc: "Optimize legacy databases through schema improvements, query optimization, indexing strategies, and stored procedure refinement.",
+  },
+  {
+    icon: "link",
+    title: "Legacy API & Integration Modernization",
+    desc: "Expose existing business capabilities through secure, modern APIs connecting legacy systems to web, mobile, and third-party platforms.",
+  },
+  {
+    icon: "layout",
+    title: "UI & Experience Modernization",
+    desc: "Replace outdated interfaces with responsive, accessible, modern web experiences that continue to work with your underlying business systems.",
+  },
+  {
+    icon: "cloud",
+    title: "Cloud & DevOps Transformation",
+    desc: "Modernize deployment processes through cloud migration, containerization, CI/CD automation, and infrastructure improvements.",
+  },
+  {
+    icon: "shield-check",
+    title: "Business Logic Preservation",
+    desc: "Identify the business rules, workflows, and institutional knowledge worth keeping, and modernize the technology built around them.",
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "Architecture Audit & Discovery",
+    desc: "We assess your existing codebase, architecture, dependencies, databases, integrations, and security posture to build a clear modernization roadmap and define priorities.",
+  },
+  {
+    n: "02",
+    title: "Decoupling & Re-Architecture",
+    desc: "We gradually decouple tightly integrated components, introduce API layers, and refactor monolithic architectures where appropriate — creating applications that are easier to maintain and scale.",
+  },
+  {
+    n: "03",
+    title: "Database & Data Optimization",
+    desc: "We analyze database schemas, queries, indexes, and stored procedures to identify performance bottlenecks and improve application responsiveness.",
+  },
+  {
+    n: "04",
+    title: "Cloud Migration & Deployment",
+    desc: "Where appropriate, we migrate applications to cloud environments using containerization, CI/CD pipelines, and infrastructure automation for greater deployment flexibility.",
+  },
+];
+
+const related = [
+  {
+    icon: "code-2",
+    title: "Custom Software Development",
+    desc: "Build new digital products and modernize legacy applications with the same engineering team.",
+    href: "/services/web-development",
+    imgSrc: relatedAi.src,
+  },
+  {
+    icon: "cloud",
+    title: "Cloud & DevOps Engineering",
+    desc: "Migrate modernized applications to cloud environments built for scale and reliability.",
+    href: "/services/cloud-services",
+    imgSrc: relatedCloud.src,
+  },
+];
+---
+
+<ServiceDetail
+  title={service.metaTitle}
+  description={service.metaDescription}
+  heroImageSrc={heroImg.src}
+  heroHeading="Modernize legacy systems. Improve performance."
+  heroSubtitle="We help you modernize aging applications, refactor complex architectures, and move legacy workloads toward modern cloud environments — without unnecessarily disrupting the business logic you depend on."
+  heroCtaLabel="Talk to us about your systems"
+  breadcrumbLabel="Software Modernization"
+  capabilities={capabilities}
+  steps={steps}
+  related={related}
+  ctaHeading="Ready to modernize your software?"
+  ctaSubtitle="Let's discuss your existing system and identify the right path forward."
+  ctaButtonLabel="Start a conversation"
+>
+  <Fragment slot="jsonld">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(serviceJsonLd)}
+    />
+  </Fragment>
+</ServiceDetail>

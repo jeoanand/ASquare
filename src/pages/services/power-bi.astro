@@ -18,57 +18,76 @@ const serviceJsonLd = {
 
 const capabilities = [
   {
-    icon: "layout-dashboard",
-    title: "Power BI Dashboards",
-    desc: "Interactive executive dashboards with real-time KPIs, drill-downs, and automated refresh.",
+    icon: "workflow",
+    title: "Data Pipeline Engineering",
+    desc: "Build reliable and maintainable pipelines for extracting, transforming, validating, and delivering data across your technology ecosystem.",
   },
   {
-    icon: "grid-3x3",
-    title: "Data Modeling",
-    desc: "Star schema and dimensional models optimized for fast queries and accurate business logic.",
+    icon: "refresh-cw",
+    title: "ETL & Data Transformation",
+    desc: "Automate complex data transformations, cleansing, schema mapping, validation, and enrichment processes.",
   },
   {
     icon: "database",
-    title: "Azure Synapse & SQL Server",
-    desc: "Scalable data warehouses that unify structured and unstructured data at enterprise scale.",
+    title: "Database & Query Optimization",
+    desc: "Improve data access and processing efficiency through query optimization, indexing, schema improvements, and performance engineering.",
   },
   {
-    icon: "file-text",
-    title: "Paginated Reports",
-    desc: "Pixel-perfect formatted reports for regulatory compliance, invoicing, and print distribution.",
+    icon: "server",
+    title: "Data Warehousing & Modeling",
+    desc: "Design structured data platforms using appropriate warehouse architectures and dimensional modeling to support reporting and analytics.",
   },
   {
-    icon: "shield-check",
-    title: "Row-Level Security",
-    desc: "Granular data access controls ensuring users only see data relevant to their role.",
+    icon: "layout-dashboard",
+    title: "Business Intelligence Dashboards",
+    desc: "Create interactive dashboards and reports that let teams monitor KPIs, explore trends, and make data-driven decisions.",
   },
   {
-    icon: "function-square",
-    title: "Power Query & DAX",
-    desc: "Advanced data transformations and measures for complex calculations and business rules.",
+    icon: "trending-up",
+    title: "Operational & Financial Analytics",
+    desc: "Bring together data from finance, sales, operations, supply chain, and customer service into a unified view of business performance.",
   },
 ];
 
 const steps = [
   {
     n: "01",
-    title: "Source audit",
-    desc: "We inventory every data source — Infor XA tables, Azure, flat files — and document the lineage before we model anything.",
+    title: "Data Source Ingestion",
+    desc: "We connect and ingest data from relational databases, business applications, APIs, CRM platforms, and cloud storage into a unified foundation that reduces fragmented information.",
   },
   {
     n: "02",
-    title: "Data model design",
-    desc: "A clean star schema. No spaghetti relationships. Built to handle your actual query patterns and user counts.",
+    title: "ETL & Data Transformation",
+    desc: "We design automated extraction, transformation, and loading processes to clean, validate, standardize, and enrich data your teams can rely on.",
   },
   {
     n: "03",
-    title: "Report development",
-    desc: "Reports designed with the end user in session. Not handed over after 6 weeks without context.",
+    title: "Data Warehousing & Modeling",
+    desc: "We design data warehouses and analytical models using dimensional modeling, indexing, and performance optimization for faster, more reliable reporting.",
   },
   {
     n: "04",
-    title: "Governance and training",
-    desc: "We document every measure and train your team. Reports you can maintain without us.",
+    title: "Business Intelligence & Visualization",
+    desc: "We build interactive dashboards, KPI reports, and automated reporting that give leaders clear visibility into performance, revenue, and costs.",
+  },
+];
+
+const techGroups = [
+  {
+    title: "Databases & Storage",
+    items: ["SQL Server", "PostgreSQL", "MySQL", "Oracle", "MongoDB"],
+  },
+  {
+    title: "Data Engineering",
+    items: ["SQL / T-SQL", "Python", "ETL / ELT", "REST APIs"],
+  },
+  {
+    title: "Cloud & Data Platforms",
+    items: ["Azure", "AWS", "Data Warehousing"],
+  },
+  {
+    title: "BI & Visualization",
+    items: ["Power BI", "Tableau", "Automated Reporting"],
   },
 ];
 
@@ -81,10 +100,10 @@ const related = [
     imgSrc: relatedAi.src,
   },
   {
-    icon: "brain-circuit",
-    title: "AI Integration",
-    desc: "Predictive analytics and automation workflows built on top of your reporting layer.",
-    href: "/services/ai-integration",
+    icon: "cloud",
+    title: "Cloud & DevOps Engineering",
+    desc: "Robust Azure and AWS environments engineered to host your reporting and data layer.",
+    href: "/services/cloud-services",
     imgSrc: relatedCloud.src,
   },
 ];
@@ -94,16 +113,18 @@ const related = [
   title={service.metaTitle}
   description={service.metaDescription}
   heroImageSrc={heroImg.src}
-  heroHeading="Data your operations team will actually trust."
-  heroSubtitle="Power BI environments built directly on your Infor XA and cloud data — for analysts who need the number to be right."
+  heroHeading="Turn fragmented data into actionable business intelligence."
+  heroSubtitle="Reliable data pipelines, modern data platforms, and interactive dashboards that turn disconnected information into trusted business intelligence."
   heroCtaLabel="Talk to us about your data"
-  breadcrumbLabel="Power BI & Analytics"
+  breadcrumbLabel="Data Engineering & BI"
   capabilities={capabilities}
   steps={steps}
+  hasTechStack
+  techGroups={techGroups}
   related={related}
-  ctaHeading="Start with a data audit"
-  ctaSubtitle="We identify root causes before recommending new reports."
-  ctaButtonLabel="Book an audit"
+  ctaHeading="Ready to make better use of your data?"
+  ctaSubtitle="Let's build your data platform."
+  ctaButtonLabel="Book a data audit"
 >
   <Fragment slot="jsonld">
     <script

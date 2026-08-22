@@ -139,6 +139,12 @@
 	white-space: nowrap;
 }
 
+.contact-btn[data-active='true'] {
+	box-shadow:
+		0 0 0 2px #fff,
+		0 0 0 4px var(--accent-dark);
+}
+
 .contact-btn:hover {
 	background: var(--accent-dark);
 	color: #fff;

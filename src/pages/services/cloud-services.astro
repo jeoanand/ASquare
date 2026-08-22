@@ -19,72 +19,93 @@ const serviceJsonLd = {
 const capabilities = [
   {
     icon: "cloud",
-    title: "Azure & AWS Infrastructure",
-    desc: "Design, deploy, and manage scalable cloud environments across Azure and AWS.",
-  },
-  {
-    icon: "box",
-    title: "Kubernetes & Containers",
-    desc: "Container orchestration with Docker and Kubernetes for microservices at scale.",
+    title: "Cloud Migration & Hybrid Integration",
+    desc: "Modernize on-premise workloads, applications, servers, and databases by moving them toward AWS, Azure, or hybrid cloud using a structured migration strategy.",
   },
   {
     icon: "file-code",
-    title: "Terraform & IaC",
-    desc: "Infrastructure as code for repeatable, version-controlled cloud provisioning.",
+    title: "Infrastructure as Code",
+    desc: "Automate infrastructure provisioning and configuration using declarative approaches for consistent, repeatable environments.",
   },
   {
     icon: "refresh-cw",
-    title: "CI/CD Pipelines",
-    desc: "Automated build, test, and deploy workflows with GitHub Actions and Azure DevOps.",
+    title: "CI/CD Pipeline Engineering",
+    desc: "Design automated build, test, deployment, and release pipelines for applications built with .NET, Node.js, Angular, and Flutter.",
   },
   {
-    icon: "life-buoy",
-    title: "Disaster Recovery",
-    desc: "Business continuity planning with automated failover, backups, and geo-redundancy.",
+    icon: "box",
+    title: "Docker & Kubernetes",
+    desc: "Containerize applications and implement orchestration strategies to improve portability, deployment consistency, and scalability.",
   },
   {
     icon: "trending-down",
-    title: "Cost Optimization",
-    desc: "Right-sizing resources, reserved instances, and monitoring to reduce cloud spend.",
+    title: "Cloud Cost & Performance Optimization",
+    desc: "Analyze infrastructure utilization, workloads, and cloud resources to identify right-sizing and cost efficiency opportunities.",
+  },
+  {
+    icon: "life-buoy",
+    title: "High Availability & Disaster Recovery",
+    desc: "Design backup, redundancy, failover, and business continuity strategies appropriate to your availability requirements.",
   },
 ];
 
 const steps = [
   {
     n: "01",
-    title: "Assessment",
-    desc: "We map your current environment, operational costs, and risk profile before recommending any platform changes.",
+    title: "Cloud Architecture & Infrastructure as Code",
+    desc: "We design cloud environments across AWS and Azure and use Infrastructure as Code to automate provisioning, configuration, and environment management for consistent, repeatable results.",
   },
   {
     n: "02",
-    title: "Architecture",
-    desc: "Systems designed specifically for your actual workload. We avoid vendor lock-in and eliminate over-provisioning.",
+    title: "CI/CD & Release Automation",
+    desc: "We build automated pipelines for development, testing, deployment, and release management across web, backend, and mobile applications — shorter release cycles, fewer errors.",
   },
   {
     n: "03",
-    title: "Migration",
-    desc: "Phased deployment with live rollback paths at every stage. We prioritise uptime for your production users.",
+    title: "Containerization & Orchestration",
+    desc: "We containerize applications with Docker and implement orchestration platforms like Kubernetes for consistency across development, staging, and production.",
   },
   {
     n: "04",
-    title: "Managed Operations",
-    desc: "Continuous patching, monthly cost reviews, and 24/7 incident response on a transparent SLA.",
+    title: "Observability, Security & Operations",
+    desc: "We implement centralized logging, monitoring, automated alerts, access controls, and secrets management for earlier issue detection and faster incident response.",
+  },
+];
+
+const techGroups = [
+  { title: "Cloud Platforms", items: ["Microsoft Azure", "AWS", "Hybrid Cloud"] },
+  { title: "Containers & Orchestration", items: ["Docker", "Kubernetes"] },
+  {
+    title: "CI/CD & DevOps",
+    items: ["GitHub Actions", "GitLab CI/CD", "Azure DevOps", "Jenkins"],
+  },
+  {
+    title: "Infrastructure as Code",
+    items: ["Terraform", "Cloud-native IaC tools"],
+  },
+  {
+    title: "Monitoring & Observability",
+    items: ["Application Monitoring", "Infrastructure Monitoring", "Centralized Logging"],
+  },
+  {
+    title: "Development Ecosystem",
+    items: [".NET / ASP.NET Core", "Node.js", "Angular", "React", "Flutter"],
   },
 ];
 
 const related = [
   {
-    icon: "brain-circuit",
-    title: "AI Integration",
-    desc: "Deploying models that drive real operational value across your ERP and cloud stack.",
-    href: "/services/ai-integration",
+    icon: "briefcase",
+    title: "IT Consulting",
+    desc: "Technical leadership for architecture and strategy across your cloud infrastructure.",
+    href: "/services/it-services",
     imgSrc: relatedAi.src,
   },
   {
-    icon: "database",
-    title: "Infor XA ERP",
-    desc: "Support, extend, and modernise Infor XA deployments running on your cloud infrastructure.",
-    href: "/services/infor-xa-erp",
+    icon: "refresh-cw",
+    title: "Software Modernization & Refactoring",
+    desc: "Modernize legacy workloads and move them toward the cloud environments we build and manage.",
+    href: "/services/software-modernization",
     imgSrc: relatedCloud.src,
   },
 ];
@@ -94,15 +115,17 @@ const related = [
   title={service.metaTitle}
   description={service.metaDescription}
   heroImageSrc={heroImg.src}
-  heroHeading="Cloud infrastructure that stays out of your way."
-  heroSubtitle="Azure and AWS for production workloads — operational simplicity, not feature surface."
+  heroHeading="Build faster, deploy smarter, operate with confidence."
+  heroSubtitle="Cloud architecture, CI/CD automation, containerization, and observability — engineering foundations for teams that release software faster and operate it more reliably."
   heroCtaLabel="Talk to us about your infrastructure"
-  breadcrumbLabel="Cloud Services"
+  breadcrumbLabel="Cloud & DevOps Engineering"
   capabilities={capabilities}
   steps={steps}
+  hasTechStack
+  techGroups={techGroups}
   related={related}
-  ctaHeading="Get a cloud architecture review"
-  ctaSubtitle="Assess your environment, no commitment required."
+  ctaHeading="Let's build your cloud & DevOps strategy"
+  ctaSubtitle="Automate delivery, modernize infrastructure, and build cloud environments ready for your next stage of growth."
   ctaButtonLabel="Request a review"
 >
   <Fragment slot="jsonld">

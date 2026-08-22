@@ -1,66 +1,71 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import servicesHero from "../../assets/img/services-hero.png";
+import ctaBg from "../../assets/img/cta-bg.jpg";
 import { services } from "../../data/services.js";
 
 const title = "Services | ASquare";
 const description =
-  "Explore ASquare services: web development, IT services, AI integration, Power BI, cloud services, and Infor XA ERP.";
+  "Explore ASquare services: custom software development, data engineering & BI, cloud & DevOps engineering, software modernization, IT services, and Infor XA ERP.";
 ---
 
 <BaseLayout title={title} description={description}>
   <div class="page-services-index">
-  <section class="hero-section gutter">
-    <div class="wrap hero-inner">
-      <div class="hero-top">
-        <div class="breadcrumbs">
-          <a href="/">Home</a><span>/</span><span>Services</span>
+    <section class="hero-section gutter">
+      <div class="wrap hero-inner">
+        <div class="hero-top">
+          <div class="breadcrumbs">
+            <a href="/">Home</a><span>/</span><span>Services</span>
+          </div>
+          <div class="hero-image">
+            <img src={servicesHero.src} alt="ASquare engineers at work" />
+          </div>
         </div>
-        <div class="hero-image">
-          <img src={servicesHero.src} alt="ASquare engineers at work" />
+        <div class="hero-copy">
+          <h1>What we do</h1>
+          <p>
+            We work across custom software, data engineering and business
+            intelligence, cloud and DevOps, modernization, and enterprise ERP -
+            domains that most firms treat as separate practices. Our engagements
+            combine them by default, because your ERP data doesn't stop at the
+            edge of a dashboard.
+          </p>
         </div>
       </div>
-      <div class="hero-copy">
-        <h1>What we do</h1>
-        <p>
-          We work across four domains - custom software, AI integration,
-          business intelligence, and enterprise ERP - that most firms treat as
-          separate practices. Our engagements combine them by default, because
-          your ERP data doesn't stop at the edge of a dashboard.
-        </p>
+    </section>
+
+    <section class="services-section gutter">
+      <div class="wrap services-grid">
+        {
+          services.map((service) => (
+            <a href={`/services/${service.slug}`} class="card service-card">
+              <i
+                data-lucide={service.icon}
+                aria-hidden="true"
+                class="service-icon"
+              />
+              <div class="service-card-body">
+                <span class="service-title">{service.title}</span>
+                <span class="service-desc">{service.shortDescription}</span>
+              </div>
+              <div class="service-arrow">
+                <i data-lucide="arrow-up-right" aria-hidden="true" />
+              </div>
+            </a>
+          ))
+        }
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="services-section gutter">
-    <div class="wrap services-grid">
-      {
-        services.map((service) => (
-          <a href={`/services/${service.slug}`} class="card service-card">
-            <i
-              data-lucide={service.icon}
-              aria-hidden="true"
-              class="service-icon"
-            />
-            <div class="service-card-body">
-              <span class="service-title">{service.title}</span>
-              <span class="service-desc">{service.shortDescription}</span>
-            </div>
-            <div class="service-arrow">
-              <i data-lucide="arrow-up-right" aria-hidden="true" />
-            </div>
-          </a>
-        ))
-      }
-    </div>
-  </section>
-
-  <section class="cta-section gutter">
-    <div class="cta-copy">
-      <h2>Ready to start a conversation?</h2>
-      <p>We scope projects in a single call. No long sales cycles.</p>
-    </div>
-    <a href="/contact" class="btn-outline">Talk to us</a>
-  </section>
+    <section
+      class="cta-section gutter"
+      style={`background-image:linear-gradient(135deg, rgba(69,57,211,0.62), rgba(55,46,169,0.68)), url(${ctaBg.src})`}
+    >
+      <div class="cta-copy">
+        <h2>Ready to start a conversation?</h2>
+        <p>We scope projects in a single call. No long sales cycles.</p>
+      </div>
+      <a href="/contact" class="btn-outline">Talk to us</a>
+    </section>
   </div>
 </BaseLayout>

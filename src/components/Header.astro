@@ -11,11 +11,6 @@ const navLinks = [
 	{ href: '/about', label: 'About' },
 ];
 
-const secondaryNavLinks = [
-	{ href: '/mission-vision', label: 'Mission & Vision' },
-	{ href: '/careers', label: 'Careers' },
-];
-
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 function isActive(href) {
@@ -68,17 +63,8 @@ const isServicesActive = currentPath === '/services' || currentPath.startsWith('
 						</div>
 					</div>
 				</li>
-				{
-					secondaryNavLinks.map(({ href, label }) => (
-						<li>
-							<a href={href} class="nav-link" data-active={isActive(href) ? 'true' : undefined}>
-								{label}
-							</a>
-						</li>
-					))
-				}
 				<li>
-					<a href="/contact" class="contact-btn">Contact</a>
+					<a href="/contact" class="contact-btn" data-active={isActive('/contact') ? 'true' : undefined}>Contact</a>
 				</li>
 			</ul>
 		</nav>
@@ -112,13 +98,6 @@ const isServicesActive = currentPath === '/services' || currentPath.startsWith('
 				<a href="/services" class="mobile-services-all">View all services</a>
 			</div>
 		</div>
-		{
-			secondaryNavLinks.map(({ href, label }) => (
-				<a href={href} data-active={isActive(href) ? 'true' : undefined}>
-					{label}
-				</a>
-			))
-		}
 		<a href="/contact" data-active={isActive('/contact') ? 'true' : undefined}>Contact</a>
 	</nav>
 </header>

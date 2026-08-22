@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import heroBg from "../assets/img/hero-bg.png";
+import ctaBg from "../assets/img/cta-bg.jpg";
 
 const title = "ASquare | Technology Solutions for Modern Businesses";
 const description =
-  "ASquare delivers web development, IT services, AI integration, Power BI, cloud services, and Infor XA ERP solutions.";
+  "ASquare delivers custom software development, data engineering & BI, cloud & DevOps engineering, software modernization, IT services, and Infor XA ERP solutions.";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -22,45 +23,6 @@ const stats = [
 
 const capabilities = [
   {
-    icon: "code-2",
-    title: "Web Development",
-    bullets: [
-      "Custom frontend and backend solutions.",
-      "API development and third-party integrations.",
-      "Performance optimization and security hardening.",
-    ],
-  },
-  {
-    icon: "brain-circuit",
-    title: "AI Integration",
-    bullets: [
-      "Deploying models that drive real operational value.",
-      "Machine learning pipeline development.",
-      "Natural language processing solutions.",
-      "Predictive analytics and automation workflows.",
-    ],
-  },
-  {
-    icon: "bar-chart-3",
-    title: "Power BI & Analytics",
-    bullets: [
-      "Data infrastructure built for executive decision making.",
-      "Interactive dashboards and real-time reporting.",
-      "Data warehouse design and ETL pipelines.",
-      "Custom KPI tracking and business intelligence.",
-    ],
-  },
-  {
-    icon: "cloud",
-    title: "Cloud Services",
-    bullets: [
-      "Robust Azure and AWS environments for critical workloads.",
-      "Cloud migration and infrastructure setup.",
-      "Auto-scaling and cost optimization strategies.",
-      "Disaster recovery and high-availability architecture.",
-    ],
-  },
-  {
     icon: "database",
     title: "Infor XA ERP",
     bullets: [
@@ -68,6 +30,45 @@ const capabilities = [
       "System upgrades and legacy migration.",
       "Custom module development and configuration.",
       "Ongoing maintenance and technical support.",
+    ],
+  },
+  {
+    icon: "code-2",
+    title: "Custom Software Development",
+    bullets: [
+      "Mission-critical web applications and mobile products.",
+      "API development and third-party integrations.",
+      "Cloud deployment, scaling, and security by design.",
+    ],
+  },
+  {
+    icon: "bar-chart-3",
+    title: "Data Engineering & BI",
+    bullets: [
+      "Reliable data pipelines and automated ETL.",
+      "Interactive dashboards and real-time reporting.",
+      "Data warehouse design and dimensional modeling.",
+      "Operational and financial analytics.",
+    ],
+  },
+  {
+    icon: "cloud",
+    title: "Cloud & DevOps Engineering",
+    bullets: [
+      "Robust Azure and AWS environments for critical workloads.",
+      "CI/CD automation and Infrastructure as Code.",
+      "Docker and Kubernetes orchestration.",
+      "Observability, security, and disaster recovery.",
+    ],
+  },
+  {
+    icon: "refresh-cw",
+    title: "Software Modernization",
+    bullets: [
+      "Legacy application and architecture modernization.",
+      "Monolith decoupling and microservices migration.",
+      "Database and data performance optimization.",
+      "Cloud migration for legacy workloads.",
     ],
   },
   {
@@ -123,7 +124,7 @@ const testimonials = [
   },
   {
     quote:
-      "The AI integration they built writes directly to our ERP. That's not something we could have found off the shelf.",
+      "The reporting pipeline they built writes directly to our ERP. That's not something we could have found off the shelf.",
     initials: "MF",
     name: "Marcus Flynn",
     role: "CTO, CoreTech Solutions",
@@ -140,169 +141,172 @@ const testimonials = [
   </Fragment>
 
   <div class="page-home">
-  <section class="hero">
-    <div
-      class="hero-overlay"
-      style={`background-image:linear-gradient(rgba(15,23,42,0.55),rgba(15,23,42,0.55)), url(${heroBg.src})`}
-    >
-    </div>
-    <div class="hero-content wrap gutter">
-      <div class="hero-copy">
-        <h1>Building Intelligent Solutions for a Connected Future</h1>
-        <p>
-          Enterprise-grade web, AI, and ERP engineering for operations teams
-          that can't afford downtime.
-        </p>
+    <section class="hero">
+      <div
+        class="hero-overlay"
+        style={`background-image:linear-gradient(rgba(15,23,42,0.55),rgba(15,23,42,0.55)), url(${heroBg.src})`}
+      >
       </div>
-      <div class="hero-actions">
-        <a href="/contact" class="btn-primary">Talk to us</a>
-        <a href="/services" class="btn-outline">See our work</a>
+      <div class="hero-content wrap gutter">
+        <div class="hero-copy">
+          <h1>Building Intelligent Solutions for a Connected Future</h1>
+          <p>
+            Enterprise-grade web, AI, and ERP engineering for operations teams
+            that can't afford downtime.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a href="/contact" class="btn-primary">Talk to us</a>
+          <a href="/services" class="btn-outline">See our work</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="logos-section gutter">
-    <div class="wrap logos-inner">
-      <div class="logo-row">
-        <span>aws</span>
-        <span class="tracked">CLOUDFLARE</span>
-        <span>Microsoft Azure</span>
-        <span class="tracked-sm">ATLASSIAN</span>
-        <span>databricks</span>
-        <span>docker</span>
+    <section class="logos-section gutter">
+      <div class="wrap logos-inner">
+        <div class="logo-row">
+          <span>aws</span>
+          <span class="tracked">CLOUDFLARE</span>
+          <span>Microsoft Azure</span>
+          <span class="tracked-sm">ATLASSIAN</span>
+          <span>databricks</span>
+          <span>docker</span>
+        </div>
+        <div class="stats-row">
+          {
+            stats.map((s) => (
+              <div class="stat">
+                <span class="stat-value">{s.v}</span>
+                <span class="stat-label">{s.l}</span>
+              </div>
+            ))
+          }
+        </div>
       </div>
-      <div class="stats-row">
-        {
-          stats.map((s) => (
-            <div class="stat">
-              <span class="stat-value">{s.v}</span>
-              <span class="stat-label">{s.l}</span>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="capabilities-section gutter">
-    <div class="wrap capabilities-inner">
-      <div class="section-heading">
-        <span class="eyebrow">Capabilities</span>
-        <h2>What we build and run</h2>
-      </div>
-      <div class="capabilities-grid">
-        {
-          capabilities.map((cap) => (
-            <div class="card capability-card">
-              <div class="capability-top">
-                <div class="capability-icon">
-                  <i data-lucide={cap.icon} aria-hidden="true" />
+    <section class="capabilities-section gutter">
+      <div class="wrap capabilities-inner">
+        <div class="section-heading">
+          <span class="eyebrow">Capabilities</span>
+          <h2>What we build and run</h2>
+        </div>
+        <div class="capabilities-grid">
+          {
+            capabilities.map((cap) => (
+              <div class="card capability-card">
+                <div class="capability-top">
+                  <div class="capability-icon">
+                    <i data-lucide={cap.icon} aria-hidden="true" />
+                  </div>
+                  <div class="capability-body">
+                    <span class="capability-title">{cap.title}</span>
+                    <div class="capability-bullets">
+                      {cap.bullets.map((b) => (
+                        <div>{b}</div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div class="capability-body">
-                  <span class="capability-title">{cap.title}</span>
-                  <div class="capability-bullets">
-                    {cap.bullets.map((b) => (
-                      <div>{b}</div>
-                    ))}
+                <div class="capability-arrow">
+                  <i data-lucide="arrow-up-right" aria-hidden="true" />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="reasons-section gutter">
+      <div class="wrap reasons-inner">
+        <h2>Why teams choose us</h2>
+        <div class="reasons-grid">
+          {
+            reasons.map((r) => (
+              <div class="reason">
+                <span class="reason-number">{r.n}</span>
+                <div class="reason-body">
+                  <span class="reason-title">{r.title}</span>
+                  <span class="reason-desc">{r.desc}</span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section gutter">
+      <div class="wrap case-inner">
+        <div class="case-copy">
+          <div class="section-heading">
+            <span class="eyebrow eyebrow-sm">Case Study</span>
+            <h2>Cutting reporting time from 5 days to 4 hours</h2>
+          </div>
+          <div class="case-paragraphs">
+            <p>
+              Legacy reporting systems were creating a 5-day lag between shop
+              floor reality and executive visibility. The manual extraction from
+              Infor XA was prone to error.
+            </p>
+            <p>
+              We architected a direct Power BI integration that normalised XA
+              data in real-time. The result was immediate operational
+              transparency across three global plants.
+            </p>
+          </div>
+        </div>
+        <div class="case-stats">
+          {
+            caseStats.map((s) => (
+              <div class="case-stat">
+                <span class="case-stat-value">{s.v}</span>
+                <span class="case-stat-label">{s.l}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section gutter">
+      <div class="wrap testimonials-inner">
+        <div class="section-heading">
+          <span class="eyebrow">What clients say</span>
+          <h2>Real feedback from operations teams</h2>
+        </div>
+        <div class="testimonials-grid">
+          {
+            testimonials.map((t) => (
+              <div class="testimonial-card">
+                <i data-lucide="quote" aria-hidden="true" />
+                <p>{t.quote}</p>
+                <div class="testimonial-person">
+                  <div class="testimonial-avatar">
+                    <span>{t.initials}</span>
+                  </div>
+                  <div class="testimonial-meta">
+                    <span class="testimonial-name">{t.name}</span>
+                    <span class="testimonial-role">{t.role}</span>
                   </div>
                 </div>
               </div>
-              <div class="capability-arrow">
-                <i data-lucide="arrow-up-right" aria-hidden="true" />
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="reasons-section gutter">
-    <div class="wrap reasons-inner">
-      <h2>Why teams choose us</h2>
-      <div class="reasons-grid">
-        {
-          reasons.map((r) => (
-            <div class="reason">
-              <span class="reason-number">{r.n}</span>
-              <div class="reason-body">
-                <span class="reason-title">{r.title}</span>
-                <span class="reason-desc">{r.desc}</span>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="case-section gutter">
-    <div class="wrap case-inner">
-      <div class="case-copy">
-        <div class="section-heading">
-          <span class="eyebrow eyebrow-sm">Case Study</span>
-          <h2>Cutting reporting time from 5 days to 4 hours</h2>
-        </div>
-        <div class="case-paragraphs">
-          <p>
-            Legacy reporting systems were creating a 5-day lag between shop
-            floor reality and executive visibility. The manual extraction from
-            Infor XA was prone to error.
-          </p>
-          <p>
-            We architected a direct Power BI integration that normalised XA data
-            in real-time. The result was immediate operational transparency
-            across three global plants.
-          </p>
+            ))
+          }
         </div>
       </div>
-      <div class="case-stats">
-        {
-          caseStats.map((s) => (
-            <div class="case-stat">
-              <span class="case-stat-value">{s.v}</span>
-              <span class="case-stat-label">{s.l}</span>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="testimonials-section gutter">
-    <div class="wrap testimonials-inner">
-      <div class="section-heading">
-        <span class="eyebrow">What clients say</span>
-        <h2>Real feedback from operations teams</h2>
+    <section
+      class="cta-section gutter"
+      style={`background-image:linear-gradient(135deg, rgba(69,57,211,0.62), rgba(55,46,169,0.68)), url(${ctaBg.src})`}
+    >
+      <div class="cta-copy">
+        <h2>Ready to start a conversation?</h2>
+        <p>We scope projects in a single call. No long sales cycles.</p>
       </div>
-      <div class="testimonials-grid">
-        {
-          testimonials.map((t) => (
-            <div class="testimonial-card">
-              <i data-lucide="quote" aria-hidden="true" />
-              <p>{t.quote}</p>
-              <div class="testimonial-person">
-                <div class="testimonial-avatar">
-                  <span>{t.initials}</span>
-                </div>
-                <div class="testimonial-meta">
-                  <span class="testimonial-name">{t.name}</span>
-                  <span class="testimonial-role">{t.role}</span>
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section gutter">
-    <div class="cta-copy">
-      <h2>Ready to start a conversation?</h2>
-      <p>We scope projects in a single call. No long sales cycles.</p>
-    </div>
-    <a href="/contact" class="btn-outline btn-outline-dark">Talk to us</a>
-  </section>
+      <a href="/contact" class="btn-outline btn-outline-dark">Talk to us</a>
+    </section>
   </div>
 </BaseLayout>

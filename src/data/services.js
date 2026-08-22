@@ -3,78 +3,6 @@
 /** @type {Service[]} */
 export const services = [
 	{
-		slug: 'web-development',
-		icon: 'layout',
-		title: 'Web Development',
-		shortDescription:
-			'We build production web applications and internal tools, from Infor XA-integrated portals to standalone SaaS products. .NET, React, and cloud-native by default.',
-		description:
-			'We design and develop modern web experiences—from marketing sites to complex web applications—using proven frameworks and best practices.',
-		metaTitle: 'Web Development Services | ASquare',
-		metaDescription:
-			'Custom web development for high-performance, accessible websites and applications. ASquare builds solutions tailored to your business.',
-		features: [
-			'Responsive, mobile-first design',
-			'Performance and Core Web Vitals optimization',
-			'CMS integration and content workflows',
-			'Ongoing maintenance and support',
-		],
-	},
-	{
-		slug: 'ai-integration',
-		icon: 'brain-circuit',
-		title: 'AI Integration',
-		shortDescription:
-			'We deploy language models and ML pipelines that connect to your existing data infrastructure — not sandboxed demos, but systems that write to your ERP.',
-		description:
-			'We help you adopt AI responsibly—automating tasks, enhancing decision-making, and embedding intelligent features into your systems.',
-		metaTitle: 'AI Integration Services | ASquare',
-		metaDescription:
-			'Integrate AI into your business with ASquare. Automation, copilots, and intelligent workflows built on your data.',
-		features: [
-			'Process automation and copilots',
-			'LLM and API integration',
-			'Data pipeline design for AI workloads',
-			'Governance, security, and compliance guidance',
-		],
-	},
-	{
-		slug: 'power-bi',
-		icon: 'bar-chart-3',
-		title: 'Power BI & Analytics',
-		shortDescription:
-			'We design and maintain Power BI environments that pull directly from Infor XA, Azure, and other operational sources — built for trust.',
-		description:
-			'From data modeling to executive dashboards, we deliver Power BI solutions that help teams make faster, data-driven decisions.',
-		metaTitle: 'Power BI Consulting | ASquare',
-		metaDescription:
-			'Power BI dashboards, data modeling, and analytics consulting from ASquare.',
-		features: [
-			'Data modeling and ETL design',
-			'Executive and operational dashboards',
-			'Report automation and refresh schedules',
-			'Training and enablement for your team',
-		],
-	},
-	{
-		slug: 'cloud-services',
-		icon: 'cloud',
-		title: 'Cloud Services',
-		shortDescription:
-			'We architect, migrate, and manage Azure and AWS environments for production workloads — with a bias toward operational simplicity.',
-		description:
-			'We plan, migrate, and manage cloud environments with a focus on security, cost efficiency, and operational excellence.',
-		metaTitle: 'Cloud Services | ASquare',
-		metaDescription:
-			'Cloud migration, architecture, and managed services from ASquare. Azure, AWS, and hybrid solutions.',
-		features: [
-			'Cloud readiness assessments',
-			'Migration and modernization',
-			'Infrastructure as code and DevOps',
-			'Cost optimization and FinOps practices',
-		],
-	},
-	{
 		slug: 'infor-xa-erp',
 		icon: 'database',
 		title: 'Infor XA ERP',
@@ -90,6 +18,78 @@ export const services = [
 			'Custom development and integrations',
 			'Business process optimization',
 			'Training and post-go-live support',
+		],
+	},
+	{
+		slug: 'web-development',
+		icon: 'code-2',
+		title: 'Custom Software Development',
+		shortDescription:
+			'We engineer secure, scalable software — from mission-critical web applications to cross-platform mobile products — built for long-term growth, not just launch day.',
+		description:
+			'We engineer software that helps businesses operate smarter, move faster, and scale with confidence, turning complex requirements into secure, resilient, high-performing digital solutions.',
+		metaTitle: 'Custom Software Development | ASquare',
+		metaDescription:
+			'Custom software development from ASquare — scalable web and mobile applications engineered for long-term growth, security, and performance.',
+		features: [
+			'Architectural blueprinting and technology selection',
+			'Iterative, sprint-based development',
+			'API and enterprise system integration',
+			'Cloud deployment and scaling',
+		],
+	},
+	{
+		slug: 'power-bi',
+		icon: 'bar-chart-3',
+		title: 'Data Engineering & Business Intelligence',
+		shortDescription:
+			'We engineer reliable data pipelines, modern data platforms, and interactive dashboards that turn disconnected information into trusted business intelligence.',
+		description:
+			'From data pipeline engineering to warehousing, modeling, and BI visualization, we help organizations bring their data together, automate transformations, and give teams the insights they need to make faster, more informed decisions.',
+		metaTitle: 'Data Engineering & Business Intelligence | ASquare',
+		metaDescription:
+			'Data engineering, warehousing, and BI dashboards from ASquare. Turn fragmented data into trusted, actionable business intelligence.',
+		features: [
+			'Data pipeline engineering and automated ETL',
+			'Data warehousing and dimensional modeling',
+			'Interactive BI dashboards and KPI reporting',
+			'Operational and financial analytics',
+		],
+	},
+	{
+		slug: 'cloud-services',
+		icon: 'cloud',
+		title: 'Cloud & DevOps Engineering',
+		shortDescription:
+			'We design, automate, and optimize modern cloud environments — architecture, CI/CD automation, containerization, and observability — so teams release faster and operate more reliably.',
+		description:
+			'From cloud architecture and Infrastructure as Code to CI/CD automation, containerization, monitoring, and security, we build engineering foundations that enable teams to release software faster and operate it more reliably.',
+		metaTitle: 'Cloud & DevOps Engineering | ASquare',
+		metaDescription:
+			'Cloud architecture, CI/CD automation, containerization, and DevSecOps from ASquare. Build, deploy, and operate with confidence.',
+		features: [
+			'Cloud architecture and Infrastructure as Code',
+			'CI/CD pipeline engineering',
+			'Docker and Kubernetes orchestration',
+			'Observability, security, and DevSecOps',
+		],
+	},
+	{
+		slug: 'software-modernization',
+		icon: 'refresh-cw',
+		title: 'Software Modernization & Refactoring',
+		shortDescription:
+			'We modernize aging applications, refactor complex architectures, optimize databases, and move legacy workloads toward modern cloud environments.',
+		description:
+			'Our approach focuses on improving your existing technology without unnecessarily disrupting the business logic and systems your organization already depends on — transforming technical bottlenecks into scalable, maintainable digital platforms.',
+		metaTitle: 'Software Modernization & Refactoring | ASquare',
+		metaDescription:
+			'Legacy system modernization, refactoring, and cloud migration from ASquare. Modernize what works, transform what doesn’t.',
+		features: [
+			'Architecture audit and modernization roadmap',
+			'Monolith decoupling and re-architecture',
+			'Database and data performance optimization',
+			'Cloud migration and deployment',
 		],
 	},
 	{

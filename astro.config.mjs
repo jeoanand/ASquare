@@ -9,4 +9,7 @@ export default defineConfig({
   // Drives canonical URLs, og:url/og:image, sitemap.xml, and robots.txt.
   site: 'https://example.com',
   integrations: [sitemap()],
+  devToolbar: {
+    enabled: false,
+  },
 });
