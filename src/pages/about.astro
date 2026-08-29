@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 import aboutIntro from "../assets/img/about-intro.png";
+import missionImg from "../assets/img/about-mission.png";
+import visionImg from "../assets/img/about-vision.png";
 import avatarDavid from "../assets/img/about-avatar-david.png";
 import avatar1 from "../assets/img/about-avatar-1.png";
 import avatar2 from "../assets/img/about-avatar-2.png";
@@ -73,14 +75,14 @@ const values = [
         <div class="intro-paragraphs">
           <p>
             Asquare is a technology and software engineering company operating
-            across Canada, Australia, and the United States. We help businesses
-            solve complex technology challenges through specialized Infor XA
-            expertise and modern software engineering.
+            across <strong>Canada, Australia, and the United States</strong>. We
+            help businesses solve complex technology challenges through
+            specialized Infor XA expertise and modern software engineering.
           </p>
           <p>
-            Our services span Infor XA, software development, system
+            Our services span <strong>Infor XA, software development, system
             modernization, data and business intelligence, cloud, DevOps, and
-            integration — supporting both enterprise systems and broader
+            integration</strong> — supporting both enterprise systems and broader
             technology initiatives.
           </p>
           <p>
@@ -88,29 +90,101 @@ const values = [
             with business understanding to deliver practical, scalable solutions
             that create lasting value.
           </p>
-          <p class="intro-tagline">
-            Asquare — Deep enterprise expertise. Modern technology. One trusted
-            partner.
-          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="mission-vision-section gutter">
-    <div class="wrap mission-vision-grid">
-      <div class="mission-vision-col">
+  <section class="approach-section gutter">
+    <div class="wrap approach-inner">
+      <p class="approach-tagline">
+        <span class="approach-tagline-brand">Asquare</span>
+        <span class="approach-tagline-dash" aria-hidden="true">—</span>
+        <span class="approach-tagline-line">Deep enterprise expertise.</span>
+        <span class="approach-tagline-line">Modern technology.</span>
+        <span class="approach-tagline-line">One trusted partner.</span>
+      </p>
+      <div class="approach-grid">
+        <div class="approach-item">
+          <span class="approach-step">01</span>
+          <h3>Master the Complex</h3>
+          <p>
+            Complex enterprise technology is where our expertise runs deep. We
+            understand Infor XA and the environments that businesses rely on
+            every day.
+          </p>
+        </div>
+        <div class="approach-item">
+          <span class="approach-step">02</span>
+          <h3>Build the New</h3>
+          <p>
+            Our engineering teams independently design and build modern software,
+            applications, data platforms, and cloud solutions that solve today's
+            business challenges.
+          </p>
+        </div>
+        <div class="approach-item">
+          <span class="approach-step">03</span>
+          <h3>Stay for the Journey</h3>
+          <p>
+            We believe the best technology partnerships go beyond delivery. We
+            stay engaged, understand how your needs evolve, and help your
+            technology keep pace with your business.
+          </p>
+        </div>
+      </div>
+      <p class="approach-closer">Complex made possible</p>
+    </div>
+  </section>
+
+  <section class="about-split gutter">
+    <div class="wrap about-split-inner">
+      <div class="about-split-media">
+        <img src={missionImg.src} alt="ASquare engineers working through a client's systems" />
+      </div>
+      <div class="about-split-copy">
         <span class="eyebrow">Mission</span>
-        <p>
+        <h2>
           To simplify complex business challenges through connected, intuitive,
           and scalable digital solutions.
+        </h2>
+        <p>
+          Whether it's an Infor XA environment that needs modernising or
+          fragmented data that needs to become a single source of truth, we focus
+          on removing friction rather than adding tools. Every engagement is
+          measured against one standard: does it make the day-to-day work of your
+          operations, finance, and IT teams measurably easier?
+        </p>
+        <p>
+          We work as an extension of your team, pairing deep enterprise knowledge
+          with modern engineering practice — so the systems your business relies
+          on stay dependable while they evolve.
         </p>
       </div>
-      <div class="mission-vision-col">
+    </div>
+  </section>
+
+  <section class="about-split about-split-reverse gutter">
+    <div class="wrap about-split-inner">
+      <div class="about-split-media">
+        <img src={visionImg.src} alt="A modern enterprise technology environment" />
+      </div>
+      <div class="about-split-copy">
         <span class="eyebrow">Vision</span>
-        <p>
+        <h2>
           To become a trusted global engineering partner for modernizing
           mission-critical systems and powering digital transformation.
+        </h2>
+        <p>
+          We want to be the partner enterprises turn to when the ERP platforms,
+          data pipelines, and cloud infrastructure their business runs on need to
+          move forward without downtime or disruption.
+        </p>
+        <p>
+          As technology and AI reshape how businesses operate, our vision is to
+          help established companies adopt what is genuinely useful on a stable
+          foundation — across Canada, Australia, and the United States, and
+          wherever our clients grow next.
         </p>
       </div>
     </div>
@@ -224,40 +298,142 @@ const values = [
     color: var(--text);
   }
 
-  .intro-tagline {
-    font-weight: 700;
-    color: var(--text);
-  }
-
-  .mission-vision-section {
+  .approach-section {
     padding-block: 0 100px;
   }
 
-  .mission-vision-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-  }
-
-  .mission-vision-col {
+  .approach-inner {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 48px;
   }
 
-  .mission-vision-col p {
+  .approach-tagline {
+    margin: 0;
+    padding-left: 20px;
+    border-left: 3px solid var(--accent);
+    font-size: clamp(18px, 2.4vw, 22px);
+    line-height: 1.5;
+  }
+
+  .approach-tagline-brand {
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+
+  .approach-tagline-dash {
+    margin: 0 8px;
+    color: var(--text-subtle);
+  }
+
+  .approach-tagline-line {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .approach-tagline-line:not(:last-child)::after {
+    content: "·";
+    margin: 0 8px;
+    color: var(--text-subtle);
     font-weight: 400;
-    font-size: 18px;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+  }
+
+  .approach-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .approach-step {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--accent);
+  }
+
+  .approach-item h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--text);
+  }
+
+  .approach-item p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .approach-closer {
+    margin: 0;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    font-weight: 800;
+    font-size: clamp(24px, 4vw, 34px);
+    letter-spacing: -0.5px;
+    color: var(--text);
+  }
+
+  .about-split {
+    padding-block: 0 100px;
+  }
+
+  .about-split-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .about-split-reverse .about-split-media {
+    order: 2;
+  }
+
+  .about-split-media {
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--border);
+  }
+
+  .about-split-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-split-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-split-copy h2 {
+    font-weight: 700;
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.3;
+    color: var(--text);
+  }
+
+  .about-split-copy p {
+    font-weight: 400;
+    font-size: 16px;
     line-height: 1.6;
     color: var(--text-muted);
   }
 
   .leadership-section {
-    background: linear-gradient(
-      180deg,
-      rgba(154, 148, 224, 0.12) 54%,
-      rgba(84, 73, 215, 0.05) 100%
-    );
+    background: #f1f0fb;
+    border-block: 1px solid rgba(84, 73, 215, 0.12);
     padding-block: 100px;
   }
 
@@ -337,7 +513,7 @@ const values = [
   }
 
   .values-section {
-    padding-block: 0 100px;
+    padding-block: 100px;
   }
 
   .values-inner {
@@ -408,9 +584,17 @@ const values = [
       width: 100%;
     }
 
-    .mission-vision-grid {
+    .about-split-inner {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 32px;
+    }
+
+    .about-split-media {
+      height: 240px;
+    }
+
+    .about-split-reverse .about-split-media {
+      order: 0;
     }
   }
 </style>

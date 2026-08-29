@@ -5,6 +5,7 @@ import CtaBanner from './CtaBanner.astro';
 /** @typedef {{ icon: string; title: string; desc: string }} Capability */
 /** @typedef {{ n: string; title: string; desc: string }} Step */
 /** @typedef {{ title: string; items: string[] }} TechGroup */
+/** @typedef {{ icon: string; title: string; desc: string }} WhyPoint */
 /** @typedef {{ icon: string; title: string; desc: string; href: string; imgSrc: string }} Related */
 
 /** @type {{
@@ -20,6 +21,7 @@ import CtaBanner from './CtaBanner.astro';
 	hasTechStack?: boolean;
 	techGroups?: TechGroup[];
 	approachTinted?: boolean;
+	whyPoints?: WhyPoint[];
 	related: Related[];
 	ctaHeading: string;
 	ctaSubtitle: string;
@@ -38,6 +40,7 @@ const {
 	hasTechStack = false,
 	techGroups = [],
 	approachTinted = false,
+	whyPoints = [],
 	related,
 	ctaHeading,
 	ctaSubtitle,
@@ -129,6 +132,30 @@ const {
 										<span class="chip">{t}</span>
 									))}
 								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+		)
+	}
+
+	{
+		whyPoints.length > 0 && (
+			<section class="why-section gutter">
+				<div class="wrap why-inner">
+					<div class="section-heading">
+						<span class="eyebrow">Why ASquare</span>
+						<h2>Why choose us</h2>
+					</div>
+					<div class="capabilities-grid">
+						{whyPoints.map((w) => (
+							<div class="capability-card">
+								<div class="capability-icon">
+									<i data-lucide={w.icon} aria-hidden="true" />
+								</div>
+								<span class="capability-title">{w.title}</span>
+								<span class="capability-desc">{w.desc}</span>
 							</div>
 						))}
 					</div>

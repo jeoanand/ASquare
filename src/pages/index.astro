@@ -8,6 +8,24 @@ import jamesHarlow from "../assets/img/testimonials/james-harlow.png";
 import sandraObi from "../assets/img/testimonials/sandra-obi.png";
 import marcusFlynn from "../assets/img/testimonials/marcus-flynn.png";
 
+import awsLogo from "../assets/img/aws.png";
+import azureLogo from "../assets/img/microsoft-azure.png";
+import cloudflareLogo from "../assets/img/cloudflare.png";
+import appleLogo from "../assets/img/apple-logo.png";
+import atlassianLogo from "../assets/img/atlassian.png";
+import databricksLogo from "../assets/img/databricks.png";
+import dockerLogo from "../assets/img/docker.png";
+
+const logos = [
+  { name: "AWS", src: awsLogo },
+  { name: "Microsoft Azure", src: azureLogo },
+  { name: "Cloudflare", src: cloudflareLogo },
+  { name: "Apple", src: appleLogo },
+  { name: "Atlassian", src: atlassianLogo },
+  { name: "Databricks", src: databricksLogo },
+  { name: "Docker", src: dockerLogo },
+];
+
 const title = "ASquare | Technology Solutions for Modern Businesses";
 const description =
   "ASquare delivers custom software development, data engineering & BI, cloud & DevOps engineering, software modernization, IT services, and Infor XA ERP solutions.";
@@ -173,12 +191,17 @@ const testimonials = [
     <section class="logos-section gutter">
       <div class="wrap logos-inner">
         <div class="logo-row">
-          <span>aws</span>
-          <span class="tracked">CLOUDFLARE</span>
-          <span>Microsoft Azure</span>
-          <span class="tracked-sm">ATLASSIAN</span>
-          <span>databricks</span>
-          <span>docker</span>
+          {
+            logos.map((logo) => (
+              <img
+                class="logo-item"
+                data-logo={logo.name}
+                src={logo.src.src}
+                alt={logo.name}
+                loading="lazy"
+              />
+            ))
+          }
         </div>
         <div class="stats-row">
           {

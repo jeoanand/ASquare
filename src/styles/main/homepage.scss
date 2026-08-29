@@ -102,23 +102,28 @@
 
   .logo-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 48px;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
-    color: rgb(107, 114, 128);
-    font-weight: 700;
-    font-size: 18px;
+    justify-content: space-between;
+    gap: clamp(16px, 4vw, 48px);
   }
 
-  .logo-row .tracked {
-    letter-spacing: 0.12em;
-    font-size: 14px;
+  .logo-item {
+    flex: 0 1 auto;
+    min-width: 0;
+    height: clamp(18px, 3.4vw, 30px);
+    width: auto;
+    object-fit: contain;
+    opacity: 0.75;
+    transition: opacity 200ms;
   }
 
-  .logo-row .tracked-sm {
-    letter-spacing: 0.1em;
-    font-size: 14px;
+  .logo-item:hover {
+    opacity: 1;
+  }
+
+  .logo-item[data-logo="Cloudflare"] {
+    height: clamp(13px, 2.5vw, 22px);
   }
 
   .stats-row {
@@ -154,7 +159,7 @@
       rgba(154, 148, 224, 0.12) 54%,
       rgba(84, 73, 215, 0.05) 100%
     );
-    padding-block: 120px;
+    padding-block: 100px;
   }
 
   .capabilities-inner {
@@ -422,7 +427,7 @@
 
   .testimonials-section {
     background: #fff;
-    padding-block: 120px;
+    padding-block: 80px;
   }
 
   .testimonials-inner {
