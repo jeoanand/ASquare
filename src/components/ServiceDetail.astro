@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBanner from './CtaBanner.astro';
 
 /** @typedef {{ icon: string; title: string; desc: string }} Capability */
 /** @typedef {{ n: string; title: string; desc: string }} Step */
@@ -161,12 +162,6 @@ const {
 		</div>
 	</section>
 
-	<section class="cta-section gutter">
-		<div class="cta-copy">
-			<h2>{ctaHeading}</h2>
-			<p>{ctaSubtitle}</p>
-		</div>
-		<a href="/contact" class="btn-outline">{ctaButtonLabel}</a>
-	</section>
+	<CtaBanner heading={ctaHeading} text={ctaSubtitle} buttonLabel={ctaButtonLabel} />
 	</div>
 </BaseLayout>

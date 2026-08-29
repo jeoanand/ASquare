@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import CtaBanner from "../../components/CtaBanner.astro";
 import servicesHero from "../../assets/img/services-hero.png";
-import ctaBg from "../../assets/img/cta-bg.jpg";
 import { services } from "../../data/services.js";
 
 const title = "Services | ASquare";
@@ -57,15 +57,6 @@ const description =
       </div>
     </section>
 
-    <section
-      class="cta-section gutter"
-      style={`background-image:linear-gradient(135deg, rgba(69,57,211,0.62), rgba(55,46,169,0.68)), url(${ctaBg.src})`}
-    >
-      <div class="cta-copy">
-        <h2>Ready to start a conversation?</h2>
-        <p>We scope projects in a single call. No long sales cycles.</p>
-      </div>
-      <a href="/contact" class="btn-outline">Talk to us</a>
-    </section>
+    <CtaBanner />
   </div>
 </BaseLayout>

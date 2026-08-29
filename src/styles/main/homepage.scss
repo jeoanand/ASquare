@@ -89,10 +89,6 @@
     color: #fff;
   }
 
-  .btn-outline-dark {
-    border-color: #fff;
-  }
-
   .logos-section {
     background: #fff;
     padding-block: 64px;
@@ -259,6 +255,42 @@
   .capability-arrow svg {
     width: 20px;
     height: 20px;
+  }
+
+  .tech-stack-section {
+    background: linear-gradient(
+      180deg,
+      rgba(154, 148, 224, 0.12) 54%,
+      rgba(84, 73, 215, 0.05) 100%
+    );
+    padding-block: 100px;
+  }
+
+  .tech-stack-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .tech-stack-lead {
+    margin-top: 4px;
+    max-width: 640px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .tech-stack-figure {
+    margin: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(14, 24, 40, 0.12);
+  }
+
+  .tech-stack-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .reasons-section {
@@ -455,6 +487,14 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .testimonial-avatar span {
@@ -479,37 +519,6 @@
     font-weight: 400;
     font-size: 12px;
     color: rgb(110, 116, 126);
-  }
-
-  .cta-section {
-    background-color: var(--accent-cta);
-    background-size: cover;
-    background-position: center;
-    padding-block: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    text-align: center;
-  }
-
-  .cta-copy {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 661px;
-  }
-
-  .cta-copy h2 {
-    font-weight: 700;
-    font-size: clamp(28px, 5vw, 48px);
-    color: #fff;
-  }
-
-  .cta-copy p {
-    font-weight: 400;
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.8);
   }
 
   @media (max-width: 900px) {
