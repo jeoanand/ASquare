@@ -1,0 +1,48 @@
+// Styles for src/components/CtaBanner.astro
+
+.cta-banner {
+	background-color: var(--accent-cta);
+	background-size: cover;
+	background-position: center;
+	padding-block: 120px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+	text-align: center;
+}
+
+.cta-banner-copy {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	max-width: 661px;
+}
+
+.cta-banner-copy h2 {
+	font-weight: 700;
+	font-size: clamp(28px, 5vw, 48px);
+	color: #fff;
+}
+
+.cta-banner-copy p {
+	font-weight: 400;
+	font-size: 18px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.cta-banner-btn {
+	display: inline-block;
+	background: transparent;
+	color: #fff;
+	border: 1px solid #fff;
+	font-weight: 600;
+	font-size: 16px;
+	padding: 16px 32px;
+	border-radius: 4px;
+}
+
+.cta-banner-btn:hover {
+	background: rgba(255, 255, 255, 0.12);
+	color: #fff;
+}

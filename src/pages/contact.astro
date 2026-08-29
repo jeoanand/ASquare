@@ -76,7 +76,7 @@ const serviceOptions = [
                 class="f"
                 type="email"
                 name="email"
-                placeholder="email@asquare.com"
+                placeholder="email@asquaretechservices.com"
                 required
               />
             </label>
@@ -127,8 +127,7 @@ const serviceOptions = [
               src={mapsEmbedSrc}
               title="Map of ASquare's Mississauga office"
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </a>
           <div class="contact-card-body">
             <div class="contact-org">
@@ -157,7 +156,12 @@ const serviceOptions = [
         </div>
         <div class="response-time">
           <span class="response-label">Response time</span>
-          <span class="response-value">&lt; 1 business day</span>
+          <span class="response-value">We will reply shortly!</span>
+          <p class="response-note">
+            Our business team will personally review your enquiry and keep in
+            touch with you at every step until we have the right solution in
+            place.
+          </p>
         </div>
       </div>
     </div>
@@ -166,7 +170,7 @@ const serviceOptions = [
 
 <style>
   .contact-section {
-    padding-block: 190px 120px;
+    padding-block: 120px 120px;
   }
 
   .contact-inner {
@@ -275,6 +279,10 @@ const serviceOptions = [
     gap: 12px;
     padding: 16px;
     align-items: center;
+  }
+
+  .success-message[hidden] {
+    display: none;
   }
 
   .success-message :global(svg) {
@@ -400,6 +408,14 @@ const serviceOptions = [
     color: rgb(110, 116, 126);
   }
 
+  .response-note {
+    margin: 0;
+    max-width: 420px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
   @media (max-width: 900px) {
     .contact-section {
       padding-top: 110px;
@@ -422,5 +438,6 @@ const serviceOptions = [
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
     success?.removeAttribute("hidden");
+    form.reset();
   });
 </script>

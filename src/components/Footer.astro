@@ -1,81 +1,90 @@
 ---
-import logoWhite from '../assets/logo-white.png';
+import logoWhite from "../assets/logo-white.png";
 
 const year = new Date().getFullYear();
 
 const companyLinks = [
-	{ href: '/', label: 'Home' },
-	{ href: '/about', label: 'About' },
-	{ href: '/careers', label: 'Careers' },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/careers", label: "Careers" },
 ];
 
 const serviceLinks = [
-	{ href: '/services/infor-xa-erp', label: 'Infra XA' },
-	{ href: '/services/web-development', label: 'Software Development' },
-	{ href: '/services/power-bi', label: 'Data Engineering & BI' },
-	{ href: '/services/cloud-services', label: 'Cloud & DevOps' },
-	{ href: '/services/software-modernization', label: 'Modernization' },
-	{ href: '/services/it-services', label: 'Technical Support' },
+  { href: "/services/infor-xa-erp", label: "Infra XA" },
+  { href: "/services/web-development", label: "Software Development" },
+  { href: "/services/power-bi", label: "Data Engineering & BI" },
+  { href: "/services/cloud-services", label: "Cloud & DevOps" },
+  { href: "/services/software-modernization", label: "Modernization" },
+  { href: "/services/it-services", label: "Technical Support" },
 ];
 
 const connectLinks = [
-	{ href: '/contact', label: 'Contact' },
-	{ href: '/terms-of-service', label: 'Terms & Service' },
-	{ href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: "/contact", label: "Contact" },
+  { href: "/terms-of-service", label: "Terms & Service" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
 ];
 ---
 
 <footer class="site-footer">
-	<div class="wrap gutter footer-inner">
-		<div class="footer-grid">
-			<div class="footer-brand">
-				<img src={logoWhite.src} alt="A-Square" class="footer-logo" />
-				<p>Enterprise-grade engineering for critical operations. We build systems that stay running.</p>
-			</div>
+  <div class="wrap gutter footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src={logoWhite.src} alt="A-Square" class="footer-logo" />
+        <p>
+          Enterprise-grade engineering for critical operations. We build systems
+          that stay running.
+        </p>
+      </div>
 
-			<div class="footer-col">
-				<span class="footer-heading">Company</span>
-				{companyLinks.map(({ href, label }) => <a href={href}>{label}</a>)}
-			</div>
+      <div class="footer-col">
+        <span class="footer-heading">Company</span>
+        {companyLinks.map(({ href, label }) => <a href={href}>{label}</a>)}
+      </div>
 
-			<div class="footer-col">
-				<span class="footer-heading">Services</span>
-				{serviceLinks.map(({ href, label }) => <a href={href}>{label}</a>)}
-			</div>
+      <div class="footer-col">
+        <span class="footer-heading">Services</span>
+        {serviceLinks.map(({ href, label }) => <a href={href}>{label}</a>)}
+      </div>
 
-			<div class="footer-col">
-				<span class="footer-heading">Connect</span>
-				{connectLinks.map(({ href, label }) => <a href={href}>{label}</a>)}
-			</div>
+      <div class="footer-col">
+        <span class="footer-heading">Connect</span>
+        {connectLinks.map(({ href, label }) => <a href={href}>{label}</a>)}
+      </div>
 
-			<div class="footer-col footer-newsletter">
-				<span class="footer-heading">Newsletter</span>
-				<form class="newsletter-form">
-					<input type="email" placeholder="email@asquare.com" aria-label="Email address" />
-					<button type="submit" aria-label="Subscribe">
-						<i data-lucide="arrow-right" aria-hidden="true"></i>
-					</button>
-				</form>
-				<div class="footer-icons">
-					<i data-lucide="at-sign" aria-hidden="true"></i>
-					<i data-lucide="globe" aria-hidden="true"></i>
-					<i data-lucide="message-circle" aria-hidden="true"></i>
-					<i data-lucide="mail" aria-hidden="true"></i>
-				</div>
-			</div>
-		</div>
+      <div class="footer-col footer-newsletter">
+        <span class="footer-heading">Newsletter</span>
+        <form class="newsletter-form">
+          <input
+            type="email"
+            placeholder="email@asquaretechservices.com"
+            aria-label="Email address"
+          />
+          <button type="submit" aria-label="Subscribe">
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+        <div class="footer-icons">
+          <i data-lucide="at-sign" aria-hidden="true"></i>
+          <i data-lucide="globe" aria-hidden="true"></i>
+          <i data-lucide="message-circle" aria-hidden="true"></i>
+          <i data-lucide="mail" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
 
-		<div class="footer-bottom">
-			<span>&copy; {year} ASQUARE TECHNOLOGIES LLC.</span>
-			<span class="footer-legal">
-				<a href="/privacy-policy">Privacy Policy</a> / <a href="/terms-of-service">Terms of Service</a>
-			</span>
-		</div>
-	</div>
+    <div class="footer-bottom">
+      <span>&copy; {year} ASQUARE TECHNOLOGIES LLC.</span>
+      <span class="footer-legal">
+        <a href="/privacy-policy">Privacy Policy</a> / <a
+          href="/terms-of-service">Terms of Service</a
+        >
+      </span>
+    </div>
+  </div>
 </footer>
 
 <script>
-	document.querySelectorAll('.newsletter-form').forEach((form) => {
-		form.addEventListener('submit', (event) => event.preventDefault());
-	});
+  document.querySelectorAll(".newsletter-form").forEach((form) => {
+    form.addEventListener("submit", (event) => event.preventDefault());
+  });
 </script>

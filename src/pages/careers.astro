@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaBanner from "../components/CtaBanner.astro";
 import careersHero from "../assets/img/careers-hero.png";
 
 const title = "Careers | ASquare";
@@ -88,21 +89,16 @@ const culture = [
     </div>
   </section>
 
-  <section class="cta-section gutter">
-    <div class="cta-copy">
-      <h2>Not seeing a fit right now?</h2>
-      <p>
-        Send us your details and what you'd want to work on. We'll reach out
-        when the time is right.
-      </p>
-    </div>
-    <a href="/contact" class="btn-outline">Get in touch</a>
-  </section>
+  <CtaBanner
+    heading="Not seeing a fit right now?"
+    text="Send us your details and what you'd want to work on. We'll reach out when the time is right."
+    buttonLabel="Get in touch"
+  />
 </BaseLayout>
 
 <style>
   .hero-section {
-    padding-block: 190px 80px;
+    padding-block: 120px 80px;
   }
 
   .hero-inner {
@@ -322,51 +318,6 @@ const culture = [
 
   .btn-dark:hover {
     background: var(--text);
-    color: #fff;
-  }
-
-  .cta-section {
-    background: var(--accent);
-    padding-block: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    text-align: center;
-  }
-
-  .cta-copy {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 661px;
-  }
-
-  .cta-copy h2 {
-    font-weight: 700;
-    font-size: clamp(28px, 5vw, 48px);
-    color: #fff;
-  }
-
-  .cta-copy p {
-    font-weight: 400;
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  .btn-outline {
-    display: inline-block;
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 16px 32px;
-    border-radius: 4px;
-  }
-
-  .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.12);
     color: #fff;
   }
 

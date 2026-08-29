@@ -1,7 +1,30 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaBanner from "../components/CtaBanner.astro";
 import heroBg from "../assets/img/hero-bg.png";
-import ctaBg from "../assets/img/cta-bg.jpg";
+import techStack from "../assets/img/tech-stack.png";
+import jamesHarlow from "../assets/img/testimonials/james-harlow.png";
+import sandraObi from "../assets/img/testimonials/sandra-obi.png";
+import marcusFlynn from "../assets/img/testimonials/marcus-flynn.png";
+
+import awsLogo from "../assets/img/aws.png";
+import azureLogo from "../assets/img/microsoft-azure.png";
+import cloudflareLogo from "../assets/img/cloudflare.png";
+import appleLogo from "../assets/img/apple-logo.png";
+import atlassianLogo from "../assets/img/atlassian.png";
+import databricksLogo from "../assets/img/databricks.png";
+import dockerLogo from "../assets/img/docker.png";
+
+const logos = [
+  { name: "AWS", src: awsLogo },
+  { name: "Microsoft Azure", src: azureLogo },
+  { name: "Cloudflare", src: cloudflareLogo },
+  { name: "Apple", src: appleLogo },
+  { name: "Atlassian", src: atlassianLogo },
+  { name: "Databricks", src: databricksLogo },
+  { name: "Docker", src: dockerLogo },
+];
 
 const title = "ASquare | Technology Solutions for Modern Businesses";
 const description =
@@ -111,6 +134,7 @@ const testimonials = [
   {
     quote:
       "We had Infor XA data in three separate spreadsheets. ASquare connected everything to Power BI in 6 weeks and we haven't touched a spreadsheet since.",
+    photo: jamesHarlow,
     initials: "JH",
     name: "James Harlow",
     role: "Head of Operations, Meridian Group",
@@ -118,6 +142,7 @@ const testimonials = [
   {
     quote:
       "Most consultants want to sell you a new system. These engineers actually read your existing setup and told us what to fix first. Rare.",
+    photo: sandraObi,
     initials: "SO",
     name: "Sandra Obi",
     role: "IT Director, Apex Industries",
@@ -125,6 +150,7 @@ const testimonials = [
   {
     quote:
       "The reporting pipeline they built writes directly to our ERP. That's not something we could have found off the shelf.",
+    photo: marcusFlynn,
     initials: "MF",
     name: "Marcus Flynn",
     role: "CTO, CoreTech Solutions",
@@ -165,12 +191,17 @@ const testimonials = [
     <section class="logos-section gutter">
       <div class="wrap logos-inner">
         <div class="logo-row">
-          <span>aws</span>
-          <span class="tracked">CLOUDFLARE</span>
-          <span>Microsoft Azure</span>
-          <span class="tracked-sm">ATLASSIAN</span>
-          <span>databricks</span>
-          <span>docker</span>
+          {
+            logos.map((logo) => (
+              <img
+                class="logo-item"
+                data-logo={logo.name}
+                src={logo.src.src}
+                alt={logo.name}
+                loading="lazy"
+              />
+            ))
+          }
         </div>
         <div class="stats-row">
           {
@@ -237,6 +268,29 @@ const testimonials = [
       </div>
     </section>
 
+    <section class="tech-stack-section gutter">
+      <div class="wrap tech-stack-inner">
+        <div class="section-heading">
+          <span class="eyebrow">Tech Stack</span>
+          <h2>The complete stack we build and run on</h2>
+          <p class="tech-stack-lead">
+            From responsive frontends and cross-platform mobile apps to scalable
+            backends, databases, DevOps, and AI integration — plus end-to-end
+            Infor XA ERP.
+          </p>
+        </div>
+        <figure class="tech-stack-figure">
+          <Image
+            src={techStack}
+            alt="A-Square technology stack: Frontend (Angular, React, Vue.js, Next.js, TypeScript, HTML5, CSS3, Tailwind CSS), Mobile (Flutter, React Native, Android Studio, Xcode), Backend (Node.js, .NET Core, Java, Python, Next.js), Database (Microsoft SQL Server, MySQL, PostgreSQL, MongoDB, Redis, IBM Db2), DevOps (GitLab, Jenkins, Docker, Kubernetes, Terraform, AWS, Microsoft Azure), Management (Jira, Confluence, Slack, Microsoft Teams, Bitbucket, Notion), AI Integration (ChatGPT, Claude, Google Gemini, Microsoft Copilot, Perplexity, DALL-E), and Infor XA ERP."
+            widths={[640, 960, 1280, 1720]}
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            loading="lazy"
+          />
+        </figure>
+      </div>
+    </section>
+
     <section class="case-section gutter">
       <div class="wrap case-inner">
         <div class="case-copy">
@@ -284,7 +338,17 @@ const testimonials = [
                 <p>{t.quote}</p>
                 <div class="testimonial-person">
                   <div class="testimonial-avatar">
-                    <span>{t.initials}</span>
+                    {t.photo ? (
+                      <Image
+                        src={t.photo}
+                        alt={`Portrait of ${t.name}`}
+                        width={80}
+                        height={80}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span>{t.initials}</span>
+                    )}
                   </div>
                   <div class="testimonial-meta">
                     <span class="testimonial-name">{t.name}</span>
@@ -298,15 +362,6 @@ const testimonials = [
       </div>
     </section>
 
-    <section
-      class="cta-section gutter"
-      style={`background-image:linear-gradient(135deg, rgba(69,57,211,0.62), rgba(55,46,169,0.68)), url(${ctaBg.src})`}
-    >
-      <div class="cta-copy">
-        <h2>Ready to start a conversation?</h2>
-        <p>We scope projects in a single call. No long sales cycles.</p>
-      </div>
-      <a href="/contact" class="btn-outline btn-outline-dark">Talk to us</a>
-    </section>
+    <CtaBanner />
   </div>
 </BaseLayout>

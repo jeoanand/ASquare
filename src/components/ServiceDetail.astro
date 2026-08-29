@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBanner from './CtaBanner.astro';
 
 /** @typedef {{ icon: string; title: string; desc: string }} Capability */
 /** @typedef {{ n: string; title: string; desc: string }} Step */
 /** @typedef {{ title: string; items: string[] }} TechGroup */
+/** @typedef {{ icon: string; title: string; desc: string }} WhyPoint */
 /** @typedef {{ icon: string; title: string; desc: string; href: string; imgSrc: string }} Related */
 
 /** @type {{
@@ -19,6 +21,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	hasTechStack?: boolean;
 	techGroups?: TechGroup[];
 	approachTinted?: boolean;
+	whyPoints?: WhyPoint[];
 	related: Related[];
 	ctaHeading: string;
 	ctaSubtitle: string;
@@ -37,6 +40,7 @@ const {
 	hasTechStack = false,
 	techGroups = [],
 	approachTinted = false,
+	whyPoints = [],
 	related,
 	ctaHeading,
 	ctaSubtitle,
@@ -136,6 +140,30 @@ const {
 		)
 	}
 
+	{
+		whyPoints.length > 0 && (
+			<section class="why-section gutter">
+				<div class="wrap why-inner">
+					<div class="section-heading">
+						<span class="eyebrow">Why ASquare</span>
+						<h2>Why choose us</h2>
+					</div>
+					<div class="capabilities-grid">
+						{whyPoints.map((w) => (
+							<div class="capability-card">
+								<div class="capability-icon">
+									<i data-lucide={w.icon} aria-hidden="true" />
+								</div>
+								<span class="capability-title">{w.title}</span>
+								<span class="capability-desc">{w.desc}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+		)
+	}
+
 	<section class:list={['related-section', 'gutter', { 'with-tech-stack': hasTechStack }]}>
 		<div class="wrap related-inner">
 			<div class="section-heading">
@@ -161,12 +189,6 @@ const {
 		</div>
 	</section>
 
-	<section class="cta-section gutter">
-		<div class="cta-copy">
-			<h2>{ctaHeading}</h2>
-			<p>{ctaSubtitle}</p>
-		</div>
-		<a href="/contact" class="btn-outline">{ctaButtonLabel}</a>
-	</section>
+	<CtaBanner heading={ctaHeading} text={ctaSubtitle} buttonLabel={ctaButtonLabel} />
 	</div>
 </BaseLayout>

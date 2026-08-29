@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import CtaBanner from "../../components/CtaBanner.astro";
 import servicesHero from "../../assets/img/services-hero.png";
-import ctaBg from "../../assets/img/cta-bg.jpg";
+import ourProcess from "../../assets/img/our-process.png";
 import { services } from "../../data/services.js";
 
 const title = "Services | ASquare";
@@ -57,15 +59,43 @@ const description =
       </div>
     </section>
 
-    <section
-      class="cta-section gutter"
-      style={`background-image:linear-gradient(135deg, rgba(69,57,211,0.62), rgba(55,46,169,0.68)), url(${ctaBg.src})`}
-    >
-      <div class="cta-copy">
-        <h2>Ready to start a conversation?</h2>
-        <p>We scope projects in a single call. No long sales cycles.</p>
+    <section class="process-section gutter">
+      <div class="wrap process-inner">
+        <div class="process-copy">
+          <div class="section-heading">
+            <span class="eyebrow">How we work</span>
+            <h2>Our Process</h2>
+          </div>
+          <p>
+            Every engagement runs on an agile delivery model — short, focused
+            sprints that end with working software, and priorities you can adjust
+            as the work reveals what matters most. No big-bang releases, no
+            surprises at the finish line.
+          </p>
+          <p>
+            We plan and track all of it in Jira, so you always have a live view
+            of scope, progress, and what's shipping next. Sprint planning,
+            reviews, and backlog grooming happen with your team in the room —
+            you're part of the process, not an audience for it.
+          </p>
+          <ul class="process-points">
+            <li>Two-week sprints with demoable outcomes</li>
+            <li>Shared Jira board for full visibility</li>
+            <li>Regular reviews and transparent reporting</li>
+          </ul>
+        </div>
+        <div class="process-media">
+          <Image
+            src={ourProcess}
+            alt="ASquare's agile delivery process tracked in Jira"
+            widths={[480, 720, 1080, 1320]}
+            sizes="(max-width: 900px) 100vw, 620px"
+            loading="lazy"
+          />
+        </div>
       </div>
-      <a href="/contact" class="btn-outline">Talk to us</a>
     </section>
+
+    <CtaBanner />
   </div>
 </BaseLayout>
