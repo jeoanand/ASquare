@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CtaBanner from "../components/CtaBanner.astro";
-import aboutIntro from "../assets/img/about-intro.png";
+import aboutIntro from "../assets/img/about-us-hero.jpg";
 import missionImg from "../assets/img/about-mission.png";
 import visionImg from "../assets/img/about-vision.png";
 import avatarDavid from "../assets/img/about-avatar-david.png";
@@ -19,7 +19,7 @@ const team = [
   {
     photo: avatarDavid,
     name: "David Thorne",
-    role: "Founding Engineer",
+    role: "Founder & CEO",
     bio: "15 years of Infor XA and custom .NET architecture.",
   },
   {
@@ -80,10 +80,10 @@ const values = [
             specialized Infor XA expertise and modern software engineering.
           </p>
           <p>
-            Our services span <strong>Infor XA, software development, system
-            modernization, data and business intelligence, cloud, DevOps, and
-            integration</strong> — supporting both enterprise systems and broader
-            technology initiatives.
+            Our services span <strong
+              >Infor XA, software development, system modernization, data and
+              business intelligence, cloud, DevOps, and integration</strong
+            > — supporting both enterprise systems and broader technology initiatives.
           </p>
           <p>
             We work as an extension of your team, combining technical expertise
@@ -118,9 +118,9 @@ const values = [
           <span class="approach-step">02</span>
           <h3>Build the New</h3>
           <p>
-            Our engineering teams independently design and build modern software,
-            applications, data platforms, and cloud solutions that solve today's
-            business challenges.
+            Our engineering teams independently design and build modern
+            software, applications, data platforms, and cloud solutions that
+            solve today's business challenges.
           </p>
         </div>
         <div class="approach-item">
@@ -140,7 +140,10 @@ const values = [
   <section class="about-split gutter">
     <div class="wrap about-split-inner">
       <div class="about-split-media">
-        <img src={missionImg.src} alt="ASquare engineers working through a client's systems" />
+        <img
+          src={missionImg.src}
+          alt="ASquare engineers working through a client's systems"
+        />
       </div>
       <div class="about-split-copy">
         <span class="eyebrow">Mission</span>
@@ -150,15 +153,15 @@ const values = [
         </h2>
         <p>
           Whether it's an Infor XA environment that needs modernising or
-          fragmented data that needs to become a single source of truth, we focus
-          on removing friction rather than adding tools. Every engagement is
-          measured against one standard: does it make the day-to-day work of your
-          operations, finance, and IT teams measurably easier?
+          fragmented data that needs to become a single source of truth, we
+          focus on removing friction rather than adding tools. Every engagement
+          is measured against one standard: does it make the day-to-day work of
+          your operations, finance, and IT teams measurably easier?
         </p>
         <p>
-          We work as an extension of your team, pairing deep enterprise knowledge
-          with modern engineering practice — so the systems your business relies
-          on stay dependable while they evolve.
+          We work as an extension of your team, pairing deep enterprise
+          knowledge with modern engineering practice — so the systems your
+          business relies on stay dependable while they evolve.
         </p>
       </div>
     </div>
@@ -167,7 +170,10 @@ const values = [
   <section class="about-split about-split-reverse gutter">
     <div class="wrap about-split-inner">
       <div class="about-split-media">
-        <img src={visionImg.src} alt="A modern enterprise technology environment" />
+        <img
+          src={visionImg.src}
+          alt="A modern enterprise technology environment"
+        />
       </div>
       <div class="about-split-copy">
         <span class="eyebrow">Vision</span>
@@ -177,8 +183,8 @@ const values = [
         </h2>
         <p>
           We want to be the partner enterprises turn to when the ERP platforms,
-          data pipelines, and cloud infrastructure their business runs on need to
-          move forward without downtime or disruption.
+          data pipelines, and cloud infrastructure their business runs on need
+          to move forward without downtime or disruption.
         </p>
         <p>
           As technology and AI reshape how businesses operate, our vision is to
@@ -537,10 +543,10 @@ const values = [
   }
 
   .value-card {
-    border-radius: 4px;
+    border-radius: 8px;
     background: #fff;
     box-shadow: inset 0 0 0 1px var(--border);
-    padding: 48px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     gap: 32px;

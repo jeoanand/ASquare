@@ -182,7 +182,7 @@
   }
 
   .eyebrow-sm {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .section-heading h2 {
@@ -287,8 +287,10 @@
 
   .tech-stack-figure {
     margin: 0;
+    padding: 20px;
     border-radius: 16px;
     overflow: hidden;
+    background: #fff;
     box-shadow: 0 12px 32px rgba(14, 24, 40, 0.12);
   }
 
@@ -406,7 +408,7 @@
   }
 
   .case-stat {
-    border-left: 3px solid var(--accent);
+    border-left: 6px solid var(--accent);
     padding-left: 32px;
     display: flex;
     flex-direction: column;

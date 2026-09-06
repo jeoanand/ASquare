@@ -93,6 +93,7 @@
 }
 
 .nav-link {
+	position: relative;
 	display: inline-flex;
 	align-items: center;
 	gap: 4px;
@@ -120,7 +121,28 @@
 }
 
 .nav-link[data-active='true'] {
+	/* On the transparent hero header, the base accent purple blends into
+	   the dark navy hero background — use a lighter tint there so the
+	   active link stays legible; the solid/scrolled header overrides
+	   back to the standard accent below since it's on a white surface. */
+	color: var(--accent-light) !important;
+	font-weight: 700;
+}
+
+.site-header[data-variant='solid'] .nav-link[data-active='true'],
+.site-header.is-scrolled .nav-link[data-active='true'] {
 	color: var(--accent) !important;
+}
+
+.nav-link[data-active='true']::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -8px;
+	height: 2px;
+	border-radius: 2px;
+	background: currentColor;
 }
 
 .chevron {
