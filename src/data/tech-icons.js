@@ -1,0 +1,40 @@
+/** Maps a tech-stack chip label to a lucide icon name. */
+const techIcons = {
+	"Microsoft Azure": "cloud",
+	Azure: "cloud",
+	AWS: "server",
+	"Hybrid Cloud": "network",
+	Docker: "container",
+	Kubernetes: "boxes",
+	"GitHub Actions": "workflow",
+	"GitLab CI/CD": "git-merge",
+	"Azure DevOps": "kanban",
+	Jenkins: "settings",
+	Terraform: "layers",
+	"Cloud-native IaC tools": "file-code",
+	"Application Monitoring": "activity",
+	"Infrastructure Monitoring": "monitor",
+	"Centralized Logging": "file-text",
+	".NET / ASP.NET Core": "code-2",
+	"Node.js": "server",
+	Angular: "layout-grid",
+	React: "atom",
+	Flutter: "smartphone",
+	"SQL Server": "database",
+	PostgreSQL: "database",
+	MySQL: "hard-drive",
+	Oracle: "layers",
+	MongoDB: "box",
+	"SQL / T-SQL": "table-2",
+	Python: "code",
+	"ETL / ELT": "repeat",
+	"REST APIs": "network",
+	"Data Warehousing": "archive",
+	"Power BI": "bar-chart-3",
+	Tableau: "pie-chart",
+	"Automated Reporting": "file-text",
+};
+
+export function getTechIcon(name) {
+	return techIcons[name] ?? "cpu";
+}

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBanner from './CtaBanner.astro';
+import { getTechIcon } from '../data/tech-icons.js';
 
 /** @typedef {{ icon: string; title: string; desc: string }} Capability */
 /** @typedef {{ n: string; title: string; desc: string }} Step */
@@ -129,7 +130,10 @@ const {
 								<span class="tech-card-title">{g.title}</span>
 								<div class="tech-chips">
 									{g.items.map((t) => (
-										<span class="chip">{t}</span>
+										<span class="chip">
+											<i data-lucide={getTechIcon(t)} aria-hidden="true" />
+											{t}
+										</span>
 									))}
 								</div>
 							</div>
