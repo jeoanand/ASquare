@@ -1,8 +1,8 @@
 ---
 import ServiceDetail from "../../components/ServiceDetail.astro";
-import heroImg from "../../assets/img/powerbi-hero.png";
-import relatedAi from "../../assets/img/related-ai.png";
-import relatedCloud from "../../assets/img/related-cloud.png";
+import heroImg from "../../assets/img/powerbi-hero.jpg";
+import infraxaHero from "../../assets/img/infraxa-hero.jpg";
+import cloudHero from "../../assets/img/cloud-hero.jpg";
 import { getServiceBySlug } from "../../data/services.js";
 
 const service = getServiceBySlug("power-bi");
@@ -120,14 +120,14 @@ const related = [
     title: "Infor XA ERP",
     desc: "Support, extend, and modernise Infor XA deployments feeding your data models.",
     href: "/services/infor-xa-erp",
-    imgSrc: relatedAi.src,
+    imgSrc: infraxaHero.src,
   },
   {
     icon: "cloud",
     title: "Cloud & DevOps Engineering",
     desc: "Robust Azure and AWS environments engineered to host your reporting and data layer.",
     href: "/services/cloud-services",
-    imgSrc: relatedCloud.src,
+    imgSrc: cloudHero.src,
   },
 ];
 ---

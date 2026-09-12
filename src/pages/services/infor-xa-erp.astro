@@ -1,8 +1,8 @@
 ---
 import ServiceDetail from "../../components/ServiceDetail.astro";
-import heroImg from "../../assets/img/infraxa-hero.png";
-import relatedAi from "../../assets/img/related-ai.png";
-import relatedCloud from "../../assets/img/related-cloud.png";
+import heroImg from "../../assets/img/infraxa-hero.jpg";
+import powerbiHero from "../../assets/img/powerbi-hero.jpg";
+import cloudHero from "../../assets/img/cloud-hero.jpg";
 import { getServiceBySlug } from "../../data/services.js";
 
 const service = getServiceBySlug("infor-xa-erp");
@@ -78,14 +78,14 @@ const related = [
     title: "Data Engineering & BI",
     desc: "Dashboards and reporting pipelines that pull directly from Infor XA and Azure.",
     href: "/services/power-bi",
-    imgSrc: relatedAi.src,
+    imgSrc: powerbiHero.src,
   },
   {
     icon: "cloud",
     title: "Cloud & DevOps Engineering",
     desc: "Robust Azure and AWS environments engineered for critical, always-on workloads.",
     href: "/services/cloud-services",
-    imgSrc: relatedCloud.src,
+    imgSrc: cloudHero.src,
   },
 ];
 ---

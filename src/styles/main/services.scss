@@ -237,7 +237,7 @@
   .hero {
     position: relative;
     overflow: hidden;
-    min-height: 720px;
+    min-height: 800px;
     display: flex;
     align-items: center;
     padding: 160px 0 80px;
@@ -422,19 +422,19 @@
   .step {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
   }
 
   .step-number {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 32px;
     color: var(--accent);
   }
 
   .step-body {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
   }
 
   .step-title {
@@ -530,6 +530,12 @@
 
   .related-section.with-tech-stack {
     padding-top: 60px;
+  }
+
+  // it-services and infor-xa-erp have no tech-stack/why section between the
+  // tinted approach section and this one, so it needs its own top padding.
+  .approach-section.tinted:not(.with-tech-stack) + .related-section {
+    padding-top: 80px;
   }
 
   .related-grid {
