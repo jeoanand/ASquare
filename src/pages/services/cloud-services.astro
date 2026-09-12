@@ -1,8 +1,8 @@
 ---
 import ServiceDetail from "../../components/ServiceDetail.astro";
-import heroImg from "../../assets/img/cloud-hero.png";
-import relatedAi from "../../assets/img/related-ai.png";
-import relatedCloud from "../../assets/img/related-cloud.png";
+import heroImg from "../../assets/img/cloud-hero.jpg";
+import itConsultingHero from "../../assets/img/itconsulting-hero.jpg";
+import missionHero from "../../assets/img/mission-hero.jpg";
 import { getServiceBySlug } from "../../data/services.js";
 
 const service = getServiceBySlug("cloud-services");
@@ -137,14 +137,14 @@ const related = [
     title: "IT Consulting",
     desc: "Technical leadership for architecture and strategy across your cloud infrastructure.",
     href: "/services/it-services",
-    imgSrc: relatedAi.src,
+    imgSrc: itConsultingHero.src,
   },
   {
     icon: "refresh-cw",
     title: "Software Modernization & Refactoring",
     desc: "Modernize legacy workloads and move them toward the cloud environments we build and manage.",
     href: "/services/software-modernization",
-    imgSrc: relatedCloud.src,
+    imgSrc: missionHero.src,
   },
 ];
 ---

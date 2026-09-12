@@ -1,8 +1,8 @@
 ---
 import ServiceDetail from "../../components/ServiceDetail.astro";
-import heroImg from "../../assets/img/itconsulting-hero.png";
-import relatedAi from "../../assets/img/related-ai.png";
-import relatedCloud from "../../assets/img/related-cloud.png";
+import heroImg from "../../assets/img/itconsulting-hero.jpg";
+import cloudHero from "../../assets/img/cloud-hero.jpg";
+import webDevHero from "../../assets/img/web-dev-hero.jpg";
 import { getServiceBySlug } from "../../data/services.js";
 
 const service = getServiceBySlug("it-services");
@@ -78,14 +78,14 @@ const related = [
     title: "Cloud & DevOps Engineering",
     desc: "Robust Azure and AWS environments engineered for critical, always-on workloads.",
     href: "/services/cloud-services",
-    imgSrc: relatedCloud.src,
+    imgSrc: cloudHero.src,
   },
   {
     icon: "code-2",
     title: "Custom Software Development",
     desc: "Production web applications and portals built on .NET, React, and cloud-native infrastructure.",
     href: "/services/web-development",
-    imgSrc: relatedAi.src,
+    imgSrc: webDevHero.src,
   },
 ];
 ---
