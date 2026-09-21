@@ -48,6 +48,7 @@ const capabilities = [
   {
     icon: "database",
     title: "Infor XA ERP",
+    href: "/services/infor-xa-erp",
     bullets: [
       "Supporting and modernising your core enterprise platform.",
       "System upgrades and legacy migration.",
@@ -58,6 +59,7 @@ const capabilities = [
   {
     icon: "code-2",
     title: "Custom Software Development",
+    href: "/services/web-development",
     bullets: [
       "Mission-critical web applications and mobile products.",
       "API development and third-party integrations.",
@@ -67,6 +69,7 @@ const capabilities = [
   {
     icon: "bar-chart-3",
     title: "Data Engineering & BI",
+    href: "/services/power-bi",
     bullets: [
       "Reliable data pipelines and automated ETL.",
       "Interactive dashboards and real-time reporting.",
@@ -77,6 +80,7 @@ const capabilities = [
   {
     icon: "cloud",
     title: "Cloud & DevOps Engineering",
+    href: "/services/cloud-services",
     bullets: [
       "Robust Azure and AWS environments for critical workloads.",
       "CI/CD automation and Infrastructure as Code.",
@@ -87,6 +91,7 @@ const capabilities = [
   {
     icon: "refresh-cw",
     title: "Software Modernization",
+    href: "/services/software-modernization",
     bullets: [
       "Legacy application and architecture modernization.",
       "Monolith decoupling and microservices migration.",
@@ -97,6 +102,7 @@ const capabilities = [
   {
     icon: "briefcase",
     title: "IT Consulting",
+    href: "/services/it-services",
     bullets: [
       "Technical leadership for architecture and strategy.",
       "Digital transformation roadmap planning.",
@@ -225,7 +231,7 @@ const testimonials = [
         <div class="capabilities-grid">
           {
             capabilities.map((cap) => (
-              <div class="card capability-card">
+              <a href={cap.href} class="card capability-card">
                 <div class="capability-top">
                   <div class="capability-icon">
                     <i data-lucide={cap.icon} aria-hidden="true" />
@@ -242,7 +248,7 @@ const testimonials = [
                 <div class="capability-arrow">
                   <i data-lucide="arrow-up-right" aria-hidden="true" />
                 </div>
-              </div>
+              </a>
             ))
           }
         </div>
