@@ -206,6 +206,8 @@
     flex-direction: column;
     gap: 20px;
     transition: box-shadow 200ms;
+    text-decoration: none;
+    color: inherit;
   }
 
   .capability-card:hover {

@@ -31,13 +31,20 @@ const contactJsonLd = {
 };
 
 const serviceOptions = [
+  "Infor XA ERP",
   "Custom Software Development",
   "Data Engineering & Business Intelligence",
   "Cloud & DevOps Engineering",
   "Software Modernization & Refactoring",
-  "Infor XA ERP",
   "IT Consulting",
 ];
+
+// Google's shared test key (always passes, works on localhost). Set
+// PUBLIC_RECAPTCHA_SITE_KEY in .env to your real key before deploying —
+// register one for this domain at https://www.google.com/recaptcha/admin.
+const recaptchaSiteKey =
+  import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ??
+  "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -47,6 +54,13 @@ const serviceOptions = [
       set:html={JSON.stringify(contactJsonLd)}
     />
   </Fragment>
+
+  <script
+    is:inline
+    src="https://www.google.com/recaptcha/api.js"
+    async
+    defer
+  ></script>
 
   <section class="contact-section gutter">
     <div class="wrap contact-inner">
@@ -104,6 +118,12 @@ const serviceOptions = [
                 required></textarea>
             </label>
           </div>
+          <div class="captcha-field">
+            <div class="g-recaptcha" data-sitekey={recaptchaSiteKey}></div>
+            <span class="captcha-error" id="captcha-error" hidden
+              >Please verify you're not a robot before sending.</span
+            >
+          </div>
           <button type="submit" class="btn-primary">Send message</button>
           <div class="success-message" id="contact-success" hidden>
             <i data-lucide="check-circle" aria-hidden="true"></i>
@@ -137,10 +157,10 @@ const serviceOptions = [
               >
             </div>
             <div class="contact-details">
-              <div class="contact-detail">
+              <a class="contact-detail" href="mailto:info@asquaretechservices.com">
                 <i data-lucide="mail" aria-hidden="true"></i>
-                <span>hello@asquarecs.com</span>
-              </div>
+                <span>info@asquaretechservices.com</span>
+              </a>
               <div class="contact-detail">
                 <i data-lucide="phone" aria-hidden="true"></i>
                 <span>+1 437 449 0275</span>
@@ -255,6 +275,22 @@ const serviceOptions = [
     color: rgb(110, 116, 126);
   }
 
+  .captcha-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .captcha-error {
+    font-weight: 500;
+    font-size: 13px;
+    color: rgb(220, 38, 38);
+  }
+
+  .captcha-error[hidden] {
+    display: none;
+  }
+
   .btn-primary {
     background: var(--accent);
     color: #fff;
@@ -362,6 +398,7 @@ const serviceOptions = [
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
   }
 
   .contact-detail :global(svg) {
@@ -432,12 +469,28 @@ const serviceOptions = [
 </style>
 
 <script>
-  const form = document.getElementById("contact-form");
+  declare global {
+    interface Window {
+      grecaptcha?: { getResponse: () => string; reset: () => void };
+    }
+  }
+
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
   const success = document.getElementById("contact-success");
+  const captchaError = document.getElementById("captcha-error");
 
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    const captchaResponse = window.grecaptcha?.getResponse();
+    if (!captchaResponse) {
+      captchaError?.removeAttribute("hidden");
+      return;
+    }
+    captchaError?.setAttribute("hidden", "");
+
     success?.removeAttribute("hidden");
     form.reset();
+    window.grecaptcha?.reset();
   });
 </script>
