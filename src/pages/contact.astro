@@ -1,5 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import facebookIcon from "../assets/img/facebook.svg?url";
+import instagramIcon from "../assets/img/instagram.svg?url";
+import linkedinIcon from "../assets/img/linkedin.svg?url";
+import whatsappIcon from "../assets/img/whatsapp.svg?url";
+import xIcon from "../assets/img/x.svg?url";
 
 const title = "Contact | ASquare";
 const description =
@@ -39,6 +44,14 @@ const serviceOptions = [
   "IT Consulting",
 ];
 
+const socialLinks = [
+  { href: "#", label: "Facebook", icon: facebookIcon },
+  { href: "#", label: "Instagram", icon: instagramIcon },
+  { href: "#", label: "LinkedIn", icon: linkedinIcon },
+  { href: "#", label: "WhatsApp", icon: whatsappIcon },
+  { href: "#", label: "X (Twitter)", icon: xIcon },
+];
+
 // Google's shared test key (always passes, works on localhost). Set
 // PUBLIC_RECAPTCHA_SITE_KEY in .env to your real key before deploying —
 // register one for this domain at https://www.google.com/recaptcha/admin.
@@ -76,46 +89,61 @@ const recaptchaSiteKey =
           <div class="fields">
             <label class="field">
               <span>Name</span>
-              <input
-                class="f"
-                type="text"
-                name="name"
-                placeholder="Your name"
-                required
-              />
+              <div class="field-input">
+                <input
+                  class="f"
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                />
+                <i data-lucide="user" class="field-icon" aria-hidden="true"></i>
+              </div>
             </label>
             <label class="field">
               <span>Email</span>
-              <input
-                class="f"
-                type="email"
-                name="email"
-                placeholder="email@asquaretechservices.com"
-                required
-              />
+              <div class="field-input">
+                <input
+                  class="f"
+                  type="email"
+                  name="email"
+                  placeholder="email@asquaretechservices.com"
+                  required
+                />
+                <i data-lucide="mail" class="field-icon" aria-hidden="true"></i>
+              </div>
             </label>
             <label class="field">
               <span>Phone (Optional)</span>
-              <input
-                class="f"
-                type="tel"
-                name="phone"
-                placeholder="+1 XXX XXX XXXX"
-              />
+              <div class="field-input">
+                <input
+                  class="f"
+                  type="tel"
+                  name="phone"
+                  placeholder="+1 XXX XXX XXXX"
+                />
+                <i data-lucide="phone" class="field-icon" aria-hidden="true"></i>
+              </div>
             </label>
             <label class="field">
               <span>Service Interest</span>
-              <select class="f" name="service">
-                {serviceOptions.map((option) => <option>{option}</option>)}
-              </select>
+              <div class="field-input">
+                <select class="f" name="service">
+                  {serviceOptions.map((option) => <option>{option}</option>)}
+                </select>
+                <i data-lucide="chevron-down" class="field-icon" aria-hidden="true"></i>
+              </div>
             </label>
             <label class="field">
               <span>Message</span>
-              <textarea
-                class="f"
-                name="message"
-                placeholder="Tell us about your project requirements..."
-                required></textarea>
+              <div class="field-input field-input--textarea">
+                <textarea
+                  class="f"
+                  name="message"
+                  placeholder="Tell us about your project requirements..."
+                  required></textarea>
+                <i data-lucide="message-square" class="field-icon" aria-hidden="true"></i>
+              </div>
             </label>
           </div>
           <div class="captcha-field">
@@ -167,10 +195,13 @@ const recaptchaSiteKey =
               </div>
             </div>
             <div class="contact-icons">
-              <i data-lucide="at-sign" aria-hidden="true"></i>
-              <i data-lucide="globe" aria-hidden="true"></i>
-              <i data-lucide="message-circle" aria-hidden="true"></i>
-              <i data-lucide="mail" aria-hidden="true"></i>
+              {
+                socialLinks.map(({ href, label, icon }) => (
+                  <a href={href} aria-label={label}>
+                    <img src={icon} alt="" width="20" height="20" loading="lazy" />
+                  </a>
+                ))
+              }
             </div>
           </div>
         </div>
@@ -252,27 +283,55 @@ const recaptchaSiteKey =
     text-transform: uppercase;
   }
 
+  .field-input {
+    position: relative;
+    display: flex;
+  }
+
   .f {
     border-radius: 4px;
     background: #fff;
     box-shadow: inset 0 0 0 1px var(--border);
     border: none;
-    padding: 0 12px;
+    padding: 0 40px 0 12px;
     height: 48px;
+    width: 100%;
     font-family: inherit;
     font-size: 14px;
     color: var(--text);
     box-sizing: border-box;
   }
 
+  select.f {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
   textarea.f {
-    padding: 12px;
+    padding: 12px 40px 12px 12px;
     height: 140px;
     resize: vertical;
   }
 
   .f::placeholder {
     color: rgb(110, 116, 126);
+  }
+
+  .field-icon {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: rgb(110, 116, 126);
+    pointer-events: none;
+  }
+
+  .field-input--textarea .field-icon {
+    top: 16px;
+    transform: none;
   }
 
   .captcha-field {
@@ -415,14 +474,30 @@ const recaptchaSiteKey =
 
   .contact-icons {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     align-items: center;
   }
 
-  .contact-icons :global(svg) {
-    width: 20px;
-    height: 20px;
-    color: rgb(149, 153, 160);
+  .contact-icons a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 150ms ease;
+  }
+
+  .contact-icons a:hover,
+  .contact-icons a:focus-visible {
+    background: var(--accent-dark);
+  }
+
+  .contact-icons img {
+    width: 16px;
+    height: 16px;
   }
 
   .response-time {

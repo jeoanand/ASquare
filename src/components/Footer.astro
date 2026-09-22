@@ -1,7 +1,20 @@
 ---
 import logoWhite from "../assets/logo-white.png";
+import facebookIcon from "../assets/img/facebook.svg?url";
+import instagramIcon from "../assets/img/instagram.svg?url";
+import linkedinIcon from "../assets/img/linkedin.svg?url";
+import whatsappIcon from "../assets/img/whatsapp.svg?url";
+import xIcon from "../assets/img/x.svg?url";
 
 const year = new Date().getFullYear();
+
+const socialLinks = [
+  { href: "#", label: "Facebook", icon: facebookIcon },
+  { href: "#", label: "Instagram", icon: instagramIcon },
+  { href: "#", label: "LinkedIn", icon: linkedinIcon },
+  { href: "#", label: "WhatsApp", icon: whatsappIcon },
+  { href: "#", label: "X (Twitter)", icon: xIcon },
+];
 
 const companyLinks = [
   { href: "/", label: "Home" },
@@ -56,7 +69,7 @@ const connectLinks = [
         <form class="newsletter-form">
           <input
             type="email"
-            placeholder="email@asquaretechservices.com"
+            placeholder="info@asquaretechservices.com"
             aria-label="Email address"
           />
           <button type="submit" aria-label="Subscribe">
@@ -64,10 +77,13 @@ const connectLinks = [
           </button>
         </form>
         <div class="footer-icons">
-          <i data-lucide="at-sign" aria-hidden="true"></i>
-          <i data-lucide="globe" aria-hidden="true"></i>
-          <i data-lucide="message-circle" aria-hidden="true"></i>
-          <i data-lucide="mail" aria-hidden="true"></i>
+          {
+            socialLinks.map(({ href, label, icon }) => (
+              <a href={href} aria-label={label}>
+                <img src={icon} alt="" width="20" height="20" loading="lazy" />
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>

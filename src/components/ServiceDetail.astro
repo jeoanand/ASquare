@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBanner from './CtaBanner.astro';
-import { getTechIcon } from '../data/tech-icons.js';
+import { getTechIcon, getTechLogo } from '../data/tech-icons.js';
 
 /** @typedef {{ icon: string; title: string; desc: string }} Capability */
 /** @typedef {{ n: string; title: string; desc: string }} Step */
@@ -129,12 +129,19 @@ const {
 							<div class="tech-card">
 								<span class="tech-card-title">{g.title}</span>
 								<div class="tech-chips">
-									{g.items.map((t) => (
-										<span class="chip">
-											<i data-lucide={getTechIcon(t)} aria-hidden="true" />
-											{t}
-										</span>
-									))}
+									{g.items.map((t) => {
+										const logo = getTechLogo(t);
+										return (
+											<span class="chip">
+												{logo ? (
+													<img src={logo} alt="" width="14" height="14" loading="lazy" />
+												) : (
+													<i data-lucide={getTechIcon(t)} aria-hidden="true" />
+												)}
+												{t}
+											</span>
+										);
+									})}
 								</div>
 							</div>
 						))}
