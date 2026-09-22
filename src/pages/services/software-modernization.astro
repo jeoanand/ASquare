@@ -95,6 +95,14 @@ const whyPoints = [
   },
 ];
 
+const techGroups = [
+  { title: "Backend Modernization", items: [".NET / ASP.NET Core", "Node.js", "Python"] },
+  { title: "Frontend Modernization", items: ["React", "Angular", "Next.js", "TypeScript"] },
+  { title: "Databases", items: ["SQL Server", "PostgreSQL", "MySQL", "Oracle"] },
+  { title: "Cloud & Containers", items: ["Microsoft Azure", "AWS", "Docker", "Kubernetes"] },
+  { title: "CI/CD & Code Quality", items: ["GitHub", "GitHub Actions", "Jenkins", "SonarQube"] },
+];
+
 const related = [
   {
     icon: "code-2",
@@ -124,6 +132,8 @@ const related = [
   approachTinted
   capabilities={capabilities}
   steps={steps}
+  hasTechStack
+  techGroups={techGroups}
   whyPoints={whyPoints}
   related={related}
   ctaHeading="Ready to modernize your software?"

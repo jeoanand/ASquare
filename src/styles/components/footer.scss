@@ -88,7 +88,7 @@
 }
 
 .newsletter-form input::placeholder {
-	color: rgb(229, 231, 235);
+	color: rgb(107, 114, 128);
 }
 
 .newsletter-form button {
@@ -120,10 +120,20 @@
 	align-items: center;
 }
 
-.footer-icons svg {
+.footer-icons a {
+	display: flex;
+	opacity: 0.75;
+	transition: opacity 150ms ease;
+}
+
+.footer-icons a:hover,
+.footer-icons a:focus-visible {
+	opacity: 1;
+}
+
+.footer-icons img {
 	width: 20px;
 	height: 20px;
-	color: rgb(149, 153, 160);
 }
 
 .footer-bottom {

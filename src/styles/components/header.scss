@@ -326,10 +326,21 @@
 }
 
 .mobile-nav > a {
-	padding: 10px 0;
+	padding: 10px 8px;
+	margin-inline: -8px;
+	border-radius: 8px;
 	color: rgba(255, 255, 255, 0.85);
 	font-weight: 600;
 	font-size: 15px;
+	transition:
+		background 150ms ease,
+		color 150ms ease;
+}
+
+.mobile-nav > a:hover,
+.mobile-nav > a:focus-visible {
+	background: rgba(255, 255, 255, 0.12);
+	color: #fff;
 }
 
 .mobile-nav > a[data-active='true'] {
@@ -341,7 +352,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 10px 0;
+	padding: 10px 8px;
+	margin-inline: -8px;
+	border-radius: 8px;
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -349,10 +362,25 @@
 	font-weight: 600;
 	font-size: 15px;
 	font-family: inherit;
+	transition:
+		background 150ms ease,
+		color 150ms ease;
+}
+
+.mobile-services-toggle:hover,
+.mobile-services-toggle:focus-visible {
+	background: rgba(255, 255, 255, 0.12);
+	color: #fff;
 }
 
 .mobile-services-toggle span[data-active='true'] {
 	color: #fff;
+}
+
+.mobile-nav > a:focus-visible,
+.mobile-services-toggle:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: -2px;
 }
 
 .mobile-services-panel {
@@ -371,10 +399,23 @@
 }
 
 .mobile-services-panel a {
-	padding: 8px 0;
+	padding: 8px;
+	margin-inline: -8px;
+	border-radius: 8px;
 	color: rgba(255, 255, 255, 0.75);
 	font-weight: 500;
 	font-size: 14px;
+	transition:
+		background 150ms ease,
+		color 150ms ease;
+}
+
+.mobile-services-panel a:hover,
+.mobile-services-panel a:focus-visible {
+	background: rgba(255, 255, 255, 0.12);
+	color: #fff;
+	outline: 2px solid #fff;
+	outline-offset: -2px;
 }
 
 .mobile-services-all {

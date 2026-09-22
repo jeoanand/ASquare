@@ -72,6 +72,13 @@ const steps = [
   },
 ];
 
+const techGroups = [
+  { title: "Cloud Platforms", items: ["Microsoft Azure", "AWS", "Docker", "Kubernetes"] },
+  { title: "Monitoring & Observability", items: ["Grafana", "Prometheus", "Elasticsearch"] },
+  { title: "Collaboration & ITSM", items: ["Jira", "Confluence", "Slack"] },
+  { title: "DevOps & Code Quality", items: ["GitHub", "GitLab CI/CD", "Jenkins", "SonarQube"] },
+];
+
 const related = [
   {
     icon: "cloud",
@@ -101,6 +108,8 @@ const related = [
   approachTinted
   capabilities={capabilities}
   steps={steps}
+  hasTechStack
+  techGroups={techGroups}
   related={related}
   ctaHeading="Start with a technical brief"
   ctaSubtitle="We assess the problem before we propose a solution."
